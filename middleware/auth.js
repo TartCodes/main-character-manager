@@ -10,7 +10,7 @@ module.exports = {
     if (!req.isAuthenticated()) {
       return next();
     } else {
-      res.redirect('/index');
+      res.redirect('/'); //this was /index???
     }
   },
 }

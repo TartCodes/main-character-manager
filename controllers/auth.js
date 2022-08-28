@@ -12,7 +12,7 @@ exports.getCharacter = (req, res) => {
     console.log(req.user);
     return res.redirect('/character');
   }
-  res.render('login.ejs', {
+  res.render('index.ejs', {
     title: 'Login',
   });
 };

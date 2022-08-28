@@ -17,7 +17,7 @@ const { ensureAuth, ensureGuest } = require('../middleware/auth')
 // @desc Login/Landing page
 // @route GET 
 
-router.get('/', homeController.getLogin)
+router.get('/', homeController.getIndex)
 
 //get character page?
 // router.get('/', ensureAuth, authController.getCharacter)
