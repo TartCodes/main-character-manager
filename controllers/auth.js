@@ -1,14 +1,27 @@
+// const { render } = require('ejs') no idea where this came from
 const passport = require('passport')
 const validator = require('validator')
 const User = require('../models/User')
 
 //my google signup
 
+
+
+exports.getCharacter = (req, res) => {
+  if (req.user) {
+    console.log(req.user);
+    return res.redirect('/character');
+  }
+  res.render('login.ejs', {
+    title: 'Login',
+  });
+};
+
 exports.getGoogleLogin = passport.authenticate('google', {scope: ['profile'] }) //def double check this
 
 exports.googleCallback = passport.authenticate('google', { failureRedirect: '/'}), 
-(req,res) => {
-    res.redirect('/index.ejs')
+    (req,res) => {
+    res.redirect('/main')
     }
 
 

@@ -7,7 +7,7 @@ module.exports = {
         console.log(req.user)
         try{
             const newCharacter = await Character.find({userId:req.user.id})           
-            res.render('index.ejs', {charData: newCharacter, user: req.user}) //have to add the fix for if no character exists 
+            res.render('character.ejs', {charData: newCharacter, user: req.user}) //have to add the fix for if no character exists 
         }   catch(err){
             console.log(err)
         }
