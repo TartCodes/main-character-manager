@@ -1,10 +1,316 @@
-h1{
-    color: red;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
 }
-.not{
-    text-decoration: underline;
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Box model */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+  }
+
+
+/* start */
+body {
+   font-family: 'David Libre', sans-serif;
+   font-size: 16px;
+   margin: 1%;
+   background-color: rgb(79, 7, 7);   
+}
+
+/* anchor tags */
+a{
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  font-size: .75rem;
+}
+
+/* text */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: thin solid white; */
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    align-self: center;
+    margin: 2% 0 2% 0;
+    color: white;
+}
+
+.para {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  width: 90%;
+}
+
+p {
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 18px;      
+}
+
+main span {
+    font-weight: 500;
+    margin: 1% 0;
+    align-self: center;
+    color: white;
+}
+
+.span-2{
+  margin-top: 4%;
+}
+
+/* login section */
+.cont-2 {
+  /* border: thin solid white; */
+  display: flex;
+  justify-content: center;
+}
+
+.login {
+  margin-top: 3%;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2 {
+  color: white;
+  text-align: center; 
+  margin-bottom: 2%;
+  margin-inline: auto;
+  width: 100%;
+  font-size: .85rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form a {
+  margin: 2% 0;
+}
+
+/* picture section */
+
+
+.pic-div img {
+   width: 100%;
+}
+
+.picture {
+  width: 100%;
+}
+/* .pic-div {
+  background-image: url(../imgs/pf2e-resized.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10rem 0;
+  margin-top: 3%;
+} */
+
+/* footer */
+.contact{
+  text-align: center;
+}
+
+.social-cont {
+  display: flex;  
+  justify-content: center;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: row;    
+}
+
+.social-icons li {
+  padding: .5rem;
+}
+
+.foot-note p {
+  font-size: .75rem;
+}
+
+.button {
+	background-color: gold;
+  color: black;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+  border: 0;
+  border-radius: 5px;
+  font-weight: 700;
+  padding: 8px 15px;	
+	cursor: pointer;
+  font-size: 16px;
+}
+
+/* media Q's */
+
+@media screen and (min-width: 1000px){
+  /* layout */
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;   
+  }
+
+ .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+    /* grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(6,.25fr) */
+  }
+
+  .cont-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 2;
+  }
+    .picture {
+    grid-column: 2; 
+    grid-row: 1/3;
+    padding-top: 1%;   
+  }
+
+  .pic-div {
+    grid-row: 1/3 ;
+  }
+
+  .pic-div img {
+    width: 96%;
+  }
+
+  footer {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 30%;
+  }
+/* text size */
+  h1 {
+    font-size: 2vw;
+  }
+
+  p,span {
+    font-size: 1.25vw;
+    line-height: 2.25vw;
+  }
+
+  h2 {
+    font-size: 1.5vw;
+  }
+
+  form input {
+    font-size: 1vw;
+  }
+
+  form a {
+    margin-top: 1%;
+    font-size: 1vw;
+  }
+
+  .foot-note p {
+    line-height: none;
+  }
+
+ 
 }

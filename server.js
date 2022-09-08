@@ -8,8 +8,10 @@ const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
-const todoRoutes = require('./routes/todos')
+const todoRoutes = require('./routes/character')
 
+
+//load config
 require('dotenv').config({path: './config/.env'})
 
 // Passport config
@@ -17,6 +19,8 @@ require('./config/passport')(passport)
 
 connectDB()
 
+
+//body parser
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
