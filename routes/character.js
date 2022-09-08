@@ -1,17 +1,21 @@
 const express = require('express')
 const router = express.Router()
-const charController = require('../controllers/todos') 
+const charController = require('../controllers/character') 
 const { ensureAuth } = require('../middleware/auth')
 
-router.get('/', ensureAuth, charController.getTodos)
 
-router.post('/createTodo', charController.createTodo)
+//@desc Main Character Page
+//@route GET /character
+router.get('/', ensureAuth, charController.getCharacter) //???
 
-router.put('/markComplete', charController.markComplete)
 
-router.put('/markIncomplete', charController.markIncomplete)
+// router.post('/createTodo', charController.createTodo)
 
-router.delete('/deleteTodo', charController.deleteTodo) 
+// router.put('/markComplete', charController.markComplete)
+
+// router.put('/markIncomplete', charController.markIncomplete)
+
+// router.delete('/deleteTodo', charController.deleteTodo) 
 
 module.exports = router
 

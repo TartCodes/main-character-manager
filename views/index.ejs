@@ -14,14 +14,14 @@
     
 </head>
 <body>
-<form action="/postCharacter" method="POST"> 
+<form action="/postCharacter" method="POST"> <!-- need to change-->
     <header>
         <div>
             <h1>Character Manager</h1>
             
         </div>
         <div>
-            <a href="auth/logout">
+            <a href="/logout">
                 <button type="button">Logout</button>            
             </a>
         </div>
@@ -39,7 +39,7 @@
         <fieldset>           
             <div>Ancestry:</div>        
                 <div>
-                    <input class="larger-input" type="text" placeholder="" name="ancestry" value="<%= characterData[0].ancestry || 'empty' %>">
+                    <input class="larger-input" type="text" placeholder="" name="ancestry" value=" <%#= characterData[0].ancestry || 'empty' %>">
                 </div>
             <div>Heritage:</div>
                 <div>
