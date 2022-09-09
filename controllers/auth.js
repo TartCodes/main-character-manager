@@ -17,12 +17,15 @@ exports.getCharacter = (req, res) => {
   });
 };
 
-exports.getGoogleLogin = passport.authenticate('google', {scope: ['profile'] }) //def double check this
 
-exports.googleCallback = passport.authenticate('google', { failureRedirect: '/'}), 
-    (req,res) => {
-    res.redirect('/character')
-    }
+//CANT GET THIS TO WORK THIS WAY
+// exports.getGoogleLogin = passport.authenticate('google', {scope: ['profile'] }) //def double check this
+
+
+// exports.googleCallback = passport.authenticate('google', { failureRedirect: '/'}), 
+//     (req,res) => {
+//     res.redirect('/character')
+//     }
 
 
 exports.logout = (req, res, next) => {
