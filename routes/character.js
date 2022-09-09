@@ -9,6 +9,8 @@ const { ensureAuth } = require('../middleware/auth')
 router.get('/', ensureAuth, charController.getCharacter) //???
 
 
+
+
 // router.post('/createTodo', charController.createTodo)
 
 // router.put('/markComplete', charController.markComplete)

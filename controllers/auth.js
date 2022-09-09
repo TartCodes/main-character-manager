@@ -21,7 +21,7 @@ exports.getGoogleLogin = passport.authenticate('google', {scope: ['profile'] }) 
 
 exports.googleCallback = passport.authenticate('google', { failureRedirect: '/'}), 
     (req,res) => {
-    res.redirect('/main')
+    res.redirect('/character')
     }
 
 

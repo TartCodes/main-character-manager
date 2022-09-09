@@ -17,10 +17,10 @@ const { ensureAuth, ensureGuest } = require('../middleware/auth')
 // @desc Login/Landing page
 // @route GET 
 
-router.get('/', ensureGuest, homeController.getLogin)
+router.get('/', homeController.getLogin)
 
 //get character page?
-router.get('/', ensureAuth, authController.getCharacter)
+// router.get('/', ensureAuth, authController.getCharacter)
 
 //my code
 router.get('/auth/google', authController.getGoogleLogin)
