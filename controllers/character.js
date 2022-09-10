@@ -4,17 +4,15 @@ const Character = require('../models/Character')
 
 module.exports = {
     getCharacter: async (req,res)=>{
-        console.log(req.user)
+        // console.log(req.user)
         try{
             const newCharacter = await Character.find({userId:req.user.id})                     
-            res.render('character.ejs', {characterData: newCharacter, user: req.user}) //have to add the fix for if no character exists  
-            console.log(newCharacter, 'newwww') 
+            res.render('character.ejs', {characterData: newCharacter, user: req.user}) // 
+            // console.log(newCharacter[newCharacter.length-1], 'newwww')  //needs to be fixed to encompass everything
         }   catch(err){
             console.log(err)
         }
     },
-
-
     postCharacter: async (req, res) => {
         console.log(req.body, req.user);
         try {
@@ -25,8 +23,19 @@ module.exports = {
             console.error(err);
             res.render('errors/500')
         }
+    },
+    updateCharacter: async (req, res) => {
+        try {
+            await Character.findOneAndUpdate(
+              { _id: req.params.id }                          
+            );            
+            res.redirect(`/character/${req.params.id}`);
+          } catch (err) {
+            console.log(err);
+          }
+        },
     }
-}
+
 
 
 

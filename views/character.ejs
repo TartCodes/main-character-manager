@@ -14,11 +14,14 @@
     
 </head>
 <body>
-<form action="/character" method="POST"> <!-- need to change / changed from postCharacter(old code) to character-->
+<form 
+    action="/character/updateCharacter/<%= characterData.id %>?_method=PUT"
+    method="POST"> 
+
     <header>
         <div>
             <h1>Character Manager</h1>
-            
+            <h3>Welcome, <%= user.firstName %></h3>
         </div>
         <div>
             <a href="/logout">
@@ -26,7 +29,7 @@
             </a>
         </div>
         <div>
-            <input type="submit" name="" value="save" class="btn" id="formSubmit">            
+            <input type="submit" name="" value="save" class="btn" id="formSubmit">   <!-- if user logs in and characterData === true type = submit ELSE characterData !== true input = put-->         
         </div>       
             
                
@@ -39,15 +42,15 @@
         <fieldset>           
             <div>Ancestry:</div>        
                 <div>
-                    <input class="larger-input" type="text" placeholder="" name="ancestry" value="<%= characterData.ancestry || 'empty' %>">
+                    <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry" value="<%= characterData[characterData.length-1].ancestry || 'empty' %>">
                 </div>
             <div>Heritage:</div>
                 <div>
-                    <input class="larger-input" type="text" placeholder="" name="heritage">
+                    <input class="larger-input" id="id2" type="text" placeholder="" name="heritage">
                 </div>
             <div>Background:</div>
                 <div>
-                    <input class="larger-input" type="text" placeholder="" name="background">
+                    <input class="larger-input" id="id3" type="text" placeholder="" name="background">
                 </div>
             <div>Ancestry Ability:</div>
                 <div>
