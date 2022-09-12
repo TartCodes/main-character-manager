@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/google', passport.authenticate('google', {scope: ['profile'] }))
 
 // router.get('/google', authController.getGoogleLogin)
-//cant get these work with exports, will come back laterrrrr
+//cant get these work with exports, will come back later if necessary 
 // router.get('/google/callback', authController.googleCallback) 
 
 router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/'}), 
