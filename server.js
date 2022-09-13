@@ -9,6 +9,7 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const characterRoutes = require('./routes/character')
+const authRoute = require('./routes/auth')
 
 
 //load config
@@ -44,6 +45,7 @@ app.use(flash())
   
 app.use('/', mainRoutes)
 app.use('/character', characterRoutes)
+app.use('/auth', authRoute )
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')

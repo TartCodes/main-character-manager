@@ -19,23 +19,16 @@ const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
 router.get('/', homeController.getIndex)
 
-//get character page?
-// router.get('/', ensureAuth, authController.getCharacter)
-
-
-//-----------------------------------//
-//my code - Cant get google Auth to work when splitting route to controller
 // router.get('/auth/google', authController.getGoogleLogin)
-router.get('/google', passport.authenticate('google', {scope: ['profile'] }))
-// //figure out how to clean this
+
 
 
 // router.get('/auth/google/callback', authController.googleCallback) //auth/google/callback something is wrong here
-router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/'}), 
-(req,res) => {
-    res.redirect('/character')
-    }
-)
+// router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/'}), 
+// (req,res) => {
+//     res.redirect('/character')
+//     }
+// )
 //-----------------------------------//
 
 
