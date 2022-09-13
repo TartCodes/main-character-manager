@@ -12,8 +12,20 @@ module.exports = {
             console.log(err)
         }
     },
-}
 
+
+    postCharacter: async (req, res) => {
+        console.log(req.body, req.user);
+        try {
+            req.body.user = req.user.id    //not sure about this 
+            await Character.create(req.body)
+            res.redirect('/character')
+        } catch (err) {
+            console.error(err);
+            res.render('errors/500')
+        }
+    }
+}
 
 
 

@@ -7,6 +7,7 @@ const { ensureAuth } = require('../middleware/auth')
 //@desc Main Character Page
 //@route GET /character
 router.get('/', ensureAuth, charController.getCharacter) //???
+router.post('/', ensureAuth, charController.postCharacter)
 
 
 
