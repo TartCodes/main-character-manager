@@ -14,14 +14,11 @@
     
 </head>
 <body>
-<form 
-    action="/character/updateCharacter/<%= characterData.id %>?_method=PUT"
-    method="POST"> 
-
+<form action="/character" method="POST"> <!-- need to change / changed from postCharacter(old code) to character-->
     <header>
         <div>
             <h1>Character Manager</h1>
-            <h3>Welcome, <%= user.firstName %></h3>
+            <h2>Welcome, <%= user.firstName %></h2>
         </div>
         <div>
             <a href="/logout">
@@ -42,7 +39,7 @@
         <fieldset>           
             <div>Ancestry:</div>        
                 <div>
-                    <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry" value="<%= characterData[characterData.length-1].ancestry || 'empty' %>">
+                    <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry" value="<%= characterData[characterData.length-1].ancestry || '' %>">
                 </div>
             <div>Heritage:</div>
                 <div>
