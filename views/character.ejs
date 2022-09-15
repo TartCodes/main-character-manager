@@ -14,14 +14,16 @@
     
 </head>
 <body>
-    <form action="/character/<%= characterData.id %>?_method=PUT" method="POST"> <!-- need to change / changed from postCharacter(old code) to character-->
+    
+    <form action="/character/editCharacter/<%= characterData[characterData.length-1].id %>?_method=PUT" method="POST"> <!-- need to change / changed from postCharacter(old code) to character-->
     <header>
+        <%= characterData[0].id %>
         <div>
             <h1>Character Manager</h1>
-            <h2>Welcome, <%= user.firstName %></h2>
+            <h3>Welcome, <%= user.firstName %></h3>
         </div>
         <div>
-            <a href="/logout">
+            <a href="/auth/logout">
                 <button type="button">Logout</button>            
             </a>
         </div>
@@ -45,15 +47,15 @@
                 </div>
             <div>Heritage:</div>
                 <div>
-                    <input class="larger-input" id="id2" type="text" placeholder="" name="heritage">
+                    <input class="larger-input" id="id2" type="text" placeholder="" name="heritage" value="<%= characterData[0].heritage || 'empty' %>">
                 </div>
             <div>Background:</div>
                 <div>
-                    <input class="larger-input" id="id3" type="text" placeholder="" name="background">
+                    <input class="larger-input" id="id3" type="text" placeholder="" name="background" value="<%= characterData[characterData.length-1].background || '' %>">
                 </div>
             <div>Ancestry Ability:</div>
                 <div>
-                    <input class="larger-input" type="text" placeholder="" name="ancestryAbility">
+                    <input class="larger-input" type="text" placeholder="" name="ancestryAbility" value="<%= characterData[characterData.length-1].ancestryAbility || '' %>">
                 </div>                    
             <div>Class:</div>
                 <div>

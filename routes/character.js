@@ -8,18 +8,12 @@ const { ensureAuth } = require('../middleware/auth')
 //@route GET /character
 router.get('/', ensureAuth, charController.getCharacter) 
 router.post('/', ensureAuth, charController.postCharacter)
+router.get('/:id', charController.getCharacter)
 router.put('/editCharacter/:id', charController.editCharacter)
 
 
 
-// router.post('/createTodo', charController.createTodo)
 
-
-
-// router.put('/markIncomplete', charController.markIncomplete)
-
-// router.delete('/deleteTodo', charController.deleteTodo) 
 
 module.exports = router
 
-//changed todosController to charController
