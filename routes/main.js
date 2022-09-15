@@ -19,19 +19,5 @@ const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
 router.get('/', homeController.getIndex)
 
-// router.get('/auth/google', authController.getGoogleLogin)
-
-
-
-// router.get('/auth/google/callback', authController.googleCallback) //auth/google/callback something is wrong here
-// router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/'}), 
-// (req,res) => {
-//     res.redirect('/character')
-//     }
-// )
-//-----------------------------------//
-
-
-router.get('/logout', authController.logout)
 
 module.exports = router

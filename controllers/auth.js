@@ -12,27 +12,17 @@ module.exports = {
     passport.authenticate('google', { 
         successRedirect: '/character', 
         failureRedirect: '/' })(req,res,next)
-  }
+  },
+  logout: (req, res) => {
+    req.logout( (err) => {
+        if (err) { return next(err); }
+        res.redirect('/')
+    })    
+  },
+ 
 }
 
-exports.getCharacter = (req, res) => {
-  if (req.user) {
-    console.log(req.user);
-    return res.redirect('/character');
-  }
-  res.render('index.ejs', {
-    title: 'Login',
-  });
-};
 
-exports.logout = (req, res, next) => {
-  req.logout(err => {
-    if (err) {
-       return next(err); 
-  }
-    res.redirect('/');
-  });
-};
 
 
 
