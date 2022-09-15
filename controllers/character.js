@@ -1,4 +1,5 @@
 const Character = require('../models/Character')
+const validator = require('validator')
 //leons code at the bottom
 
 

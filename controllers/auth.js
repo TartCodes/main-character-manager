@@ -3,9 +3,17 @@ const passport = require('passport')
 const validator = require('validator')
 const User = require('../models/User')
 
-//my google signup
 
-
+module.exports = {
+  authUser: (req, res, next) => {
+    passport.authenticate('google', { scope: ['profile'] })(req,res,next)
+},
+  authCallback: (req, res, next) => {
+    passport.authenticate('google', { 
+        successRedirect: '/character', 
+        failureRedirect: '/' })(req,res,next)
+  }
+}
 
 exports.getCharacter = (req, res) => {
   if (req.user) {
@@ -17,17 +25,6 @@ exports.getCharacter = (req, res) => {
   });
 };
 
-
-//CANT GET THIS TO WORK THIS WAY
-// exports.getGoogleLogin = passport.authenticate('google', {scope: ['profile'] }) //def double check this
-
-
-// exports.googleCallback = passport.authenticate('google', { failureRedirect: '/'}), 
-//     (req,res) => {
-//     res.redirect('/character')
-//     }
-
-
 exports.logout = (req, res, next) => {
   req.logout(err => {
     if (err) {
@@ -36,7 +33,6 @@ exports.logout = (req, res, next) => {
     res.redirect('/');
   });
 };
-
 
 
 
