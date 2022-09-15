@@ -3,7 +3,7 @@ const Character = require('../models/Character')
 
 
 module.exports = {
-    getCharacter: async (req,res)=>{
+    getCharacter: async (req,res) => {
         // console.log(req.user)
         try{
             const newCharacter = await Character.find({userId:req.user.id})                     
@@ -24,15 +24,22 @@ module.exports = {
             res.render('errors/500')
         }
     },
-    updateCharacter: async (req, res) => {
-        try {
-            await Character.findOneAndUpdate(
-              { _id: req.params.id }                          
-            );            
-            res.redirect(`/character/${req.params.id}`);
-          } catch (err) {
-            console.log(err);
-          }
+    editCharacter: async (req, res) => {
+        try{                               
+           let locateCharacter = await Character.findById(req.params.id).lean()
+           if(!locateCharacter) {
+                return res.render(err)
+           } else {
+                locateCharacter = await Character.findOneAndUpdate({_id: req.params.id}, req.body, {
+                    new: true,
+                    runValidators: true
+                })
+                res.redirect(`/character/${req.params.id}`)
+           }
+
+        }   catch(err){
+            console.log(err)
+            }
         },
     }
 

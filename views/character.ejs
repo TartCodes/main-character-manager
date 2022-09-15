@@ -14,7 +14,7 @@
     
 </head>
 <body>
-<form action="/character" method="POST"> <!-- need to change / changed from postCharacter(old code) to character-->
+<form action="/character/<%= characterData.id %>" method="POST"> <!-- need to change / changed from postCharacter(old code) to character-->
     <header>
         <div>
             <h1>Character Manager</h1>
@@ -26,7 +26,9 @@
             </a>
         </div>
         <div>
-            <input type="submit" name="" value="save" class="btn" id="formSubmit">   <!-- if user logs in and characterData === true type = submit ELSE characterData !== true input = put-->         
+            <!-- <input type="submit" name="" value="save" class="btn" id="formSubmit"> if user logs in and characterData === true type = submit ELSE characterData !== true input = put -->
+            <button class="button" type="submit">Save</button> 
+            <input type="hidden" name="_method" value="PUT">       
         </div>       
             
                
