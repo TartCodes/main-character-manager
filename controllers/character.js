@@ -7,13 +7,10 @@ module.exports = {
     getCharacter: async (req,res) => {
         // console.log(req.user)
         try{
-            const newCharacter = await Character.find({userId:req.user.id})
-            if(!newCharacter) {
-                res.render('character.ejs')
-            } else {
+            const newCharacter = await Character.find({userId:req.user.id})                    
             res.render('character.ejs', {characterData: newCharacter, user: req.user}) //I added this if statement, no idea if its doing anything doesnt seem to be
             console.log(!newCharacter, 'newwww')
-            } 
+            
         }   catch(err){
             console.log(err)
         }

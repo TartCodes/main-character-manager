@@ -14,9 +14,17 @@
     
 </head>
 <body>
+    <%= characterData.length%>
+
     
-    <form action="/character/editCharacter/<%= characterData[0].id %>?_method=PUT" method="POST"> <!-- need to change / changed from postCharacter(old code) to character-->
-    <header>
+
+    <!-- <form action="/character/editCharacter/<%#= characterData[0].id %>?_method=PUT" method="POST"> need to change / changed from postCharacter(old code) to character -->
+        <% if(characterData.length === 0){ %>
+            <form action="/character" method="POST">
+            <% } else { %>
+            <form action="/character/editCharacter/<%= characterData[0].id %>?_method=PUT" method="POST">
+        <% } %>
+        <header>
         
         <div>
             <h1>Character Manager</h1>
@@ -41,7 +49,7 @@
         <fieldset>           
             <div>Ancestry:</div>        
                 <div>
-                    <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry"  value="<%= characterData[characterData.length-1].ancestry || '' %>">
+                    <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry"  value="<%#= characterData[characterData.length-1].ancestry || '' %>">
                 </div>
             <div>Heritage:</div>
                 <div>
