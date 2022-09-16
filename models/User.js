@@ -1,8 +1,7 @@
 const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
 
-const UserSchema = new mongoose.Schema({    
-//my google stuff below, not sure it will work
+const UserSchema = new mongoose.Schema({   
   googleId: {
     type: String,
     required: true

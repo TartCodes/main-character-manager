@@ -7,9 +7,13 @@ module.exports = {
     getCharacter: async (req,res) => {
         // console.log(req.user)
         try{
-            const newCharacter = await Character.find({userId:req.user.id})                     
-            res.render('character.ejs', {characterData: newCharacter, user: req.user}) // 
-            // console.log(newCharacter[newCharacter.length-1], 'newwww')  //needs to be fixed to encompass everything
+            const newCharacter = await Character.find({userId:req.user.id})
+            if(!newCharacter) {
+                res.render('character.ejs')
+            } else {
+            res.render('character.ejs', {characterData: newCharacter, user: req.user}) //I added this if statement, no idea if its doing anything doesnt seem to be
+            console.log(!newCharacter, 'newwww')
+            } 
         }   catch(err){
             console.log(err)
         }
@@ -17,19 +21,21 @@ module.exports = {
     postCharacter: async (req, res) => {
         console.log(req.body, req.user);
         try {
-            req.body.user = req.user.id    //not sure about this 
-            await Character.create(req.body)
+            req.body.user = req.user.id   
+            await Character.create(req.body) //} POST is being ignored?
             res.redirect('/character')
         } catch (err) {
             console.error(err);
-            res.render('errors/500')
+            res.render('errors/500') //need to readd error pages or delete this
         }
     },
     editCharacter: async (req, res) => {
         try{                               
            let locateCharacter = await Character.findById(req.params.id).lean()
            if(!locateCharacter) {
-                return res.render(err)
+            console.log(!locateCharacter, 'locate')
+            return res.render(err)
+               
            } else {
                 locateCharacter = await Character.findOneAndUpdate({_id: req.params.id}, req.body, {
                     new: true,

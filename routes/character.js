@@ -8,7 +8,7 @@ const { ensureAuth } = require('../middleware/auth')
 //@route GET /character
 router.get('/', ensureAuth, charController.getCharacter) 
 router.post('/', ensureAuth, charController.postCharacter)
-router.get('/:id', charController.getCharacter)
+router.get('/:id', ensureAuth, charController.getCharacter)
 router.put('/editCharacter/:id', charController.editCharacter)
 
 
