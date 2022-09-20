@@ -42,28 +42,25 @@
                
     </header>
 
-<section class="main" id="main-container">   
-
-   <% characterData.forEach((e,i) => { %>
-    <li><%= characterData[0].ancestry %></li>
-   <% }) %>
-        
-    
-    
+<section class="main" id="main-container">  
+     
     <div class="left-side-bar">
         <fieldset>           
             <div>Ancestry:</div>        
-                <div>
-                    <!-- <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry" <%#= characterData[0].ancestry|| 'empty' %>>  -->                    
-                        <% if(characterData.length === 1){ %>                           
-                            <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry" value="<%= characterData[0].ancestry %>">
-                            <% } else { %>
-                            <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry" value="">
-                        <% } %>                    
+                <div>                                      
+                    <% if(characterData.length === 1){ %>                           
+                        <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry" value="<%= characterData[0].ancestry %>">
+                        <% } else { %>
+                        <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry" value="">
+                    <% } %>                    
                 </div>
             <div>Heritage:</div>
-                <div>
-                    <input class="larger-input" id="id2" type="text" placeholder="" name="heritage" value="<%#= characterData[0].heritage || 'empty' %>">
+                <div>                    
+                    <% if(characterData.length === 1){ %>                           
+                        <input class="larger-input" id="id2" type="text" placeholder="" name="heritage" value="<%= characterData[0].heritage %>">
+                        <% } else { %>
+                        <input class="larger-input" id="id2" type="text" placeholder="" name="heritage" value="">
+                    <% } %>                    
                 </div>
             <div>Background:</div>
                 <div>
