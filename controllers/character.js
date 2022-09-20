@@ -2,24 +2,29 @@ const Character = require('../models/Character')
 const validator = require('validator')
 //leons code at the bottom
 
-
 module.exports = {
     getCharacter: async (req,res) => {
         // console.log(req.user)
         try{
-            const newCharacter = await Character.find({userId:req.user.id})                    
-            res.render('character.ejs', {characterData: newCharacter, user: req.user}) //I added this if statement, no idea if its doing anything doesnt seem to be
-            console.log(!newCharacter, 'newwww')
+            console.log(req.user.id, 'user id')
+            const newCharacter = await Character.findById(req.user.id).lean()        
+            if(newCharacter) { 
+            console.log(newCharacter, 'newcharararar')                   
+            res.render('character.ejs', {characterData: newCharacter, user: req.user})
+            } else {
+                res.render('character.ejs',{characterData: newCharacter, user: req.user})
+            } 
+            // console.log(!newCharacter, 'newwww')
             
         }   catch(err){
             console.log(err)
         }
     },
     postCharacter: async (req, res) => {
-        console.log(req.body, req.user);
+        console.log(req.body, req.user, 'post character');   
         try {
             req.body.user = req.user.id   
-            await Character.create(req.body) //} POST is being ignored?
+            await Character.create(req.body)
             res.redirect('/character')
         } catch (err) {
             console.error(err);
