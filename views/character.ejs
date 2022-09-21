@@ -13,29 +13,20 @@
  
     
 </head>
-<body>
-    <%#= characterData.length %>
+<body>     
 
-   
-       <%console.log(character, 'this') %>
-
-     
-     
-        
     
-        
-
-    <!-- <form action="/character/editCharacter/<%#= characterData[0].id %>?_method=PUT" method="POST"> need to change / changed from postCharacter(old code) to character -->
         <% if(!character){ %>
-            <form action="/character" method="POST">
+            <form id="my-form" action="/character" method="POST">
                 <%} else { %>
-            <form action="/character/updateCharacter/<%= character._id %>?_method=PUT" method="POST">
-        <% } %>
-        <header>
-        
+            <form id="my-form" action="/character/updateCharacter/<%= character._id %>?_method=PUT" method="POST">
+        <% } %>   
+
+    <header>
         <div>
             <h1>Character Manager</h1>
-            <h3>Welcome, <%= user.firstName %></h3>            
+            <h3>Welcome, <%= user.firstName %></h3>
+            <h3><%= dateAndTime() %> </h3>            
         </div>
         <div>
             <a href="/auth/logout">
@@ -50,28 +41,32 @@
     </header>
 
 <section class="main" id="main-container">  
+
+    <%# if (character.value) { %>
+     
+    <%# } %>
      
     <div class="left-side-bar">
         <fieldset>           
             <div>Ancestry:</div>        
                 <div>                          
-                    <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry" value="<%= character.ancestry %>">
+                    <input class="larger-input" id="inputValues" type="text" placeholder="" name="ancestry" value="">                
                 </div>         
             <div>Heritage:</div>
                 <div>    
-                    <input class="larger-input" id="id2" type="text" placeholder="" name="heritage" value="<%#= characterData[0].heritage %>">                                      
+                    <input class="larger-input" id="inputValues" type="text" placeholder="" name="heritage" value="">                                      
                 </div>
             <div>Background:</div>
                 <div>
-                    <input class="larger-input" id="id3" type="text" placeholder="" name="background" value="<%#= characterData[characterData.length-1].background || '' %>">
+                    <input class="larger-input" id="inputValues" type="text" placeholder="" name="background" value="">
                 </div>
             <div>Ancestry Ability:</div>
                 <div>
-                    <input class="larger-input" type="text" placeholder="" name="ancestryAbility" value="<%#= characterData[characterData.length-1].ancestryAbility || '' %>">
+                    <input class="larger-input" type="text" placeholder="" name="ancestryAbility" value="">
                 </div>                    
             <div>Class:</div>
                 <div>
-                    <input class="larger-input" type="text" placeholder="" name="class">
+                    <input class="larger-input" type="text" placeholder="" name="class" value="<%#= character.class %>">
                 </div>                    
             <div>Background Ability:</div>
                 <div>    

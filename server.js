@@ -12,6 +12,25 @@ const mainRoutes = require('./routes/main')
 const characterRoutes = require('./routes/character')
 const authRoute = require('./routes/auth')
 
+//helpers
+//helper function? for data and time
+app.locals.dateAndTime = () => {
+  let date = new Date(); 
+  let options = {  
+    weekday: "long", year: "numeric", month: "short",  
+    day: "numeric", hour: "2-digit", minute: "2-digit"  
+  }; 
+  return date.toLocaleTimeString("en-us", options)
+}
+
+//hopefully loop 
+app.locals.loopValues = () => {
+  let inputValues = document.getElementById('inputValues').value    //not right need to figure this out
+  return inputValues
+ 
+}
+ 
+
 
 //load config
 require('dotenv').config({path: './config/.env'})
