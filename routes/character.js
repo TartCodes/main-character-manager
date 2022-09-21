@@ -11,7 +11,7 @@ const mongoose = require('mongoose')
 router.get('/', ensureAuth, charController.getCharacter)
 router.post('/', ensureAuth, charController.postCharacter)
 router.put('/updateCharacter/:id', charController.updateCharacter)
-// router.get('/:id', ensureAuth, charController.getCharacter)
+router.get('/:id', ensureAuth, charController.getCharacter)
 // router.get('/', ensureAuth, charController.getCharacter) 
 
 module.exports = router

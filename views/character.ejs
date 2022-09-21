@@ -17,7 +17,7 @@
     <%#= characterData.length %>
 
    
-       <%#console.log(Object.entries(character), 'this') %>
+       <%console.log(character, 'this') %>
 
      
      
@@ -29,7 +29,7 @@
         <% if(!character){ %>
             <form action="/character" method="POST">
                 <%} else { %>
-            <form action="/character/updateCharacter/<%= character.id %>?_method=PUT" method="POST">
+            <form action="/character/updateCharacter/<%= character._id %>?_method=PUT" method="POST">
         <% } %>
         <header>
         
@@ -44,8 +44,7 @@
         </div>
         <div>            
             <button class="button" type="submit">Save</button> 
-        </div>
-                                
+        </div>                              
             
                
     </header>
@@ -56,7 +55,7 @@
         <fieldset>           
             <div>Ancestry:</div>        
                 <div>                          
-                    <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry" value="<%#= character.ancestry %>">
+                    <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry" value="<%= character.ancestry %>">
                 </div>         
             <div>Heritage:</div>
                 <div>    

@@ -8,11 +8,10 @@ const mongoose = require('mongoose')
 module.exports = {
     getCharacter: async (req, res) => {
         try {
-          const character = await Character.find({},{
-            "_id":{$toString:"$oid"}
-          }).lean()
-          console.log(character, 'weird id thingy')
-            res.render("character.ejs",{ character: character, user: req.user })
+        //   const character = await Character.find({},{
+        //     "_id":{$toString:"$oid"}
+        const character = await Character.findOne({id:req.params.id}).lean()        
+        res.render("character.ejs",{ character: character, user: req.user })
           console.log('character page rendered');
         } catch (err) {
           console.log(err);
@@ -34,8 +33,7 @@ module.exports = {
            console.log(locateCharacter, 'etwetwet')
            if(!locateCharacter) {
             console.log(!locateCharacter, 'locate')
-            return res.render(err)
-               
+            return res.render(err)               
            } else {
                 locateCharacter = await Character.findOneAndUpdate({id: req.params.id}, req.body, {
                     new: true,
