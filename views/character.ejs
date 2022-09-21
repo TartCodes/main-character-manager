@@ -14,21 +14,28 @@
     
 </head>
 <body>
-    <%= characterData.length%>
+    <%#= characterData.length %>
 
+   
+       <%#console.log(Object.entries(character), 'this') %>
+
+     
+     
+        
     
+        
 
     <!-- <form action="/character/editCharacter/<%#= characterData[0].id %>?_method=PUT" method="POST"> need to change / changed from postCharacter(old code) to character -->
-        <% if(characterData.length === 0){ %>
+        <% if(!character){ %>
             <form action="/character" method="POST">
-            <% } else { %>
-            <form action="/character/editCharacter/<%= characterData[0].id %>?_method=PUT" method="POST">
+                <%} else { %>
+            <form action="/character/updateCharacter/<%= character.id %>?_method=PUT" method="POST">
         <% } %>
         <header>
         
         <div>
             <h1>Character Manager</h1>
-            <h3>Welcome, <%= user.firstName %></h3>
+            <h3>Welcome, <%= user.firstName %></h3>            
         </div>
         <div>
             <a href="/auth/logout">
@@ -37,7 +44,8 @@
         </div>
         <div>            
             <button class="button" type="submit">Save</button> 
-        </div>       
+        </div>
+                                
             
                
     </header>
@@ -47,20 +55,12 @@
     <div class="left-side-bar">
         <fieldset>           
             <div>Ancestry:</div>        
-                <div>                                      
-                    <% if(characterData.length === 1){ %>                           
-                        <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry" value="<%= characterData[0].ancestry %>">
-                        <% } else { %>
-                        <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry" value="">
-                    <% } %>                    
-                </div>
+                <div>                          
+                    <input class="larger-input" id="id1" type="text" placeholder="" name="ancestry" value="<%#= character.ancestry %>">
+                </div>         
             <div>Heritage:</div>
-                <div>                    
-                    <% if(characterData.length === 1){ %>                           
-                        <input class="larger-input" id="id2" type="text" placeholder="" name="heritage" value="<%= characterData[0].heritage %>">
-                        <% } else { %>
-                        <input class="larger-input" id="id2" type="text" placeholder="" name="heritage" value="">
-                    <% } %>                    
+                <div>    
+                    <input class="larger-input" id="id2" type="text" placeholder="" name="heritage" value="<%#= characterData[0].heritage %>">                                      
                 </div>
             <div>Background:</div>
                 <div>
@@ -890,7 +890,7 @@
     </section> <!--main container right-->
     
 </section> <!-- main container--> 
- <!-- </form> -->
+ </form>
 
 </body>
 <script type="text/javascript" src="/js/main.js"></script>

@@ -1,12 +1,13 @@
 const mongoose = require('mongoose')
 
+
 const CharacterSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-    },
+        ref: "User",
+      },
     ancestry: {  //left side bar
-        type: String,
+        type: String,        
     },
     heritage: {
         type: String

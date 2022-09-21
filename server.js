@@ -53,6 +53,7 @@ app.use(function(req, res, next) {
   next()
 })
   
+//routes
 app.use('/', mainRoutes)
 app.use('/character', characterRoutes)
 app.use('/auth', authRoute )
