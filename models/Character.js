@@ -6,8 +6,8 @@ const CharacterSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
       },
-    ancestry: {  //left side bar
-        type: String,        
+    ancestry: {  //left side bar        
+       type: String,           
     },
     heritage: {
         type: String

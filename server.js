@@ -23,11 +23,13 @@ app.locals.dateAndTime = () => {
   return date.toLocaleTimeString("en-us", options)
 }
 
+
+
+
 //hopefully loop 
 app.locals.loopValues = () => {
   let inputValues = document.getElementById('inputValues').value    //not right need to figure this out
-  return inputValues
- 
+  return inputValues  
 }
  
 
