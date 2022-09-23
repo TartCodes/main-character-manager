@@ -72,6 +72,9 @@ const CharacterSchema = new mongoose.Schema({
     performance:{
         type: Number
     },
+    religion:{
+        type: Number
+    },
     society:{
         type: Number
     },

@@ -141,7 +141,37 @@ input[type=checkbox] {
   html,body,input,select,textarea{
 	font-size: 16px;
 	font-family: 'David Libre', sans-serif;
+	text-decoration: black;
   }
+
+  /* textarea placeholder colors */
+  textarea::-webkit-input-placeholder {
+	color: black;
+	font-weight: bolder;
+  }
+  
+  textarea:-moz-placeholder { /* Firefox 18- */
+	color: black;
+	font-weight: bolder;  
+  }
+  
+  textarea::-moz-placeholder {  /* Firefox 19+ */
+	color: black;
+	font-weight: bolder;  
+  }
+  
+  textarea:-ms-input-placeholder {
+	color: black;
+	font-weight: bolder;  
+  }
+  
+  textarea::placeholder {
+	color: black;
+	font-weight: bolder; 
+  }
+
+
+  /* --------------------------- */
 
   input:placeholder-shown{
 	font-weight: 400;

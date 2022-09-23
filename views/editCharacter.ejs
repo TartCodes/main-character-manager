@@ -48,8 +48,7 @@
                     <!-- <div>
                         <input class="larger-input" id="<%#= key %>" type="text" placeholder="" name="<%#= key %>" value="<%#= value %>">
                     </div> -->
-                <%#} %>
-            
+                <%#} %>            
                
             <div id="title">Ancestry:</div>        
                 <div>                
@@ -57,27 +56,27 @@
                 </div>         
             <div>Heritage:</div>
                 <div>    
-                    <input class="larger-input" id="inputValues2" type="text" placeholder="" name="heritage" value= "<%#= insertInfo(heritage) %>">                                                          
+                    <input class="larger-input" id="inputValues2" type="text" placeholder="" name="heritage" value= "<%= character.heritage %>">                                                          
                 </div>
             <div>Background:</div>
                 <div>
-                    <input class="larger-input" id="inputValues3" type="text" placeholder="" name="background" value="">
+                    <input class="larger-input" id="inputValues3" type="text" placeholder="" name="background" value="<%= character.background %>">
                 </div>
             <div>Ancestry Ability:</div>
                 <div>
-                    <input class="larger-input" type="text" placeholder="" name="ancestryAbility" value="">
+                    <input class="larger-input" type="text" placeholder="" name="ancestryAbility" value="<%= character.ancestryAbility %>">
                 </div>                    
             <div>Class:</div>
                 <div>
-                    <input class="larger-input" type="text" placeholder="" name="class" value="<%#= character.class %>">
+                    <input class="larger-input" type="text" placeholder="" name="class" value="<%= character.class %>">
                 </div>                    
             <div>Background Ability:</div>
                 <div>    
-                    <textarea  id="" cols="20" rows="5" name="backgroundAbility"></textarea>                
+                    <textarea  id="" cols="20" rows="5" name="backgroundAbility" placeholder="<%= character.backgroundAbility %>"  ></textarea>                
                 </div>
             <div>Deity:</div>
                 <div>             
-                    <input class="larger-input" type="text" name="deity" placeholder=""> 
+                    <input class="larger-input" type="text" name="deity" placeholder="" value="<%= character.deity %>"> 
                 </div>
             
                  <div class="title-div">
@@ -90,78 +89,80 @@
                 <!-- <div class="skills-cont-1"> -->
                     <div>                 
                         <span>Acrobatics =</span>
-                        <input class="number-input" name="acrobatics" type="number">
+                        <input class="number-input" name="acrobatics" type="number" value=<%= character.acrobatics %>>
                     </div>
                     <div>                 
                         <span>Arcana =</span>
-                        <input class="number-input" type="number" name="arcana">
+                        <input class="number-input" type="number" name="arcana" value=<%= character.arcana %>>
                     </div>
                     <div>                 
                         <span>Athletics =</span>
-                        <input class="number-input" type="number" name="athletics">
+                        <input class="number-input" type="number" name="athletics" value=<%= character.athletics %>>
                     </div>
                     <div>                 
                         <span>Crafting =</span>
-                        <input class="number-input" type="number" name="crafting">
+                        <input class="number-input" type="number" name="crafting" value=<%= character.crafting %>>
                     </div>
                     <div>                 
                         <span>Deception =</span>
-                        <input class="number-input" type="number" name="deception">
+                        <input class="number-input" type="number" name="deception" value=<%= character.deception %>>
                     </div>
                     <div>                 
                         <span>Diplomacy =</span>
-                        <input class="number-input" type="number" name="diplomacy">
+                        <input class="number-input" type="number" name="diplomacy" value=<%= character.diplomacy %>>
                     </div>
                     <div>                 
                         <span>Intimidation =</span>
-                        <input class="number-input" type="number" name="intimidation">
+                        <input class="number-input" type="number" name="intimidation" value=<%= character.intimidation %>>
                     </div>
                     <div>
-                        <input class="lore-type" type="text" name="firstLore">                 
+                        <input class="lore-type" type="text" name="firstLore" value="<%= character.firstLore %> ">                 
                         <span>Lore =</span>
-                        <input class="number-input" type="number" name="firstLoreB">
+                        <input class="number-input" type="number" name="firstLoreB" value=<%= character.firstLoreB %>>
                     </div>
                     <div>
-                        <input class="lore-type" type="text" name="secondLore">                 
+                        <input class="lore-type" type="text" name="secondLore" value="<%= character.secondLore %>">                 
                         <span>Lore =</span>
-                        <input class="number-input" type="number" name="secondLoreB">
+                        <input class="number-input" type="number" name="secondLoreB" value=<%= character.secondLoreB %>>
                     </div>
                 <!-- </div> -->
         
                 <!-- <div class="skills-cont-2"> -->
                     <div>                 
                         <span>Medicine =</span>
-                        <input class="number-input" type="number" name="medicine">
+                        <input class="number-input" type="number" name="medicine" value=<%= character.medicine %> >
                     </div>
                     <div>                 
                         <span>Nature =</span>
-                        <input class="number-input" type="number" name="nature">
+                        <input class="number-input" type="number" name="nature" value=<%= character.nature %> >
                     </div>
                     <div>                 
                         <span>Occultism =</span>
-                        <input class="number-input" type="number" name="occultism">
+                        <input class="number-input" type="number" name="occultism" value=<%= character.occultism %> >
                     </div>
                     <div>                 
                         <span>Performance =</span>
-                        <input class="number-input" type="number" name="performance">
+                        <input class="number-input" type="number" name="performance" value=<%= character.performance %> >
                     </div>
                     <div>                 
                         <span>Religion =</span>
-                        <input class="number-input" type="number" name="religion">
+                        <input class="number-input" type="number" name="religion" value= <%= character.religion %> > 
                     </div>
                     <div>                 
                         <span>Society =</span>
-                        <input class="number-input" type="number" name="society">
+                        <input class="number-input" type="number" name="society" value= <%= character.society %> >
                     </div>
                     <div>                 
                         <span>Stealth=</span>
-                        <input class="number-input" type="number" name="stealth">
-                    </div><div>                 
+                        <input class="number-input" type="number" name="stealth" value=<%= character.stealth %> >
+                    </div>
+                    <div>                 
                         <span>Survival =</span>
-                        <input class="number-input" type="number" name="survival">
-                    </div><div>                 
+                        <input class="number-input" type="number" name="survival" value=<%= character.survival %> >
+                    </div>
+                    <div>                 
                         <span>Thievery =</span>
-                        <input class="number-input" type="number" name="thievery">
+                        <input class="number-input" type="number" name="thievery" value=<%= character.thievery %> >
                     </div>
                 <!-- </div> -->          
             </section>

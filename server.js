@@ -26,11 +26,8 @@ app.locals.dateAndTime = () => {
 
 
 
-//hopefully loop 
-app.locals.loopValues = () => {
-  let inputValues = document.getElementById('inputValues').value    //not right need to figure this out
-  return inputValues  
-}
+
+
  
 
 
