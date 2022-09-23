@@ -319,14 +319,14 @@
             <div class="text-border">             
                 <div>Current</div>                    
                     <div>
-                        <input class="number-input" type="number" name="currentHP">
+                        <input class="number-input" type="number" name="currentHP" value=<%= character.currentHP %>>
                     </div>
             </div>
 
             <div class="text-border">            
                 <div>Temporary</div>                
                     <div>
-                        <input class="number-input" type="number" name="tempHP">
+                        <input class="number-input" type="number" name="tempHP" value=<%= character.tempHP %>>
                     </div>
             </div>
 
@@ -354,62 +354,62 @@
             <div class="text-border"> 
                  <div class="ability-scores">Str</div>
                      <div>                                               
-                         <input class="number-input" type="number" name="totalStr">   
+                         <input class="number-input" type="number" name="totalStr" value=<%= character.totalStr %>>   
                      </div>
                      <div class="mod-div">              
                         <span>+</span>
-                        <input class="number-input" type="number" name="strMod">                        
+                        <input class="number-input" type="number" name="strMod" value=<%= character.strMod %>>                        
                      </div> 
             </div>           
             <div class="text-border"> 
                 <div class="ability-scores">Dex</div>
                     <div>                                               
-                        <input class="number-input" type="number" name="totalDex">   
+                        <input class="number-input" type="number" name="totalDex" value=<%= character.totalDex %>>   
                     </div>
                     <div class="mod-div">              
                        <span>+</span>
-                       <input class="number-input" type="number" name="dexMod">                        
+                       <input class="number-input" type="number" name="dexMod" value=<%= character.dexMod %>>                        
                     </div> 
            </div>           
                  <div class="text-border"> 
                  <div class="ability-scores">Con</div>
                      <div>                                               
-                         <input class="number-input" type="number" name="totalCon">   
+                         <input class="number-input" type="number" name="totalCon" value=<%= character.totalCon %>>   
                      </div>
                      <div class="mod-div">              
                         <span>+</span>
-                        <input class="number-input" type="number" name="conMod">                        
+                        <input class="number-input" type="number" name="conMod" value=<%= character.conMod %>>                        
                      </div> 
             </div>                            
                  <div class="text-border"> 
                  <div class="ability-scores">Int</div>
                      <div>                                               
-                         <input class="number-input" type="number" name="totalInt">   
+                         <input class="number-input" type="number" name="totalInt" value=<%= character.totalInt %>>   
                      </div>
                      <div class="mod-div">              
                         <span>+</span>
-                        <input class="number-input" type="number" name="intMod">                        
+                        <input class="number-input" type="number" name="intMod" value=<%= character.intMod %>>                        
                      </div> 
             </div>             
                  <div class="text-border"> 
                  <div class="ability-scores">Wis</div>
                      <div>                                               
-                         <input class="number-input" type="number" name="totalWis">   
+                         <input class="number-input" type="number" name="totalWis" value=<%= character.totalWis %>>   
                      </div>
                      <div class="mod-div">              
                         <span>+</span>
-                        <input class="number-input" type="number" name="wisMod">                        
+                        <input class="number-input" type="number" name="wisMod" value=<%= character.wisMod %>>                        
                      </div> 
             </div>           
              
                  <div class="text-border"> 
                  <div class="ability-scores">Cha</div>
                      <div>                                               
-                         <input class="number-input" type="number" name="totalCha">   
+                         <input class="number-input" type="number" name="totalCha" value=<%= character.totalCha %>>   
                      </div>
                      <div class="mod-div">              
                         <span>+</span>
-                        <input class="number-input" type="number" name="chaMod">                        
+                        <input class="number-input" type="number" name="chaMod" value=<%= character.chaMod %>>                        
                      </div> 
             </div>           
          </div>
@@ -420,14 +420,14 @@
             <div class="text-border">    
                 <div>Resistances/Immunities:</div> 
                     <div>
-                        <textarea name="resistsImmunities" id="" cols="25" rows="3"></textarea>
+                        <textarea name="resistsImmunities" id="" cols="25" rows="3" placeholder="value=<%= character.resistsImmunities %>"></textarea>
                     </div>
                 </div>
 
             <div class="text-border">    
                 <div>Conditions:</div>
                     <div>
-                        <textarea name="conditions" id="" cols="25" rows="3"></textarea>
+                        <textarea name="conditions" id="" cols="25" rows="3" placeholder="value=<%= character.conditions %>"></textarea>
                     </div> 
                 </div>  
                
@@ -439,25 +439,25 @@
                 <div class="saves-text-main">
                     <div>Fort</div>
                         <div>
-                            <input class="number-input" type="number" name="fortSave">
+                            <input class="number-input" type="number" name="fortSave" value=<%= character.fortSave %>>
                         </div>             
                 </div>
                 <div class="saves-text">    
                     <div>Con</div>
                         <div>
-                            <input class="number-input" type="number" name="fortMod"> 
+                            <input class="number-input" type="number" name="fortMod" value=<%= character.fortMod %>> 
                         </div>
                 </div>
                 <div class="saves-text">
                     <div>Prof</div>
                         <div>
-                            <input class="number-input" type="number" name="fortProf">
+                            <input class="number-input" type="number" name="fortProf" value=<%= character.fortProf %>>
                         </div>
                 </div>
                 <div class="saves-text">
                     <div>Item</div>
                         <div>
-                            <input class="number-input" type="number" name="fortItem">                               
+                            <input class="number-input" type="number" name="fortItem" value=<%= character.fortItem %>>                               
                         </div>
                 </div>
                 <div class="saves-text-check">                            
@@ -474,25 +474,25 @@
                 <div class="saves-text-main">
                     <div>Reflex</div>
                         <div>
-                            <input class="number-input" type="number" name="reflexSave">
+                            <input class="number-input" type="number" name="reflexSave" value=<%= character.reflexSave %>>
                         </div>             
                 </div>
                 <div class="saves-text">    
                     <div>Dex</div>
                         <div>
-                            <input class="number-input" type="number" name="reflexMod"> 
+                            <input class="number-input" type="number" name="reflexMod" value=<%= character.reflexMod %>> 
                         </div>
                 </div>
                 <div class="saves-text">
                     <div>Prof</div>
                         <div>
-                            <input class="number-input" type="number" name="reflexProf">
+                            <input class="number-input" type="number" name="reflexProf" value=<%= character.reflexProf %>>
                         </div>
                 </div>
                 <div class="saves-text">
                     <div>Item</div>
                         <div>
-                            <input class="number-input" type="number" name="reflexItem">                               
+                            <input class="number-input" type="number" name="reflexItem" value=<%= character.reflexItem %>>                               
                         </div>
                 </div>
                 <div class="saves-text-check">                            
@@ -509,25 +509,25 @@
                 <div class="saves-text-main">
                     <div>Will</div>
                         <div>
-                            <input class="number-input" type="number" name="willSave">
+                            <input class="number-input" type="number" name="willSave" value=<%= character.willSave %>>
                         </div>             
                 </div>
                 <div class="saves-text">    
                     <div>Wis</div>
                         <div>
-                            <input class="number-input" type="number" name="willMod"> 
+                            <input class="number-input" type="number" name="willMod" value=<%= character.willMod %>> 
                         </div>
                 </div>
                 <div class="saves-text">
                     <div>Prof</div>
                         <div>
-                            <input class="number-input" type="number" name="willProf">
+                            <input class="number-input" type="number" name="willProf" value=<%= character.willProf %>>
                         </div>
                 </div>
                 <div class="saves-text">
                     <div>Item</div>
                         <div>
-                            <input class="number-input" type="number" name="willItem">                               
+                            <input class="number-input" type="number" name="willItem" value=<%= character.willItem %>>                               
                         </div>
                 </div>
                 <div class="saves-text-check">                            
@@ -548,17 +548,17 @@
     <div class="armor-container">    
         <div class="ac-style">
             <div>
-                <input class="number-input" type="number" name="totalAC">
+                <input class="number-input" type="number" name="totalAC" value=<%= character.totalAC %>>
             </div>
             <div>= AC</div>
         </div>
         <div>Dex:</div>
             <div>
-                <input class="number-input" type="number" name="acDexBonus"> 
+                <input class="number-input" type="number" name="acDexBonus"value=<%= character.acDexBonus %>> 
             </div>            
         <div>Cap:</div>
             <div>
-                <input class="number-input" type="number" name="acCap"> 
+                <input class="number-input" type="number" name="acCap"value=<%= character.acCap %>> 
             </div>          
             <div class="hero-points-div">
                 <input type="checkbox" value="plusTwo" name="acProfCheck">
@@ -568,7 +568,7 @@
             </div>    
         <div>Item:</div>
             <div>
-                <input class="number-input" type="number" name="acItemBonus">
+                <input class="number-input" type="number" name="acItemBonus" value=<%= character.acItemBonus %>>
             </div>
     </div>
     <!--armor type  -->
@@ -623,7 +623,7 @@
                    <!-- <span>+<input class="number-input" type="number">AC</span> -->
                    <div class="shieldac-div">              
                     <span>+</span>
-                    <input class="number-input" type="number" name="shieldAC">   
+                    <input class="number-input" type="number" name="shieldAC" value=<%= character.shieldAC %>>   
                     <span>AC</span>                     
                  </div>
                 <!-- </div>         -->
@@ -631,25 +631,25 @@
         <div class="armor-type-text"> 
             <div>Hardness</div>
                 <div>
-                    <input class="number-input" type="number" name="hardness"> 
+                    <input class="number-input" type="number" name="hardness" value=<%= character.hardness %>> 
                 </div>
         </div>
         <div class="armor-type-text"> 
             <div>Max HP</div>
                 <div>
-                    <input class="number-input" type="number" name="shieldHP">                     
+                    <input class="number-input" type="number" name="shieldHP" value=<%= character.shieldHP %>>                     
                 </div>
         </div>
         <div class="armor-type-text"> 
             <div>Break</div>
                 <div>
-                    <input class="number-input" type="number" name="shieldBreak"> 
+                    <input class="number-input" type="number" name="shieldBreak" value=<%= character.shieldBreak %>> 
                 </div>
         </div>
         <div class="armor-type-text"> 
             <div>Current HP</div>
                 <div>   
-                    <input class="number-input" type="number" name="shieldCurrentHP"> 
+                    <input class="number-input" type="number" name="shieldCurrentHP" value=<%= character.shieldCurrentHP %>> 
                 </div>  
         </div>   
     </div>
@@ -657,17 +657,17 @@
     <div class="classdc-container">                 
         <div class="ac-style">                               
             <div>   
-                <input class="number-input" type="number" name="classDC">           
+                <input class="number-input" type="number" name="classDC" value=<%= character.classDC %>>           
             </div>
             <div>= Class DC</div>             
         </div>
         <div>Key:</div>
             <div>                                
-                <input class="number-input" type="number" name="classKey"> 
+                <input class="number-input" type="number" name="classKey" value=<%= character.classKey %>> 
             </div>
         <div>Prof:</div>
             <div>                     
-                <input class="number-input" type="number" name="classDCProf">
+                <input class="number-input" type="number" name="classDCProf" value=<%= character.classDCProf %>>
             </div>
     
             <div class="hero-points-div">
@@ -679,7 +679,7 @@
 
     <div>Item:</div>
         <div>
-            <input class="number-input" type="number" name="classDCItem">
+            <input class="number-input" type="number" name="classDCItem" value=<%= character.classDCItem %>>
         </div>                                                
 </div>
 
@@ -687,19 +687,19 @@
     <div class="perception-container">           
         <div class="ac-style">                               
             <div>   
-                <input class="number-input" type="number" name="perception">           
+                <input class="number-input" type="number" name="perception" value=<%= character.perception %>>           
             </div>
             <div>= Perception</div>             
         </div>
 
         <div>Wis:</div>                
             <div>
-               <input class="number-input" type="number" name="wisBonus">
+               <input class="number-input" type="number" name="wisBonus" value=<%= character.wisBonus %>>
             </div>
 
         <div>Prof:</div>            
             <div>
-                <input class="number-input" type="number" name="perceptionProf">
+                <input class="number-input" type="number" name="perceptionProf" value=<%= character.perceptionProf %>>
             </div>
 
             <div class="hero-points-div">
@@ -714,7 +714,7 @@
     <div class="senses">
         <div>Senses:</div>
             <div>
-                <textarea name="body" id="" cols="25" rows="3" name="senses"></textarea>
+                <textarea name="body" id="" cols="25" rows="3" name="senses" placeholder="<%= character.senses %> " ></textarea>
             </div>        
     </div>    
 
