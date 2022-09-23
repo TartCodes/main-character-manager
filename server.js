@@ -23,14 +23,6 @@ app.locals.dateAndTime = () => {
   return date.toLocaleTimeString("en-us", options)
 }
 
-
-
-
-
-
- 
-
-
 //load config
 require('dotenv').config({path: './config/.env'})
 

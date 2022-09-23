@@ -274,30 +274,32 @@
                     </div>
             </div>
 
+
+            <% console.log(character.size, 'sizeeee') %>
             <div class="text-border">    
                 <div>Size</div>
                    <select name="size" id="charSize">
-                         <option value="tiny">Tiny</option>
-                         <option value="small">Small</option>
-                         <option value="medium">Medium</option>
-                         <option value="large">Large</option>
-                         <option value="huge">Huge</option>
-                        <option value="gargantuan">Gargantuan</option>
+                         <option value="tiny" <%=character.size === 'tiny' ? 'selected' : '' %>>Tiny</option>                         
+                         <option value="small" <%=character.size === 'small' ? 'selected' : '' %>>Small</option>
+                         <option value="medium" <%=character.size === 'medium' ? 'selected' : '' %>>Medium</option>
+                         <option value="large" <%=character.size === 'large' ? 'selected' : '' %>>Large</option>
+                         <option value="huge" <%=character.size === 'huge' ? 'selected' : '' %>>Huge</option>
+                        <option value="gargantuan" <%=character.size === 'gargantuan' ? 'selected' : '' %>>Gargantuan</option>
                     </select>                                   
             </div>        
         
             <div class="text-border">        
                 <div>Alignment</div>
                     <select name="alignment" id="">
-                        <option value="lg">LG</option>
-                        <option value="ln">LN</option>
-                        <option value="le">LE</option>
-                        <option value="ng">NG</option>
-                        <option value="tn">TN</option>
-                        <option value="ne">NE</option>
-                        <option value="cg">CG</option>
-                        <option value="cn">CN</option>
-                        <option value="ce">CE</option>
+                        <option value="lg" <%=character.alignment === 'lg' ? 'selected' : '' %>>LG</option>
+                        <option value="ln" <%=character.alignment === 'ln' ? 'selected' : '' %>>LN</option>
+                        <option value="le" <%=character.alignment === 'le' ? 'selected' : '' %>>LE</option>
+                        <option value="ng" <%=character.alignment === 'ng' ? 'selected' : '' %>>NG</option>
+                        <option value="tn" <%=character.alignment === 'tn' ? 'selected' : '' %>>TN</option>
+                        <option value="ne" <%=character.alignment === 'ne' ? 'selected' : '' %>>NE</option>
+                        <option value="cg" <%=character.alignment === 'cg' ? 'selected' : '' %>>CG</option>
+                        <option value="cn" <%=character.alignment === 'cn' ? 'selected' : '' %>>CN</option>
+                        <option value="ce" <%=character.alignment === 'ce' ? 'selected' : '' %>>CE</option>
                     </select> 
             </div>
             <div class="text-border"> 
@@ -789,19 +791,19 @@
                     <span>d</span>
                     <input class="number-input" type="number" name="damageDie" value=<%= character.damageDie %>>
                     <select name="damageTypeWeapon" id="">
-                        <option value="P">P</option>
-                        <option value="S">S</option>
-                        <option value="B">B</option>                        
+                        <option value="P" <%=character.damageTypeWeapon === 'P' ? 'selected' : '' %>>P</option>
+                        <option value="S" <%=character.damageTypeWeapon === 'S' ? 'selected' : '' %>>S</option>
+                        <option value="B" <%=character.damageTypeWeapon === 'B' ? 'selected' : '' %>>B</option>                        
                     </select>
                 </div>
 
                 <div class="weapon-prof-list">
                     <div>Type</div>
                     <select name="weaponProfType" id="">
-                        <option value="Unarmed">Unarmed</option>
-                        <option value="Simple">Simple</option>
-                        <option value="Martial">Martial</option>
-                        <option value="Advanced">Advanced</option>                        
+                        <option value="Unarmed" <%=character.weaponProfType === 'Unarmed' ? 'selected' : '' %>>Unarmed</option>
+                        <option value="Simple" <%=character.weaponProfType === 'Simple' ? 'selected' : '' %>>Simple</option>
+                        <option value="Martial" <%=character.weaponProfType === 'Martial' ? 'selected' : '' %>>Martial</option>
+                        <option value="Advanced" <%=character.weaponProfType === 'Advanced' ? 'selected' : '' %>>Advanced</option>                        
                     </select>
                 </div>               
 
@@ -810,10 +812,10 @@
                         <span>Versatile</span>
                     </div>
                     <select name="weaponDmgType" id="">
-                        <option value="blank"></option>
-                        <option value="P">P</option>
-                        <option value="S">S</option>
-                        <option value="B">B</option>                        
+                        <option value="blank" <%=character.weaponDmgType === 'blank' ? 'selected' : '' %>></option>
+                        <option value="P" <%=character.weaponDmgType === 'P' ? 'selected' : '' %>>P</option>
+                        <option value="S" <%=character.weaponDmgType === 'S' ? 'selected' : '' %>>S</option>
+                        <option value="B" <%=character.weaponDmgType === 'B' ? 'selected' : '' %>>B</option>                        
                     </select>
                 </div>
 
@@ -844,19 +846,19 @@
                     <span>d</span>
                     <input class="number-input" type="number" name="rangeDmgDie" value=<%= character.rangeDmgDie %>>
                     <select name="rangeDmgType" id="">
-                        <option value="P">P</option>
-                        <option value="S">S</option>
-                        <option value="B">B</option>                        
+                        <option value="P" <%=character.rangeDmgType === 'P' ? 'selected' : '' %>>P</option>
+                        <option value="S" <%=character.rangeDmgType === 'S' ? 'selected' : '' %>>S</option>
+                        <option value="B" <%=character.rangeDmgType === 'B' ? 'selected' : '' %>>B</option>                        
                     </select>
                 </div>
 
                 <div class="weapon-prof-list">
                     <div>Type</div>
                     <select name="rangeProfType" id="">
-                        <option value="Unarmed">Unarmed</option>
-                        <option value="Simple">Simple</option>
-                        <option value="Martial">Martial</option>
-                        <option value="Advanced">Advanced</option>                        
+                        <option value="Unarmed" <%=character.rangeProfType === 'Unarmed' ? 'selected' : '' %>>Unarmed</option>
+                        <option value="Simple"  <%=character.rangeProfType === 'Simple' ? 'selected' : '' %>>Simple</option>
+                        <option value="Martial"  <%=character.rangeProfType === 'Martial' ? 'selected' : '' %>>Martial</option>
+                        <option value="Advanced"  <%=character.rangeProfType === 'Advanced' ? 'selected' : '' %>>Advanced</option>                        
                     </select>
                 </div>        
 

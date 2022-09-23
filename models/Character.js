@@ -107,7 +107,8 @@ const CharacterSchema = new mongoose.Schema({
         // value3: { type: Boolean, required: false, default: true}  
     },
     size:{
-        type: String //drop down
+        type: String, //drop down
+        
     },
     alignment:{
         type: String //drop down
