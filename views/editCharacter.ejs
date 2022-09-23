@@ -785,9 +785,9 @@
                     <div>
                         <span>Attack</span>
                     </div>
-                    <input class="number-input" type="number" name="attackDie">
+                    <input class="number-input" type="number" name="attackDie" value=<%= character.attackDie %>>
                     <span>d</span>
-                    <input class="number-input" type="number" name="damageDie">
+                    <input class="number-input" type="number" name="damageDie" value=<%= character.damageDie %>>
                     <select name="damageTypeWeapon" id="">
                         <option value="P">P</option>
                         <option value="S">S</option>
@@ -822,7 +822,7 @@
                         <span>Other Traits</span>
                     </div>
                     <div>
-                        <textarea name="otherTraits" id="" cols="30" rows="2"></textarea>
+                        <textarea name="otherTraits" id="" cols="30" rows="2" placeholder="<%= character.otherTraits %> "></textarea>
                     </div>
                 </div>
             </div>      
@@ -833,16 +833,16 @@
                     <div>
                         <span>Weapon Name</span>
                     </div>
-                    <input type="text" name="rangeWeaponName" id="">
+                    <input type="text" name="rangeWeaponName" id="" value="<%= character.rangeWeaponName %>">
                 </div>
 
                 <div class="damage-die">
                     <div>
                         <span>Attack</span>
                     </div>
-                    <input class="number-input" type="number" name="rangeAtkDie">
+                    <input class="number-input" type="number" name="rangeAtkDie" value=<%= character.rangeAtkDie %>>
                     <span>d</span>
-                    <input class="number-input" type="number" name="rangeDmgDie">
+                    <input class="number-input" type="number" name="rangeDmgDie" value=<%= character.rangeDmgDie %>>
                     <select name="rangeDmgType" id="">
                         <option value="P">P</option>
                         <option value="S">S</option>
@@ -864,14 +864,14 @@
                     <div>
                         <span>Range</span>
                     </div>
-                    <input class="number-input" type="number" name="weaponRange">
+                    <input class="number-input" type="number" name="weaponRange" value=<%= character.weaponRange %>>
                 </div>
 
                 <div class="reload">
                     <div>
                         <span>Reload</span>
                     </div>
-                    <input class="number-input" type="number" name="rangeReload">
+                    <input class="number-input" type="number" name="rangeReload" value=<%= character.rangeReload %> >
                 </div>
 
                 <div class="other-traits">
@@ -879,7 +879,7 @@
                         <span>Other Traits</span>
                     </div>
                     <div>
-                        <textarea name="rangeTraits" id="" cols="30" rows="2"></textarea>
+                        <textarea name="rangeTraits" id="" cols="30" rows="2" placeholder="<%= character.rangeTraits %> " ></textarea>
                     </div>
                 </div>
             </div> 
