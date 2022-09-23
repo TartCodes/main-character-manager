@@ -420,14 +420,14 @@
             <div class="text-border">    
                 <div>Resistances/Immunities:</div> 
                     <div>
-                        <textarea name="resistsImmunities" id="" cols="25" rows="3" placeholder="value=<%= character.resistsImmunities %>"></textarea>
+                        <textarea name="resistsImmunities" id="" cols="25" rows="3" placeholder="<%= character.resistsImmunities %>"></textarea>
                     </div>
                 </div>
 
             <div class="text-border">    
                 <div>Conditions:</div>
                     <div>
-                        <textarea name="conditions" id="" cols="25" rows="3" placeholder="value=<%= character.conditions %>"></textarea>
+                        <textarea name="conditions" id="" cols="25" rows="3" placeholder="<%= character.conditions %>"></textarea>
                     </div> 
                 </div>  
                
@@ -778,7 +778,7 @@
                     <div>
                         <span>Weapon Name</span>
                     </div>
-                    <input type="text" name="addWeapon" id="">
+                    <input type="text" name="meleeWeaponName" id="" value="<%= character.meleeWeaponName %> ">
                 </div>
 
                 <div class="damage-die">

@@ -317,7 +317,7 @@ const CharacterSchema = new mongoose.Schema({
     advancedCheck:{
         type: Array
     },
-    addWeapon:{
+    meleeWeaponName:{
         type: String
     },
     attackDie:{
