@@ -10,7 +10,7 @@ module.exports = {
 },
   authCallback: (req, res, next) => {
     passport.authenticate('google', { 
-        successRedirect: '/character', 
+        successRedirect: '/character',  //this needs to check if character 
         failureRedirect: '/' })(req,res,next)
   },
   logout: (req, res) => {

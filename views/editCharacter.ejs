@@ -50,13 +50,13 @@
                     </div> -->
                 <%#} %>            
                
-            <div id="title">Ancestry:</div>        
+            <div>Ancestry:</div>        
                 <div>                
-                    <input class="larger-input" id="inputValues1" type="text" placeholder="" name="ancestry" value=" <%= character.ancestry %> ">                
+                    <input class="larger-input" id="inputValues1" type="text" placeholder="" name="ancestry" value="<%=character.ancestry %>">                
                 </div>         
             <div>Heritage:</div>
                 <div>    
-                    <input class="larger-input" id="inputValues2" type="text" placeholder="" name="heritage" value= "<%= character.heritage %>">                                                          
+                    <input class="larger-input" id="inputValues2" type="text" placeholder="" name="heritage" value="<%=character.heritage %>">                                                          
                 </div>
             <div>Background:</div>
                 <div>
@@ -268,14 +268,15 @@
             <div class="text-border">                 
                 <div>Hero Points</div>
                     <div class="hero-points-div">
-                        <input type="checkbox" name="heroCheck1" value="">                        
-                        <input type="checkbox" name="heroCheck2" value="twoPoint">  
-                        <input type="checkbox" name="heroCheck3" value="threePoint">        
+                        <input hidden type="checkbox" name="heroCheck" value="noPoint" checked >                      
+                        <input type="checkbox" name="heroCheck" value="onePoint" <%= character.heroCheck.includes("onePoint") ? "checked" : "" %>>                        
+                        <input type="checkbox" name="heroCheck" value="twoPoint" <%= character.heroCheck.includes("twoPoint") ? "checked" : "" %>>  
+                        <input type="checkbox" name="heroCheck" value="threePoint" <%= character.heroCheck.includes("threePoint") ? "checked" : "" %>>        
                     </div>
             </div>
 
 
-            <% console.log(character.size, 'sizeeee') %>
+            
             <div class="text-border">    
                 <div>Size</div>
                    <select name="size" id="charSize">
@@ -335,18 +336,18 @@
             <div class="text-border">    
                 <div>Dying</div>
                     <div class="hero-points-div">                  
-                        <input class="dying" type="checkbox" name="dyingCheck" value="dyingOne">
-                        <input class="dying" type="checkbox" name="dyingCheck" value="dyingTwo">  
-                        <input class="dying" type="checkbox" name="dyingCheck" value="dyingThree">        
+                        <input class="dying" type="checkbox" name="dyingCheck" value="dyingOne" <%= character.dyingCheck.includes("dyingOne") ? "checked" : "" %>>
+                        <input class="dying" type="checkbox" name="dyingCheck" value="dyingTwo" <%= character.dyingCheck.includes("dyingTwo") ? "checked" : "" %>>  
+                        <input class="dying" type="checkbox" name="dyingCheck" value="dyingThree" <%= character.dyingCheck.includes("dyingThree") ? "checked" : "" %>>        
                     </div>
             </div>
 
             <div class="text-border">    
                 <div>Wounded</div>
                     <div class="hero-points-div">
-                        <input type="checkbox" value="woundedOne" name="woundedCheck">
-                        <input type="checkbox" value="woundedTwo" name="woundedCheck">  
-                        <input type="checkbox" value="woundedThree" name="woundedCheck">        
+                        <input type="checkbox" value="woundedOne" name="woundedCheck" <%= character.woundedCheck.includes("woundedOne") ? "checked" : "" %>>
+                        <input type="checkbox" value="woundedTwo" name="woundedCheck" <%= character.woundedCheck.includes("woundedTwo") ? "checked" : "" %>>  
+                        <input type="checkbox" value="woundedThree" name="woundedCheck" <%= character.woundedCheck.includes("woundedThree") ? "checked" : "" %>>        
             </div>                       
         <!-- </div>         -->
     </div>   
@@ -464,10 +465,10 @@
                 </div>
                 <div class="saves-text-check">                            
                     <div class="hero-points-div">
-                        <input type="checkbox" value="plusTwo" name="fortCheck">
-                        <input type="checkbox" value="plusFour" name="fortCheck">  
-                        <input type="checkbox" value="plusSix" name="fortCheck">
-                        <input type="checkbox" value="plusEight" name="fortCheck">        
+                        <input type="checkbox" value="plusTwo" name="fortCheck" <%= character.fortCheck.includes("plusTwo") ? "checked" : "" %>>
+                        <input type="checkbox" value="plusFour" name="fortCheck" <%= character.fortCheck.includes("plusFour") ? "checked" : "" %>>  
+                        <input type="checkbox" value="plusSix" name="fortCheck" <%= character.fortCheck.includes("plusSix") ? "checked" : "" %>>
+                        <input type="checkbox" value="plusEight" name="fortCheck" <%= character.fortCheck.includes("plusEight") ? "checked" : "" %>>        
                     </div>                            
                 </div>
             </div>                 
@@ -499,10 +500,12 @@
                 </div>
                 <div class="saves-text-check">                            
                     <div class="hero-points-div">
-                        <input type="checkbox" value="plusTwo" name="reflexCheck">
-                        <input type="checkbox" value="plusFour" name="reflexCheck">  
-                        <input type="checkbox" value="plusSix" name="reflexCheck">
-                        <input type="checkbox" value="plusEight" name="reflexCheck">        
+                        
+                        <input type="checkbox" value="plusTwo" name="reflexCheck" <%= character.reflexCheck.includes("plusTwo") ? "checked" : "" %>>
+                        <input type="checkbox" value="plusFour" name="reflexCheck" <%= character.reflexCheck.includes("plusFour") ? "checked" : "" %>>  
+                        <input type="checkbox" value="plusSix" name="reflexCheck" <%= character.reflexCheck.includes("plusSix") ? "checked" : "" %>>
+                        <input type="checkbox" value="plusEight" name="reflexCheck" <%= character.reflexCheck.includes("plusEight") ? "checked" : "" %>>  
+                                            
                     </div>                            
                 </div>
         </div> 

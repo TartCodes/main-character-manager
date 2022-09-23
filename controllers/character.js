@@ -33,14 +33,14 @@ module.exports = {
             req.body.user = req.user.id   
             await Character.create(req.body)
             console.log('character was posted')
-            res.redirect(`/character/edit/${req.params.id}`) //change
+            res.redirect(`/character/edit/${req.params.id}`) 
         } catch (err) {
             console.error(err);            
         }
     },
     editCharacter: async (req, res) => { // Main Character Page
         try {       
-        const character = await Character.findOne({id:req.params.id}).lean() 
+        const character = await Character.findOne({user:req.user.id}).lean() //id:req.user.id
         
         if(!character){
             res.redirect('/character/blank')
@@ -54,10 +54,8 @@ module.exports = {
       },
     updateCharacter:  async (req, res) => {  //PUT
         try{                               
-           let locateCharacter = await Character.findById(req.params.id)
-           console.log(locateCharacter, 'etwetwet')
-           if(!locateCharacter) {
-            console.log(!locateCharacter, 'locate')
+           let locateCharacter = await Character.findById(req.params.id)           
+           if(!locateCharacter) {            
             return res.redirect('/character/blank')               
            } else {
                 locateCharacter = await Character.findOneAndUpdate({id: req.params.id}, req.body, {

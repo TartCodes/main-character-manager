@@ -101,10 +101,7 @@ const CharacterSchema = new mongoose.Schema({
     },  
                     //checkbox 
     heroCheck:{
-        type: Array
-        // value1: { type: Boolean, required: false, default: true},
-        // value2: { type: Boolean, required: false, default: true},
-        // value3: { type: Boolean, required: false, default: true}  
+        type: Array        
     },
     size:{
         type: String, //drop down
