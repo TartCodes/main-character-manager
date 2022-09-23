@@ -243,45 +243,45 @@
             <div class="text-border">          
                 <div>Character Name</div>                
                     <div class="mouse-out" id="mouse-out">
-                        <input class="larger-input" name="charName" type="text">
+                        <input class="larger-input" name="charName" type="text" value="<%= character.charName %> ">
                     </div> 
             </div>
             <div class="text-border">                  
                 <div>Player Name</div>
                     <div>     
-                        <input class="larger-input" type="text" name="playerName">   
+                        <input class="larger-input" type="text" name="playerName" value="<%= character.playerName %> ">   
                     </div>
             </div> 
             <div class="text-border">                
                 <div>Level</div>
                     <div>
-                        <input class="number-input" type="number" placeholder="" name="level">            
+                        <input class="number-input" type="number" placeholder="" name="level" value=<%= character.level %>>            
                     </div> 
             </div>
             <div class="text-border">                
                 <div>XP</div>
                     <div>
-                        <input class="number-input" type="number" placeholder="" name="xp">
+                        <input class="number-input" type="number" placeholder="" name="xp" value=<%= character.xp%>>
                     </div>
             </div>
 
             <div class="text-border">                 
                 <div>Hero Points</div>
                     <div class="hero-points-div">
-                        <input type="checkbox" name="heroCheck" value="onePoint"> <!-- % if (character.onePoint === true) { checked } %> --> 
-                        <input type="checkbox" name="heroCheck" value="twoPoint">  
-                        <input type="checkbox" name="heroCheck" value="threePoint">        
+                        <input type="checkbox" name="heroCheck1" value="">                        
+                        <input type="checkbox" name="heroCheck2" value="twoPoint">  
+                        <input type="checkbox" name="heroCheck3" value="threePoint">        
                     </div>
             </div>
 
             <div class="text-border">    
                 <div>Size</div>
-                   <select name="size">                   
-                        <option value="tiny">Tiny</option>
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
-                        <option value="huge">Huge</option>
+                   <select name="size" id="charSize">
+                         <option value="tiny">Tiny</option>
+                         <option value="small">Small</option>
+                         <option value="medium">Medium</option>
+                         <option value="large">Large</option>
+                         <option value="huge">Huge</option>
                         <option value="gargantuan">Gargantuan</option>
                     </select>                                   
             </div>        
@@ -303,7 +303,7 @@
             <div class="text-border"> 
                 <div>Traits</div>
                     <div>
-                        <input class="traits" type="text" placeholder="" name="traits">           
+                        <input class="traits" type="text" placeholder="" name="traits" value="<%= character.traits %>">           
                     </div>
             </div>
     </div>
@@ -313,7 +313,7 @@
             <div class="text-border">              
                 <div>HP</div>                   
                     <div>
-                        <input class="number-input" type="number" name="hp">
+                        <input class="number-input" type="number" name="hp" value=<%= character.hp %>>
                     </div>
             </div>
             <div class="text-border">             
