@@ -58,7 +58,7 @@ module.exports = {
            if(!locateCharacter) {            
             return res.redirect('/character/blank')               
            } else {
-                locateCharacter = await Character.findOneAndUpdate({id: req.params.id}, req.body, {
+                locateCharacter = await Character.findOneAndUpdate({_id: req.params.id}, req.body, {
                     new: true,
                     runValidators: true
                 })
