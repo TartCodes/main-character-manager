@@ -24,4 +24,3 @@ module.exports = router
 // '/' directs to checkForCharacter if/else. If no character, redirect to /character/new. If yes char, redirect to /character/edit
 // need GET routes in here for '/new' and '/edit'.  /new loads view newCharacter.ejs, /edit loads editCharacter.ejs
 
-// Needs: GET: '/', '/new', '/edit'
