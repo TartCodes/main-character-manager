@@ -1,7 +1,7 @@
 const Character = require('../models/Character')
 const validator = require('validator')
 const mongoose = require('mongoose')
-
+const Weapon = require('../models/Weapon')
 //leons code at the bottom
 // if( !mongoose.Types.ObjectId.isValid({_id}) ) return false;
 
@@ -41,11 +41,12 @@ module.exports = {
     editCharacter: async (req, res) => { // Main Character Page
         try {       
         const character = await Character.findOne({user:req.user.id}).lean() //id:req.user.id
-        
+        const weapon = await Weapon.findOne({user:req.user.id}).lean()
+
         if(!character){
             res.redirect('/character/blank')
         } else {   
-            res.render('editCharacter.ejs',{ character: character, user: req.user, }) 
+            res.render('editCharacter.ejs',{ character: character, user: req.user, weapon: weapon }) 
             console.log('character page rendered');
         }         
         } catch (err) {

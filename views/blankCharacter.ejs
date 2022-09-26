@@ -755,6 +755,8 @@
         </div>
     </div>     
 </div>  
+</form>
+
 
 <div id="weapon-buttons">
     <button id="addMelee" type="button">Add Melee</button>
@@ -762,14 +764,14 @@
 </div>
       
         <!-- Melee -->       
-           
+ <form action="/weapon/createWeapon/<%= user.id %>" method="POST">         
         <div class="meleeModal " id="melee-modal">
-            <div class="modal-content" id="modal-content">
+            <div class="modal-content" id="melee-content">
                 <div>
                     <div>
                         <span>Weapon Name</span>
                     </div>
-                    <input type="text" name="addWeapon" id="">
+                    <input type="text" name="meleeWeaponName" id="">
                 </div>
 
                 <div class="damage-die">
@@ -816,10 +818,12 @@
                         <textarea name="otherTraits" id="" cols="30" rows="2"></textarea>
                     </div>
                 </div>
-                <span id="add-weapon" class="button">Add</span>
+                <button id="add-weapon" class="button" type="submit">Add</button>
                 <span id="close-melee" class="button">Cancel</span>
             </div>      
         </div>
+ </form>
+ <form action="POST">
             <!-- Ranged -->
             <div class="range-weapon-div">
                 <div>
@@ -877,11 +881,11 @@
                 </div>
             </div> 
     </div>           
-       
+    </form>    
     </section> <!--main container right-->
     
 </section> <!-- main container--> 
- </form>
+ 
 
 </body>
 <script type="text/javascript" src="/js/main.js"></script>
