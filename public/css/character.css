@@ -474,19 +474,61 @@ span {
 		align-items: center;
 	}
 
-.melee-weapon-div,
-.range-weapon-div {
-	display: flex;    
+/* .melee-weapon-div {
+	display: none;    
     text-align: center;
     column-gap: 1em;
 	width: 100%;
-	justify-content: center;
-		
+	justify-content: center;		
+} */
+
+.range-weapon-div {
+	display: none;
+}
+
+/* modal style */
+.meleeModal {
+	display: none;
+	position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding-top: 5px;
+	column-gap: 1em;
+    justify-content: center;
+  }
+
+  .modal-content {
+	display: flex;
+    margin: 10% auto;
+    background-color: rgb(79, 7, 7);
+    width: 60%;
+    height: 15%;
+    text-align: center;
+    column-gap: 1em;
+    justify-content: center;
+    box-shadow: 0 5px 8px 0 rgb(0 0 0 / 20%), 0 7px 20px 0 rgb(0 0 0 / 17%);
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+    align-items: center;
+	border-radius: 5px;
+  }
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 
-
-button {
+/* ------- */
+button, .button {
 	background-color: gold;
     color: black;
     box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
@@ -496,8 +538,17 @@ button {
     padding: 8px 15px;	
 	cursor: pointer;
 }
+
+.button {
+	margin-top: 10px;
+}
+
+button:hover,
+.button:hover {
+	background: #5b1d1d;
+  }
 	
-	#weapon-button {
+	#weapon-buttons {
 		text-align: center;		
 		margin-bottom: .5em;
 	}

@@ -1,6 +1,7 @@
 
-//button for weapon
-const addWeaponBtn = document.getElementById('weapon-button')
+//weapon info
+// const melee = document.getElementById('addMelee')
+// const meleeDiv = document.getElementById('melee-weapon')
 //show shield info button
 const shieldButton = document.getElementById('shield-button')
 let showHideShield = document.getElementById('shield-info')
@@ -11,14 +12,38 @@ let showHideShield = document.getElementById('shield-info')
 
 // Adding/Removing Weapons
 
-    // I want to click the add weapon button to appened the already created
-        // div(s) the the li? 
+const meleeModal = document.getElementById('melee-modal')
+const addMeleeBtn = document.getElementById('addMelee')
+const closeMeleeBtn = document.getElementById('close-melee')
 
-addWeaponBtn.onclick = function () {
-    let weaponContainer = document.querySelector('#weapon-container')
-    let meleeWeapon = document.querySelector('#melee-weapon')
-    weaponContainer.appendChild(meleeWeapon)
+addMeleeBtn.addEventListener('click', openMelee)
+closeMeleeBtn.addEventListener('click', closeMelee)
+window.addEventListener('click', outsideClick);
+
+//opens the melee modal window
+function openMelee(){
+    console.log(123)
+    meleeModal.style.display = 'flex'
 }
+
+//closes the melee modal window
+function closeMelee(){
+    console.log(123)
+    meleeModal.style.display = 'none'
+}
+
+//close the modal(s) clicking outside window
+function outsideClick(e) {
+    if (e.target == meleeModal) {
+      meleeModal.style.display = 'none';
+    }
+  }
+
+
+
+  
+
+
 
 
 //button for showing and hiding shield information

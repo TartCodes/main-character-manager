@@ -756,13 +756,15 @@
     </div>     
 </div>  
 
-<div id="weapon-button">
-    <button type="button">Add Weapon</button>
+<div id="weapon-buttons">
+    <button id="addMelee" type="button">Add Melee</button>
+    <button id="addRanged" type="button">Add Ranged</button>
 </div>
       
         <!-- Melee -->       
            
-            <div class="melee-weapon-div" id="melee-weapon">
+        <div class="meleeModal " id="melee-modal">
+            <div class="modal-content">
                 <div>
                     <div>
                         <span>Weapon Name</span>
@@ -814,8 +816,10 @@
                         <textarea name="otherTraits" id="" cols="30" rows="2"></textarea>
                     </div>
                 </div>
+                <span id="add-weapon" class="button">Add</span>
+                <span id="close-melee" class="button">Cancel</span>
             </div>      
-
+        </div>
             <!-- Ranged -->
             <div class="range-weapon-div">
                 <div>
