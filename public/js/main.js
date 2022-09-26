@@ -12,23 +12,31 @@ let showHideShield = document.getElementById('shield-info')
 
 // Adding/Removing Weapons
 
+//the modal window
 const meleeModal = document.getElementById('melee-modal')
+//button to open the modal window
 const addMeleeBtn = document.getElementById('addMelee')
+//close the modal
 const closeMeleeBtn = document.getElementById('close-melee')
+//add the weapon to the dom
+const appendWeapon = document.getElementById('add-weapon')
+//access melee content
+const meleeContent = document.getElementById('melee-content')
+//div to append to?
+const appended = document.getElementById('weapon-buttons')
 
-addMeleeBtn.addEventListener('click', openMelee)
-closeMeleeBtn.addEventListener('click', closeMelee)
+addMeleeBtn.addEventListener('click', openMelee);
+closeMeleeBtn.addEventListener('click', closeMelee);
+appendWeapon.addEventListener('click', createWeapon)
 window.addEventListener('click', outsideClick);
 
 //opens the melee modal window
-function openMelee(){
-    console.log(123)
+function openMelee(){    
     meleeModal.style.display = 'flex'
 }
 
 //closes the melee modal window
-function closeMelee(){
-    console.log(123)
+function closeMelee(){    
     meleeModal.style.display = 'none'
 }
 
@@ -39,6 +47,35 @@ function outsideClick(e) {
     }
   }
 
+function createWeapon(){
+   console.log('nope')
+}
+
+
+
+// melee.addEventListener('click', function addMelee() {
+//     let newDiv = document.createElement('div')
+//         newDiv.className = 'melee-weapon-div'
+//         newDiv.innerHTML = "Weapon Name"
+//         meleeDiv.appendChild(newDiv)
+
+//     let nameInput = document.createElement('input')
+//         newDiv.appendChild(nameInput)
+
+//     let attackDiv = document.createElement('div')
+//         attackDiv.className = 'damage-die'
+//         attackDiv.innerHTML = 'Attack'       
+//         newDiv.appendChild(attackDiv)
+    
+//     let attackInput = document.createElement('input')
+//         attackInput.className = 'number-input'
+//         attackInput.type = 'number'
+//         newDiv.appendChild(attackInput)
+    
+//     let dSpan = document.createElement('span')
+//         dSpan.innerHTML = 'd'
+//         newDiv.appendChild(dSpan)
+// })
 
 
   
