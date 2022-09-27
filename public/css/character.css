@@ -96,6 +96,11 @@ table {
   }
 
 
+/* hidden */
+
+.hidden {
+	display: none !important;
+}
 
 /* input */
 
@@ -609,3 +614,17 @@ border-radius: 5px;
 }
 
 
+/* creation page */
+
+.required {
+	height: revert;
+	display: flex;
+	flex-direction: column;
+	row-gap: .5em;
+	margin-top: 1em;
+	
+}
+
+.intro {
+	width: 75%;
+}

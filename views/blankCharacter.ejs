@@ -16,19 +16,19 @@
 <body>         
     <form id="my-form" action="/character/createCharacter/<%= user.id %>" method="POST">     
 <% console.log(user._id, 'user id') %>
-    <header>
+    <header class="">
         <div>
             <h1>Character Manager</h1>
             <h3>Create Character/Blank Page</h3>
             <h3>Welcome, <%= user.firstName %></h3>
             <h3><%= dateAndTime() %> </h3>            
         </div>
-        <div>
+        <div class="required-btn">
             <a href="/auth/logout">
                 <button type="button">Logout</button>            
             </a>
         </div>
-        <div>            
+        <div class="required-btn">            
             <button class="button" type="submit">Save</button> 
         </div>                              
             
@@ -37,11 +37,11 @@
 
 <section class="main" id="main-container">  
    
-    <div class="left-side-bar">
-        <fieldset>                              
+    <!-- <div class="left-side-bar"> -->
+                              
 
 
-            <div id="title">Ancestry:</div>        
+            <!-- <div id="title">Ancestry:</div>        
                 <div>                          
                     <input class="larger-input" id="inputValues1" type="text" placeholder="" name="ancestry" value=" ">                
                 </div>         
@@ -68,14 +68,17 @@
             <div>Deity:</div>
                 <div>             
                     <input class="larger-input" type="text" name="deity" placeholder=""> 
-                </div>
+                </div> -->
             
-                 <div class="title-div">
-                        <span class="titles">Skills</span>    
-                    </div>
-        </fieldset> 
+                 
+        
     
-            <section class="skills-container">
+
+        <!-- Hidden below  -->
+            <div class="title-div hidden">
+                <span class="titles">Skills</span>    
+            </div>
+            <section class="skills-container hidden"> <!-- hides non require fields during creation-->
                
                 <!-- <div class="skills-cont-1"> -->
                     <div>                 
@@ -157,7 +160,7 @@
             </section>
 
     <!-- levels -->
-    <section class="level-container">
+    <!-- <section class="level-container">
     <div>
         <button type="button">Level 1</button>
     </div>
@@ -221,14 +224,15 @@
 
 
 
-    </section>
+    </section> -->
 
     </div>       
 
-    <!---Chacter Name----->
+    <!---Character Name----->
 <section class="main-container-right">
 
-    <div class="char-container">
+    <div class="char-container required">
+        <p class="intro">Welcome to a very basic PF2e Character Manager! Please fill out the below information related to your character; these fields are required to proceed. Once complete simply click "Save" at the top and you will be brought to the main character page where additional information can be added. Enjoy!</p>
             <div class="text-border">          
                 <div>Character Name</div>                
                     <div class="mouse-out" id="mouse-out">
@@ -241,436 +245,470 @@
                         <input class="larger-input" type="text" name="playerName">   
                     </div>
             </div> 
-            <div class="text-border">                
-                <div>Level</div>
-                    <div>
-                        <input class="number-input" type="number" placeholder="" name="level">            
-                    </div> 
-            </div>
-            <div class="text-border">                
-                <div>XP</div>
-                    <div>
-                        <input class="number-input" type="number" placeholder="" name="xp">
-                    </div>
-            </div>
 
-            <div class="text-border">                 
-                <div>Hero Points</div>
-                    <div class="hero-points-div">
-                        <input type="checkbox" name="heroCheck" value="onePoint"> <!-- % if (character.onePoint === true) { checked } %> --> 
-                        <input type="checkbox" name="heroCheck" value="twoPoint">  
-                        <input type="checkbox" name="heroCheck" value="threePoint">        
-                    </div>
-            </div>
-
-            <div class="text-border">    
-                <div>Size</div>
-                   <select name="size">                   
-                        <option value="tiny">Tiny</option>
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
-                        <option value="huge">Huge</option>
-                        <option value="gargantuan">Gargantuan</option>
-                    </select>                                   
-            </div>        
-        
-            <div class="text-border">        
-                <div>Alignment</div>
-                    <select name="alignment" id="">
-                        <option value="lg">LG</option>
-                        <option value="ln">LN</option>
-                        <option value="le">LE</option>
-                        <option value="ng">NG</option>
-                        <option value="tn">TN</option>
-                        <option value="ne">NE</option>
-                        <option value="cg">CG</option>
-                        <option value="cn">CN</option>
-                        <option value="ce">CE</option>
-                    </select> 
-            </div>
-            <div class="text-border"> 
-                <div>Traits</div>
-                    <div>
-                        <input class="traits" type="text" placeholder="" name="traits">           
-                    </div>
-            </div>
-    </div>
-
-   <!-- Hit Points -->
-    <div class="hp-container">
-            <div class="text-border">              
-                <div>HP</div>                   
-                    <div>
-                        <input class="number-input" type="number" name="hp">
-                    </div>
-            </div>
-            <div class="text-border">             
-                <div>Current</div>                    
-                    <div>
-                        <input class="number-input" type="number" name="currentHP">
-                    </div>
-            </div>
-
-            <div class="text-border">            
-                <div>Temporary</div>                
-                    <div>
-                        <input class="number-input" type="number" name="tempHP">
-                    </div>
-            </div>
-
-            <div class="text-border">    
-                <div>Dying</div>
-                    <div class="hero-points-div">                  
-                        <input class="dying" type="checkbox" name="dyingCheck" value="dyingOne">
-                        <input class="dying" type="checkbox" name="dyingCheck" value="dyingTwo">  
-                        <input class="dying" type="checkbox" name="dyingCheck" value="dyingThree">        
-                    </div>
-            </div>
-
-            <div class="text-border">    
-                <div>Wounded</div>
-                    <div class="hero-points-div">
-                        <input type="checkbox" value="woundedOne" name="woundedCheck">
-                        <input type="checkbox" value="woundedTwo" name="woundedCheck">  
-                        <input type="checkbox" value="woundedThree" name="woundedCheck">        
-            </div>                       
-        <!-- </div>         -->
-    </div>   
-        <!-- stats and mods -->
-        <div class="ability-container">              
-            
-            <div class="text-border"> 
-                 <div class="ability-scores">Str</div>
-                     <div>                                               
-                         <input class="number-input" type="number" name="totalStr">   
-                     </div>
-                     <div class="mod-div">              
-                        <span>+</span>
-                        <input class="number-input" type="number" name="strMod">                        
-                     </div> 
-            </div>           
-            <div class="text-border"> 
-                <div class="ability-scores">Dex</div>
-                    <div>                                               
-                        <input class="number-input" type="number" name="totalDex">   
-                    </div>
-                    <div class="mod-div">              
-                       <span>+</span>
-                       <input class="number-input" type="number" name="dexMod">                        
-                    </div> 
-           </div>           
-                 <div class="text-border"> 
-                 <div class="ability-scores">Con</div>
-                     <div>                                               
-                         <input class="number-input" type="number" name="totalCon">   
-                     </div>
-                     <div class="mod-div">              
-                        <span>+</span>
-                        <input class="number-input" type="number" name="conMod">                        
-                     </div> 
-            </div>                            
-                 <div class="text-border"> 
-                 <div class="ability-scores">Int</div>
-                     <div>                                               
-                         <input class="number-input" type="number" name="totalInt">   
-                     </div>
-                     <div class="mod-div">              
-                        <span>+</span>
-                        <input class="number-input" type="number" name="intMod">                        
-                     </div> 
-            </div>             
-                 <div class="text-border"> 
-                 <div class="ability-scores">Wis</div>
-                     <div>                                               
-                         <input class="number-input" type="number" name="totalWis">   
-                     </div>
-                     <div class="mod-div">              
-                        <span>+</span>
-                        <input class="number-input" type="number" name="wisMod">                        
-                     </div> 
-            </div>           
-             
-                 <div class="text-border"> 
-                 <div class="ability-scores">Cha</div>
-                     <div>                                               
-                         <input class="number-input" type="number" name="totalCha">   
-                     </div>
-                     <div class="mod-div">              
-                        <span>+</span>
-                        <input class="number-input" type="number" name="chaMod">                        
-                     </div> 
-            </div>           
-         </div>
-    </div>
-
-    <!-- resistance and conditions -->
-    <div class="resis-cond-container">
-            <div class="text-border">    
-                <div>Resistances/Immunities:</div> 
-                    <div>
-                        <textarea name="resistsImmunities" id="" cols="25" rows="3"></textarea>
-                    </div>
+        <div class="required">
+            <div id="title">Ancestry:</div>        
+                <div>                          
+                    <input class="larger-input" id="inputValues1" type="text" placeholder="" name="ancestry" value=" ">                
+                </div>         
+            <div>Heritage:</div>
+                <div>    
+                    <input class="larger-input" id="inputValues2" type="text" placeholder="" name="heritage" value= "">                                                          
                 </div>
-
-            <div class="text-border">    
-                <div>Conditions:</div>
-                    <div>
-                        <textarea name="conditions" id="" cols="25" rows="3"></textarea>
-                    </div> 
-                </div>  
-               
-    <!-- saving throws -->     
-        <div class="saving-throws-container">           
-            <div class="titles">Saving Throws</div>
-            
-            <div class="saves">
-                <div class="saves-text-main">
-                    <div>Fort</div>
-                        <div>
-                            <input class="number-input" type="number" name="fortSave">
-                        </div>             
+            <div>Background:</div>
+                <div>
+                    <input class="larger-input" id="inputValues3" type="text" placeholder="" name="background" value="">
                 </div>
-                <div class="saves-text">    
-                    <div>Con</div>
-                        <div>
-                            <input class="number-input" type="number" name="fortMod"> 
-                        </div>
+            <div>Ancestry Ability:</div>
+                <div>
+                    <input class="larger-input" type="text" placeholder="" name="ancestryAbility" value="">
+                </div>                    
+            <div>Class:</div>
+                <div>
+                    <input class="larger-input" type="text" placeholder="" name="class" value="<%#= character.class %>">
+                </div>                    
+            <div>Background Ability:</div>
+                <div>    
+                    <textarea  id="" cols="20" rows="5" name="backgroundAbility"></textarea>                
                 </div>
-                <div class="saves-text">
-                    <div>Prof</div>
-                        <div>
-                            <input class="number-input" type="number" name="fortProf">
-                        </div>
+            <div>Deity:</div>
+                <div>             
+                    <input class="larger-input" type="text" name="deity" placeholder=""> 
                 </div>
-                <div class="saves-text">
-                    <div>Item</div>
-                        <div>
-                            <input class="number-input" type="number" name="fortItem">                               
-                        </div>
-                </div>
-                <div class="saves-text-check">                            
-                    <div class="hero-points-div">
-                        <input type="checkbox" value="plusTwo" name="fortCheck">
-                        <input type="checkbox" value="plusFour" name="fortCheck">  
-                        <input type="checkbox" value="plusSix" name="fortCheck">
-                        <input type="checkbox" value="plusEight" name="fortCheck">        
-                    </div>                            
-                </div>
-            </div>                 
-            <!-- reflex -->
-            <div class="saves">                                               
-                <div class="saves-text-main">
-                    <div>Reflex</div>
-                        <div>
-                            <input class="number-input" type="number" name="reflexSave">
-                        </div>             
-                </div>
-                <div class="saves-text">    
-                    <div>Dex</div>
-                        <div>
-                            <input class="number-input" type="number" name="reflexMod"> 
-                        </div>
-                </div>
-                <div class="saves-text">
-                    <div>Prof</div>
-                        <div>
-                            <input class="number-input" type="number" name="reflexProf">
-                        </div>
-                </div>
-                <div class="saves-text">
-                    <div>Item</div>
-                        <div>
-                            <input class="number-input" type="number" name="reflexItem">                               
-                        </div>
-                </div>
-                <div class="saves-text-check">                            
-                    <div class="hero-points-div">
-                        <input type="checkbox" value="plusTwo" name="reflexCheck">
-                        <input type="checkbox" value="plusFour" name="reflexCheck">  
-                        <input type="checkbox" value="plusSix" name="reflexCheck">
-                        <input type="checkbox" value="plusEight" name="reflexCheck">        
-                    </div>                            
-                </div>
-        </div> 
-            <!-- will --> 
-            <div class="saves">                                      
-                <div class="saves-text-main">
-                    <div>Will</div>
-                        <div>
-                            <input class="number-input" type="number" name="willSave">
-                        </div>             
-                </div>
-                <div class="saves-text">    
-                    <div>Wis</div>
-                        <div>
-                            <input class="number-input" type="number" name="willMod"> 
-                        </div>
-                </div>
-                <div class="saves-text">
-                    <div>Prof</div>
-                        <div>
-                            <input class="number-input" type="number" name="willProf">
-                        </div>
-                </div>
-                <div class="saves-text">
-                    <div>Item</div>
-                        <div>
-                            <input class="number-input" type="number" name="willItem">                               
-                        </div>
-                </div>
-                <div class="saves-text-check">                            
-                    <div class="hero-points-div">
-                        <input type="checkbox" value="plusTwo" name="willCheck">
-                        <input type="checkbox" value="plusFour" name="willCheck">  
-                        <input type="checkbox" value="plusSix" name="willCheck">
-                        <input type="checkbox" value="plusEight" name="willCheck">        
-                    </div>                           
-                </div>
-            </div>            
-        </div>    
-    </div>          
-
-        <!-- dc's, ac -->    
-     
-    
-    <div class="armor-container">    
-        <div class="ac-style">
-            <div>
-                <input class="number-input" type="number" name="totalAC">
-            </div>
-            <div>= AC</div>
         </div>
-        <div>Dex:</div>
-            <div>
-                <input class="number-input" type="number" name="acDexBonus"> 
-            </div>            
-        <div>Cap:</div>
-            <div>
-                <input class="number-input" type="number" name="acCap"> 
-            </div>          
-            <div class="hero-points-div">
-                <input type="checkbox" value="plusTwo" name="acProfCheck">
-                <input type="checkbox" value="plusFour" name="acProfCheck">  
-                <input type="checkbox" value="plusSix" name="acProfCheck">
-                <input type="checkbox" value="plusEight" name="acProfCheck">        
+        <section class="hidden">
+                <div class="text-border">                
+                    <div>Level</div>
+                        <div>
+                            <input class="number-input" type="number" placeholder="" name="level">            
+                        </div> 
+                </div>
+                <div class="text-border">                
+                    <div>XP</div>
+                        <div>
+                            <input class="number-input" type="number" placeholder="" name="xp">
+                        </div>
+                </div>
+
+                <div class="text-border">                 
+                    <div>Hero Points</div>
+                        <div class="hero-points-div">
+                            <input type="checkbox" name="heroCheck" value="onePoint"> <!-- % if (character.onePoint === true) { checked } %> --> 
+                            <input type="checkbox" name="heroCheck" value="twoPoint">  
+                            <input type="checkbox" name="heroCheck" value="threePoint">        
+                        </div>
+                </div>
+
+                <div class="text-border">    
+                    <div>Size</div>
+                       <select name="size">                   
+                            <option value="tiny">Tiny</option>
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                            <option value="huge">Huge</option>
+                            <option value="gargantuan">Gargantuan</option>
+                        </select>                                   
+                </div>        
+            
+                <div class="text-border">        
+                    <div>Alignment</div>
+                        <select name="alignment" id="">
+                            <option value="lg">LG</option>
+                            <option value="ln">LN</option>
+                            <option value="le">LE</option>
+                            <option value="ng">NG</option>
+                            <option value="tn">TN</option>
+                            <option value="ne">NE</option>
+                            <option value="cg">CG</option>
+                            <option value="cn">CN</option>
+                            <option value="ce">CE</option>
+                        </select> 
+                </div>
+                <div class="text-border"> 
+                    <div>Traits</div>
+                        <div>
+                            <input class="traits" type="text" placeholder="" name="traits">           
+                        </div>
+                </div>
+        </section>  <!--hidden section that wraps all not required fields-->   
+    </div>
+
+    <section class="hidden">
+   <!-- Hit Points -->
+        <div class="hp-container">
+                <div class="text-border">              
+                    <div>HP</div>                   
+                        <div>
+                            <input class="number-input" type="number" name="hp">
+                        </div>
+                </div>
+                <div class="text-border">             
+                    <div>Current</div>                    
+                        <div>
+                            <input class="number-input" type="number" name="currentHP">
+                        </div>
+                </div>
+
+                <div class="text-border">            
+                    <div>Temporary</div>                
+                        <div>
+                            <input class="number-input" type="number" name="tempHP">
+                        </div>
+                </div>
+
+                <div class="text-border">    
+                    <div>Dying</div>
+                        <div class="hero-points-div">                  
+                            <input class="dying" type="checkbox" name="dyingCheck" value="dyingOne">
+                            <input class="dying" type="checkbox" name="dyingCheck" value="dyingTwo">  
+                            <input class="dying" type="checkbox" name="dyingCheck" value="dyingThree">        
+                        </div>
+                </div>
+
+                <div class="text-border">    
+                    <div>Wounded</div>
+                        <div class="hero-points-div">
+                            <input type="checkbox" value="woundedOne" name="woundedCheck">
+                            <input type="checkbox" value="woundedTwo" name="woundedCheck">  
+                            <input type="checkbox" value="woundedThree" name="woundedCheck">        
+                </div>                       
+            <!-- </div>         -->
+        </div>   
+            <!-- stats and mods -->
+            <div class="ability-container">              
+
+                <div class="text-border"> 
+                     <div class="ability-scores">Str</div>
+                         <div>                                               
+                             <input class="number-input" type="number" name="totalStr">   
+                         </div>
+                         <div class="mod-div">              
+                            <span>+</span>
+                            <input class="number-input" type="number" name="strMod">                        
+                         </div> 
+                </div>           
+                <div class="text-border"> 
+                    <div class="ability-scores">Dex</div>
+                        <div>                                               
+                            <input class="number-input" type="number" name="totalDex">   
+                        </div>
+                        <div class="mod-div">              
+                           <span>+</span>
+                           <input class="number-input" type="number" name="dexMod">                        
+                        </div> 
+               </div>           
+                     <div class="text-border"> 
+                     <div class="ability-scores">Con</div>
+                         <div>                                               
+                             <input class="number-input" type="number" name="totalCon">   
+                         </div>
+                         <div class="mod-div">              
+                            <span>+</span>
+                            <input class="number-input" type="number" name="conMod">                        
+                         </div> 
+                </div>                            
+                     <div class="text-border"> 
+                     <div class="ability-scores">Int</div>
+                         <div>                                               
+                             <input class="number-input" type="number" name="totalInt">   
+                         </div>
+                         <div class="mod-div">              
+                            <span>+</span>
+                            <input class="number-input" type="number" name="intMod">                        
+                         </div> 
+                </div>             
+                     <div class="text-border"> 
+                     <div class="ability-scores">Wis</div>
+                         <div>                                               
+                             <input class="number-input" type="number" name="totalWis">   
+                         </div>
+                         <div class="mod-div">              
+                            <span>+</span>
+                            <input class="number-input" type="number" name="wisMod">                        
+                         </div> 
+                </div>           
+
+                     <div class="text-border"> 
+                     <div class="ability-scores">Cha</div>
+                         <div>                                               
+                             <input class="number-input" type="number" name="totalCha">   
+                         </div>
+                         <div class="mod-div">              
+                            <span>+</span>
+                            <input class="number-input" type="number" name="chaMod">                        
+                         </div> 
+                </div>           
+             </div>
+        </div>
+
+        <!-- resistance and conditions -->
+        <div class="resis-cond-container">
+                <div class="text-border">    
+                    <div>Resistances/Immunities:</div> 
+                        <div>
+                            <textarea name="resistsImmunities" id="" cols="25" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                <div class="text-border">    
+                    <div>Conditions:</div>
+                        <div>
+                            <textarea name="conditions" id="" cols="25" rows="3"></textarea>
+                        </div> 
+                    </div>  
+                
+        <!-- saving throws -->     
+            <div class="saving-throws-container">           
+                <div class="titles">Saving Throws</div>
+
+                <div class="saves">
+                    <div class="saves-text-main">
+                        <div>Fort</div>
+                            <div>
+                                <input class="number-input" type="number" name="fortSave">
+                            </div>             
+                    </div>
+                    <div class="saves-text">    
+                        <div>Con</div>
+                            <div>
+                                <input class="number-input" type="number" name="fortMod"> 
+                            </div>
+                    </div>
+                    <div class="saves-text">
+                        <div>Prof</div>
+                            <div>
+                                <input class="number-input" type="number" name="fortProf">
+                            </div>
+                    </div>
+                    <div class="saves-text">
+                        <div>Item</div>
+                            <div>
+                                <input class="number-input" type="number" name="fortItem">                               
+                            </div>
+                    </div>
+                    <div class="saves-text-check">                            
+                        <div class="hero-points-div">
+                            <input type="checkbox" value="plusTwo" name="fortCheck">
+                            <input type="checkbox" value="plusFour" name="fortCheck">  
+                            <input type="checkbox" value="plusSix" name="fortCheck">
+                            <input type="checkbox" value="plusEight" name="fortCheck">        
+                        </div>                            
+                    </div>
+                </div>                 
+                <!-- reflex -->
+                <div class="saves">                                               
+                    <div class="saves-text-main">
+                        <div>Reflex</div>
+                            <div>
+                                <input class="number-input" type="number" name="reflexSave">
+                            </div>             
+                    </div>
+                    <div class="saves-text">    
+                        <div>Dex</div>
+                            <div>
+                                <input class="number-input" type="number" name="reflexMod"> 
+                            </div>
+                    </div>
+                    <div class="saves-text">
+                        <div>Prof</div>
+                            <div>
+                                <input class="number-input" type="number" name="reflexProf">
+                            </div>
+                    </div>
+                    <div class="saves-text">
+                        <div>Item</div>
+                            <div>
+                                <input class="number-input" type="number" name="reflexItem">                               
+                            </div>
+                    </div>
+                    <div class="saves-text-check">                            
+                        <div class="hero-points-div">
+                            <input type="checkbox" value="plusTwo" name="reflexCheck">
+                            <input type="checkbox" value="plusFour" name="reflexCheck">  
+                            <input type="checkbox" value="plusSix" name="reflexCheck">
+                            <input type="checkbox" value="plusEight" name="reflexCheck">        
+                        </div>                            
+                    </div>
+            </div> 
+                <!-- will --> 
+                <div class="saves">                                      
+                    <div class="saves-text-main">
+                        <div>Will</div>
+                            <div>
+                                <input class="number-input" type="number" name="willSave">
+                            </div>             
+                    </div>
+                    <div class="saves-text">    
+                        <div>Wis</div>
+                            <div>
+                                <input class="number-input" type="number" name="willMod"> 
+                            </div>
+                    </div>
+                    <div class="saves-text">
+                        <div>Prof</div>
+                            <div>
+                                <input class="number-input" type="number" name="willProf">
+                            </div>
+                    </div>
+                    <div class="saves-text">
+                        <div>Item</div>
+                            <div>
+                                <input class="number-input" type="number" name="willItem">                               
+                            </div>
+                    </div>
+                    <div class="saves-text-check">                            
+                        <div class="hero-points-div">
+                            <input type="checkbox" value="plusTwo" name="willCheck">
+                            <input type="checkbox" value="plusFour" name="willCheck">  
+                            <input type="checkbox" value="plusSix" name="willCheck">
+                            <input type="checkbox" value="plusEight" name="willCheck">        
+                        </div>                           
+                    </div>
+                </div>            
             </div>    
+        </div>          
+
+            <!-- dc's, ac -->    
+
+
+        <div class="armor-container">    
+            <div class="ac-style">
+                <div>
+                    <input class="number-input" type="number" name="totalAC">
+                </div>
+                <div>= AC</div>
+            </div>
+            <div>Dex:</div>
+                <div>
+                    <input class="number-input" type="number" name="acDexBonus"> 
+                </div>            
+            <div>Cap:</div>
+                <div>
+                    <input class="number-input" type="number" name="acCap"> 
+                </div>          
+                <div class="hero-points-div">
+                    <input type="checkbox" value="plusTwo" name="acProfCheck">
+                    <input type="checkbox" value="plusFour" name="acProfCheck">  
+                    <input type="checkbox" value="plusSix" name="acProfCheck">
+                    <input type="checkbox" value="plusEight" name="acProfCheck">        
+                </div>    
+            <div>Item:</div>
+                <div>
+                    <input class="number-input" type="number" name="acItemBonus">
+                </div>
+        </div>
+        <!--armor type  -->
+        <div class="armor-type-container">
+            <div class="armor-type-text">            
+                <div>Unarmored</div>
+                <div class="hero-points-div">
+                    <input type="checkbox" value="plusTwo" name="unarmoredProf">
+                    <input type="checkbox" value="plusFour" name="unarmoredProf">  
+                    <input type="checkbox" value="plusSix" name="unarmoredProf">
+                    <input type="checkbox" value="plusEight" name="unarmoredProf">        
+                </div> 
+            </div>
+
+            <div class="armor-type-text"> 
+                <div>Light</div>
+                <div class="hero-points-div">
+                    <input type="checkbox" value="plusTwo" name="lightArmorCheck">
+                    <input type="checkbox" value="plusFour" name="lightArmorCheck">  
+                    <input type="checkbox" value="plusSix" name="lightArmorCheck">
+                    <input type="checkbox" value="plusEight" name="lightArmorCheck">        
+                </div>  
+            </div>
+            <div class="armor-type-text"> 
+                <div>Medium</div>
+                <div class="hero-points-div">
+                    <input type="checkbox" value="plusTwo" name="mediumArmorCheck">
+                    <input type="checkbox" value="plusFour" name="mediumArmorCheck">  
+                    <input type="checkbox" value="plusSix" name="mediumArmorCheck">
+                    <input type="checkbox" value="plusEight" name="mediumArmorCheck">        
+                </div>  
+            </div>
+            <div class="armor-type-text"> 
+                <div>Heavy</div>       
+                <div class="hero-points-div">
+                    <input type="checkbox" value="plusTwo" name="heavyArmorCheck">
+                    <input type="checkbox" value="plusFour" name="heavyArmorCheck">  
+                    <input type="checkbox" value="plusSix" name="heavyArmorCheck">
+                    <input type="checkbox" value="plusEight" name="heavyArmorCheck">        
+                </div>   
+            </div>       
+        </div>
+        <!-- shield info -->
+        <div class="shield-header" id="shield-title">
+            <button type="button" id="shield-button">Show Shield</button>        
+        </div>
+
+        <div class="shield-container" id="shield-info">        
+            <div class="armor-type-text">           
+                <div>Raise</div>            
+                    <!-- <div> -->
+                       <!-- <span>+<input class="number-input" type="number">AC</span> -->
+                       <div class="shieldac-div">              
+                        <span>+</span>
+                        <input class="number-input" type="number" name="shieldAC">   
+                        <span>AC</span>                     
+                     </div>
+                    <!-- </div>         -->
+                </div>
+            <div class="armor-type-text"> 
+                <div>Hardness</div>
+                    <div>
+                        <input class="number-input" type="number" name="hardness"> 
+                    </div>
+            </div>
+            <div class="armor-type-text"> 
+                <div>Max HP</div>
+                    <div>
+                        <input class="number-input" type="number" name="shieldHP">                     
+                    </div>
+            </div>
+            <div class="armor-type-text"> 
+                <div>Break</div>
+                    <div>
+                        <input class="number-input" type="number" name="shieldBreak"> 
+                    </div>
+            </div>
+            <div class="armor-type-text"> 
+                <div>Current HP</div>
+                    <div>   
+                        <input class="number-input" type="number" name="shieldCurrentHP"> 
+                    </div>  
+            </div>   
+        </div>
+
+        <div class="classdc-container">                 
+            <div class="ac-style">                               
+                <div>   
+                    <input class="number-input" type="number" name="classDC">           
+                </div>
+                <div>= Class DC</div>             
+            </div>
+            <div>Key:</div>
+                <div>                                
+                    <input class="number-input" type="number" name="classKey"> 
+                </div>
+            <div>Prof:</div>
+                <div>                     
+                    <input class="number-input" type="number" name="classDCProf">
+                </div>
+            
+                <div class="hero-points-div">
+                    <input type="checkbox" value="plusTwo" name="classDcCheck">
+                    <input type="checkbox" value="plusFour" name="classDcCheck">  
+                    <input type="checkbox" value="plusSix" name="classDcCheck">
+                    <input type="checkbox" value="plusEight" name="classDcCheck">        
+                </div>
+
         <div>Item:</div>
             <div>
-                <input class="number-input" type="number" name="acItemBonus">
-            </div>
-    </div>
-    <!--armor type  -->
-    <div class="armor-type-container">
-        <div class="armor-type-text">            
-            <div>Unarmored</div>
-            <div class="hero-points-div">
-                <input type="checkbox" value="plusTwo" name="unarmoredProf">
-                <input type="checkbox" value="plusFour" name="unarmoredProf">  
-                <input type="checkbox" value="plusSix" name="unarmoredProf">
-                <input type="checkbox" value="plusEight" name="unarmoredProf">        
-            </div> 
+                <input class="number-input" type="number" name="classDCItem">
+            </div>                                                
         </div>
-
-        <div class="armor-type-text"> 
-            <div>Light</div>
-            <div class="hero-points-div">
-                <input type="checkbox" value="plusTwo" name="lightArmorCheck">
-                <input type="checkbox" value="plusFour" name="lightArmorCheck">  
-                <input type="checkbox" value="plusSix" name="lightArmorCheck">
-                <input type="checkbox" value="plusEight" name="lightArmorCheck">        
-            </div>  
-        </div>
-        <div class="armor-type-text"> 
-            <div>Medium</div>
-            <div class="hero-points-div">
-                <input type="checkbox" value="plusTwo" name="mediumArmorCheck">
-                <input type="checkbox" value="plusFour" name="mediumArmorCheck">  
-                <input type="checkbox" value="plusSix" name="mediumArmorCheck">
-                <input type="checkbox" value="plusEight" name="mediumArmorCheck">        
-            </div>  
-        </div>
-        <div class="armor-type-text"> 
-            <div>Heavy</div>       
-            <div class="hero-points-div">
-                <input type="checkbox" value="plusTwo" name="heavyArmorCheck">
-                <input type="checkbox" value="plusFour" name="heavyArmorCheck">  
-                <input type="checkbox" value="plusSix" name="heavyArmorCheck">
-                <input type="checkbox" value="plusEight" name="heavyArmorCheck">        
-            </div>   
-        </div>       
-    </div>
-    <!-- shield info -->
-    <div class="shield-header" id="shield-title">
-        <button type="button" id="shield-button">Show Shield</button>        
-    </div>
-
-    <div class="shield-container" id="shield-info">        
-        <div class="armor-type-text">           
-            <div>Raise</div>            
-                <!-- <div> -->
-                   <!-- <span>+<input class="number-input" type="number">AC</span> -->
-                   <div class="shieldac-div">              
-                    <span>+</span>
-                    <input class="number-input" type="number" name="shieldAC">   
-                    <span>AC</span>                     
-                 </div>
-                <!-- </div>         -->
-            </div>
-        <div class="armor-type-text"> 
-            <div>Hardness</div>
-                <div>
-                    <input class="number-input" type="number" name="hardness"> 
-                </div>
-        </div>
-        <div class="armor-type-text"> 
-            <div>Max HP</div>
-                <div>
-                    <input class="number-input" type="number" name="shieldHP">                     
-                </div>
-        </div>
-        <div class="armor-type-text"> 
-            <div>Break</div>
-                <div>
-                    <input class="number-input" type="number" name="shieldBreak"> 
-                </div>
-        </div>
-        <div class="armor-type-text"> 
-            <div>Current HP</div>
-                <div>   
-                    <input class="number-input" type="number" name="shieldCurrentHP"> 
-                </div>  
-        </div>   
-    </div>
-    
-    <div class="classdc-container">                 
-        <div class="ac-style">                               
-            <div>   
-                <input class="number-input" type="number" name="classDC">           
-            </div>
-            <div>= Class DC</div>             
-        </div>
-        <div>Key:</div>
-            <div>                                
-                <input class="number-input" type="number" name="classKey"> 
-            </div>
-        <div>Prof:</div>
-            <div>                     
-                <input class="number-input" type="number" name="classDCProf">
-            </div>
-    
-            <div class="hero-points-div">
-                <input type="checkbox" value="plusTwo" name="classDcCheck">
-                <input type="checkbox" value="plusFour" name="classDcCheck">  
-                <input type="checkbox" value="plusSix" name="classDcCheck">
-                <input type="checkbox" value="plusEight" name="classDcCheck">        
-            </div>
-
-    <div>Item:</div>
-        <div>
-            <input class="number-input" type="number" name="classDCItem">
-        </div>                                                
-</div>
 
     <!-- Perception Info -->
     <div class="perception-container">           
@@ -756,8 +794,9 @@
     </div>     
 </div>  
 </form>
+</section>  <!--hidden section that wraps all not required fields--> 
 
-
+<section class="hidden">
 <div id="weapon-buttons">
     <button id="addMelee" type="button">Add Melee</button>
     <button id="addRanged" type="button">Add Ranged</button>
@@ -880,13 +919,14 @@
                     </div>
                 </div>
             </div> 
-    </div>           
-    </form>    
-    </section> <!--main container right-->
-    
-</section> <!-- main container--> 
+    </div> 
+           
+            </form>    
+        </section> <!--main container right-->
  
+    </section> <!-- main container--> 
 
+</section>  <!--hidden section that wraps all not required fields-->   
 </body>
 <script type="text/javascript" src="/js/main.js"></script>
 
