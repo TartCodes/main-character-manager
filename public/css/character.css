@@ -479,20 +479,26 @@ span {
 		align-items: center;
 	}
 
-/* .melee-weapon-div {
-	display: none;    
+.melee-weapon-div {
+	display: flex;    
     text-align: center;
     column-gap: 1em;
 	width: 100%;
 	justify-content: center;		
-} */
-
-.range-weapon-div {
-	display: none;
 }
 
+.range-weapon-div {
+	display: flex;    
+    text-align: center;
+    column-gap: 1em;
+	width: 100%;
+	justify-content: center;
+}
+
+
+
 /* modal style */
-.meleeModal {
+/* .meleeModal {
 	display: none;
 	position: fixed;
     z-index: 1;
@@ -505,7 +511,7 @@ span {
     border-radius: 5px;
     padding-top: 5px;
 	column-gap: 1em;
-    justify-content: center;
+    justify-content: center;	
   }
 
   .modal-content {
@@ -522,6 +528,7 @@ span {
     animation-duration: var(--modal-duration);
     align-items: center;
 	border-radius: 5px;
+	margin-top: 20%
   }
 
 .close-modal:hover,
@@ -529,7 +536,7 @@ span {
   color: #000;
   text-decoration: none;
   cursor: pointer;
-}
+} */
 
 
 /* ------- */
@@ -623,6 +630,11 @@ border-radius: 5px;
 	row-gap: .5em;
 	margin-top: 1em;
 	
+}
+
+.required-btn {
+	display: flex;
+	flex-direction: column;
 }
 
 .intro {

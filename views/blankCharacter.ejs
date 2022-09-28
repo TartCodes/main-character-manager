@@ -14,7 +14,9 @@
     
 </head>
 <body>         
-    <form id="my-form" action="/character/createCharacter/<%= user.id %>" method="POST">     
+    <form id="my-form" action="/character/createCharacter/<%= user.id %> " method="POST">
+        <form action="/weapon/createWeapon/<%= user.id %> " method="POST">    
+    
 <% console.log(user._id, 'user id') %>
     <header class="">
         <div>
@@ -24,14 +26,15 @@
             <h3><%= dateAndTime() %> </h3>            
         </div>
         <div class="required-btn">
-            <a href="/auth/logout">
-                <button type="button">Logout</button>            
-            </a>
-        </div>
-        <div class="required-btn">            
-            <button class="button" type="submit">Save</button> 
-        </div>                              
-            
+            <div>
+                <a href="/auth/logout">
+                    <button type="button">Logout</button>            
+                </a>
+            </div>
+            <div>            
+                <button class="button" type="submit">Save</button> 
+            </div>                              
+        </div>    
                
     </header>
 
@@ -803,123 +806,246 @@
 </div>
       
         <!-- Melee -->       
- <form action="/weapon/createWeapon/<%= user.id %>" method="POST">         
-        <div class="meleeModal " id="melee-modal">
-            <div class="modal-content" id="melee-content">
-                <div>
-                    <div>
-                        <span>Weapon Name</span>
-                    </div>
-                    <input type="text" name="meleeWeaponName" id="">
-                </div>
-
-                <div class="damage-die">
-                    <div>
-                        <span>Attack</span>
-                    </div>
-                    <input class="number-input" type="number" name="attackDie">
-                    <span>d</span>
-                    <input class="number-input" type="number" name="damageDie">
-                    <select name="damageTypeWeapon" id="">
-                        <option value="P">P</option>
-                        <option value="S">S</option>
-                        <option value="B">B</option>                        
-                    </select>
-                </div>
-
-                <div class="weapon-prof-list">
-                    <div>Type</div>
-                    <select name="weaponProfType" id="">
-                        <option value="Unarmed">Unarmed</option>
-                        <option value="Simple">Simple</option>
-                        <option value="Martial">Martial</option>
-                        <option value="Advanced">Advanced</option>                        
-                    </select>
-                </div>               
-
-                <div class="versatile">
-                    <div>
-                        <span>Versatile</span>
-                    </div>
-                    <select name="weaponDmgType" id="">
-                        <option value="blank"></option>
-                        <option value="P">P</option>
-                        <option value="S">S</option>
-                        <option value="B">B</option>                        
-                    </select>
-                </div>
-
-                <div class="other-traits">
-                    <div>
-                        <span>Other Traits</span>
-                    </div>
-                    <div>
-                        <textarea name="otherTraits" id="" cols="30" rows="2"></textarea>
-                    </div>
-                </div>
-                <button id="add-weapon" class="button" type="submit">Add</button>
-                <span id="close-melee" class="button">Cancel</span>
-            </div>      
-        </div>
- </form>
- <form action="POST">
-            <!-- Ranged -->
-            <div class="range-weapon-div">
-                <div>
-                    <div>
-                        <span>Weapon Name</span>
-                    </div>
-                    <input type="text" name="rangeWeaponName" id="">
-                </div>
-
-                <div class="damage-die">
-                    <div>
-                        <span>Attack</span>
-                    </div>
-                    <input class="number-input" type="number" name="rangeAtkDie">
-                    <span>d</span>
-                    <input class="number-input" type="number" name="rangeDmgDie">
-                    <select name="rangeDmgType" id="">
-                        <option value="P">P</option>
-                        <option value="S">S</option>
-                        <option value="B">B</option>                        
-                    </select>
-                </div>
-
-                <div class="weapon-prof-list">
-                    <div>Type</div>
-                    <select name="rangeProfType" id="">
-                        <option value="Unarmed">Unarmed</option>
-                        <option value="Simple">Simple</option>
-                        <option value="Martial">Martial</option>
-                        <option value="Advanced">Advanced</option>                        
-                    </select>
-                </div>        
-
-                <div class="range">
-                    <div>
-                        <span>Range</span>
-                    </div>
-                    <input class="number-input" type="number" name="weaponRange">
-                </div>
-
-                <div class="reload">
-                    <div>
-                        <span>Reload</span>
-                    </div>
-                    <input class="number-input" type="number" name="rangeReload">
-                </div>
-
-                <div class="other-traits">
-                    <div>
-                        <span>Other Traits</span>
-                    </div>
-                    <div>
-                        <textarea name="rangeTraits" id="" cols="30" rows="2"></textarea>
-                    </div>
-                </div>
-            </div> 
-    </div> 
+       
+            <span class="titles">Melee Weapons</span>
+                   <div class="meleeModal" id="melee-modal">
+                      <!-- weapon one -->
+                       <div class="modal-content melee-weapon-div" id="melee-content">
+                           <div>
+                               <div>
+                                   <span>Weapon Name</span>
+                               </div>
+                              
+                                   <input type="text" name="meleeWeaponName" id="" value="">
+                               
+                           </div>
+           
+                           <div class="damage-die">
+                               <div>
+                                   <span>Attack</span>
+                               </div>
+                               <input class="number-input" type="number" name="attackDie">
+                               <span>d</span>
+                               <input class="number-input" type="number" name="damageDie">
+                               <select name="damageTypeWeapon" id="">
+                                   <option value="P">P</option>
+                                   <option value="S">S</option>
+                                   <option value="B">B</option>                        
+                               </select>
+                           </div>
+           
+                           <div class="weapon-prof-list">
+                               <div>Type</div>
+                               <select name="weaponProfType" id="">
+                                   <option value="Unarmed">Unarmed</option>
+                                   <option value="Simple">Simple</option>
+                                   <option value="Martial">Martial</option>
+                                   <option value="Advanced">Advanced</option>                        
+                               </select>
+                           </div>               
+           
+                           <div class="versatile">
+                               <div>
+                                   <span>Versatile</span>
+                               </div>
+                               <select name="weaponDmgType" id="">
+                                   <option value="blank"></option>
+                                   <option value="P">P</option>
+                                   <option value="S">S</option>
+                                   <option value="B">B</option>                        
+                               </select>
+                           </div>
+           
+                           <div class="other-traits">
+                               <div>
+                                   <span>Other Traits</span>
+                               </div>
+                               <div>
+                                   <textarea name="otherTraits" id="" cols="30" rows="2" placeholder="<%#= weapon.otherTraits %> "></textarea>
+                               </div>
+                           </div>
+                           
+                           <!-- <span id="close-melee" class="button">Cancel</span>  -->
+                       </div>                 
+                   </div>        
+           
+                   <!-- weapon two -->
+                   <div class="modal-content melee-weapon-div" id="melee-content">
+                       <div>
+                           <div>
+                               <span>Weapon Name</span>
+                           </div>   
+                                <input type="text" name="meleeWeaponName" id="" value="">
+                            </div>                 
+                       <div class="damage-die">
+                           <div>
+                               <span>Attack</span>
+                           </div>
+                           <input class="number-input" type="number" name="attackDieTwo">
+                           <span>d</span>
+                           <input class="number-input" type="number" name="damageDieTwo" >
+                           <select name="damageTypeWeapon" id="">
+                               <option value="P">P</option>
+                               <option value="S">S</option>
+                               <option value="B">B</option>                        
+                           </select>
+                       </div>
+           
+                       <div class="weapon-prof-list">
+                           <div>Type</div>
+                           <select name="weaponProfType" id="">
+                               <option value="Unarmed">Unarmed</option>
+                               <option value="Simple">Simple</option>
+                               <option value="Martial">Martial</option>
+                               <option value="Advanced">Advanced</option>                        
+                           </select>
+                       </div>               
+           
+                       <div class="versatile">
+                           <div>
+                               <span>Versatile</span>
+                           </div>
+                           <select name="weaponDmgType" id="">
+                               <option value="blank"></option>
+                               <option value="P">P</option>
+                               <option value="S">S</option>
+                               <option value="B">B</option>                        
+                           </select>
+                       </div>
+           
+                       <div class="other-traits">
+                           <div>
+                               <span>Other Traits</span>
+                           </div>
+                           <div>
+                               <textarea name="otherTraits" id="" cols="30" rows="2"></textarea>
+                           </div>
+                       </div>
+                   </div>      
+               
+               <button id="add-weapon" class="button" type="submit">Save Weapon(s)</button>   
+              
+              
+            
+           
+           
+             <!-- Ranged -->
+             <span class="titles">Ranged Weapons</span>
+              
+                       <div class="range-weapon-div">
+                           <div>
+                               <div>
+                                   <span>Weapon Name</span>
+                               </div>
+                               <input type="text" name="rangeWeaponName" id="" >
+                           </div>
+           
+                           <div class="damage-die">
+                               <div>
+                                   <span>Attack</span>
+                               </div>
+                               <input class="number-input" type="number" name="rangeAtkDie">
+                               <span>d</span>
+                               <input class="number-input" type="number" name="rangeDmgDie">
+                               <select name="rangeDmgType" id="">
+                                   <option value="P">P</option>
+                                   <option value="S">S</option>
+                                   <option value="B">B</option>                        
+                               </select>
+                           </div>
+           
+                           <div class="weapon-prof-list">
+                               <div>Type</div>
+                               <select name="rangeProfType" id="">
+                                   <option value="Unarmed">Unarmed</option>
+                                   <option value="Simple">Simple</option>
+                                   <option value="Martial">Martial</option>
+                                   <option value="Advanced">Advanced</option>                        
+                               </select>
+                           </div>        
+           
+                           <div class="range">
+                               <div>
+                                   <span>Range</span>
+                               </div>
+                               <input class="number-input" type="number" name="weaponRange">
+                           </div>
+           
+                           <div class="reload">
+                               <div>
+                                   <span>Reload</span>
+                               </div>
+                               <input class="number-input" type="number" name="rangeReload">
+                           </div>
+           
+                           <div class="other-traits">
+                               <div>
+                                   <span>Other Traits</span>
+                               </div>
+                               <div>
+                                   <textarea name="rangeTraits" id="" cols="30" rows="2"></textarea>
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <div class="range-weapon-div">
+                           <div>
+                               <div>
+                                   <span>Weapon Name</span>
+                               </div>
+                               <input type="text" name="rangeWeaponName" id="" >
+                           </div>
+           
+                           <div class="damage-die">
+                               <div>
+                                   <span>Attack</span>
+                               </div>
+                               <input class="number-input" type="number" name="rangeAtkDie">
+                               <span>d</span>
+                               <input class="number-input" type="number" name="rangeDmgDie">
+                               <select name="rangeDmgType" id="">
+                                   <option value="P">P</option>
+                                   <option value="S">S</option>
+                                   <option value="B">B</option>                        
+                               </select>
+                           </div>
+           
+                           <div class="weapon-prof-list">
+                               <div>Type</div>
+                               <select name="rangeProfType" id="">
+                                   <option value="Unarmed">Unarmed</option>
+                                   <option value="Simple">Simple</option>
+                                   <option value="Martial">Martial</option>
+                                   <option value="Advanced">Advanced</option>                        
+                               </select>
+                           </div>        
+           
+                           <div class="range">
+                               <div>
+                                   <span>Range</span>
+                               </div>
+                               <input class="number-input" type="number" name="weaponRange">
+                           </div>
+           
+                           <div class="reload">
+                               <div>
+                                   <span>Reload</span>
+                               </div>
+                               <input class="number-input" type="number" name="rangeReload">
+                           </div>
+           
+                           <div class="other-traits">
+                               <div>
+                                   <span>Other Traits</span>
+                               </div>
+                               <div>
+                                   <textarea name="rangeTraits" id="" cols="30" rows="2"></textarea>
+                               </div>
+                           </div>
+                       </div>
+           
+                   </div> 
+               </div>       
            
             </form>    
         </section> <!--main container right-->

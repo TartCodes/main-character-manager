@@ -29,9 +29,10 @@ module.exports = {
         }
       },  
     createCharacter: async (req, res) => {          //POST        
-        try {
+        try {           
             req.body.user = req.user.id   
             await Character.create(req.body)
+            
             console.log('character was posted')
             res.redirect(`/character/edit/${req.params.id}`) 
         } catch (err) {
