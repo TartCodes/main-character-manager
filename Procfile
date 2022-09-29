@@ -1,1 +1,1 @@
-web: /main-character-manager/server.js
+web: node server.js
