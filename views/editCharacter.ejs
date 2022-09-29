@@ -787,12 +787,11 @@
         </div>
     </div>     
 </div>  
-</form>
+
 
       
-        <!-- Melee -->    
-    <% console.log(weapon, 'weapon') %> 
-        <form action="/weapon/createWeapon/<%= character._id %>" ?_method=PUT method="POST">         
+        <!-- Melee -->   
+               
  <span class="titles">Melee Weapons</span>
         <div class="meleeModal" id="melee-modal">
            <!-- weapon one -->
@@ -800,22 +799,18 @@
                 <div>
                     <div>
                         <span>Weapon Name</span>
+                    </div>                 
+                        <input type="text" name="meleeWeaponName" id="" value=" <%= character.meleeWeaponName %> ">                 
                     </div>
-                    <% if (!weapon) { %>
-                        <input type="text" name="meleeWeaponName" id="" value="">
-                    <%} else { %>                
-                        <input type="text" name="meleeWeaponName" id="" value=" <%= weapon.meleeWeaponName %> ">
-                    <% } %>  
-                </div>
 
                 <div class="damage-die">
                     <div>
                         <span>Attack</span>
                     </div>
-                    <input class="number-input" type="number" name="attackDie">
+                    <input class="number-input" type="number" name="attackDie" value= <%= character.attackDie %>>
                     <span>d</span>
-                    <input class="number-input" type="number" name="damageDie">
-                    <select name="damageTypeWeapon" id="">
+                    <input class="number-input" type="number" name="damageDie" value= <%= character.damageDie %>>
+                    <select name="damageTypeWeapon" id="" value= "<%= character.damageTypeWeapon %>">
                         <option value="P">P</option>
                         <option value="S">S</option>
                         <option value="B">B</option>                        
@@ -824,7 +819,7 @@
 
                 <div class="weapon-prof-list">
                     <div>Type</div>
-                    <select name="weaponProfType" id="">
+                    <select name="weaponProfType" id="" value= "<%= character.weaponProfType %>">
                         <option value="Unarmed">Unarmed</option>
                         <option value="Simple">Simple</option>
                         <option value="Martial">Martial</option>
@@ -836,7 +831,7 @@
                     <div>
                         <span>Versatile</span>
                     </div>
-                    <select name="weaponDmgType" id="">
+                    <select name="weaponDmgType" id="" value= "<%= character.weaponDmgType %>" >
                         <option value="blank"></option>
                         <option value="P">P</option>
                         <option value="S">S</option>
@@ -849,7 +844,7 @@
                         <span>Other Traits</span>
                     </div>
                     <div>
-                        <textarea name="otherTraits" id="" cols="30" rows="2" placeholder="<%#= weapon.otherTraits %> "></textarea>
+                        <textarea name="otherTraits" id="" cols="30" rows="2" placeholder="<%= character.otherTraits %> "></textarea>
                     </div>
                 </div>
                 
@@ -862,24 +857,19 @@
             <div>
                 <div>
                     <span>Weapon Name</span>
+                </div>          
+                    <input type="text" name="meleeWeaponNameTwo" id="" value="<%= character.meleeWeaponNameTwo %> ">                         
                 </div>
-            
-                <% if (!weapon) { %>
-                        <input type="text" name="meleeWeaponName" id="" value="">
-                    <%} else { %>                
-                        <input type="text" name="meleeWeaponName" id="" value=" <%= weapon.meleeWeaponName %> ">
-                    <% } %>           
-            </div>
 
            
             <div class="damage-die">
                 <div>
                     <span>Attack</span>
                 </div>
-                <input class="number-input" type="number" name="attackDieTwo">
+                <input class="number-input" type="number" name="attackDieTwo" value= <%= character.attackDieTwo %> >
                 <span>d</span>
-                <input class="number-input" type="number" name="damageDieTwo" >
-                <select name="damageTypeWeapon" id="">
+                <input class="number-input" type="number" name="damageDieTwo" value= <%= character.damageDieTwo %> >
+                <select name="damageTypeWeaponTwo" id="" value="<%= character.attackDieTwo %>">
                     <option value="P">P</option>
                     <option value="S">S</option>
                     <option value="B">B</option>                        
@@ -888,7 +878,7 @@
 
             <div class="weapon-prof-list">
                 <div>Type</div>
-                <select name="weaponProfType" id="">
+                <select name="weaponProfTypeTwo" id="" value= "<%= character.weaponProfTypeTwo %>">
                     <option value="Unarmed">Unarmed</option>
                     <option value="Simple">Simple</option>
                     <option value="Martial">Martial</option>
@@ -900,7 +890,7 @@
                 <div>
                     <span>Versatile</span>
                 </div>
-                <select name="weaponDmgType" id="">
+                <select name="weaponDmgTypeTwo" id="" value= "<%= character.weaponDmgTypeTwo %>">
                     <option value="blank"></option>
                     <option value="P">P</option>
                     <option value="S">S</option>
@@ -913,17 +903,11 @@
                     <span>Other Traits</span>
                 </div>
                 <div>
-                    <textarea name="otherTraits" id="" cols="30" rows="2"></textarea>
+                    <textarea name="otherTraitsTwo" id="" cols="30" rows="2" placeholder="<%= character.otherTraitsTwo %>"></textarea>
                 </div>
             </div>
         </div>      
     
-    <button id="add-weapon" class="button" type="submit">Save Weapon(s)</button>   
-    </form>
-   
- 
-
-
   <!-- Ranged -->
   <span class="titles">Ranged Weapons</span>
     <!-- <form action="PUT">     -->
@@ -932,16 +916,16 @@
                     <div>
                         <span>Weapon Name</span>
                     </div>
-                    <input type="text" name="rangeWeaponName" id="" >
+                    <input type="text" name="rangeWeaponName" value=" <%= character.rangeWeaponName %> " >
                 </div>
 
                 <div class="damage-die">
                     <div>
                         <span>Attack</span>
                     </div>
-                    <input class="number-input" type="number" name="rangeAtkDie">
+                    <input class="number-input" type="number" name="rangeAtkDie" value= <%= character.rangeAtkDie %>>
                     <span>d</span>
-                    <input class="number-input" type="number" name="rangeDmgDie">
+                    <input class="number-input" type="number" name="rangeDmgDie" value= <%= character.rangeDmgDie %>>
                     <select name="rangeDmgType" id="">
                         <option value="P">P</option>
                         <option value="S">S</option>
@@ -1040,8 +1024,9 @@
             </div>
 
         </div> 
-    </div>       
-    <!-- </form>   -->
+    </div>
+</form>       
+   
        
     </section> <!--main container right-->
     

@@ -10,7 +10,6 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const characterRoutes = require('./routes/character')
-const weaponRoutes = require('./routes/weapon')
 const authRoute = require('./routes/auth')
 
 //helpers
@@ -68,7 +67,7 @@ app.use(function(req, res, next) {
 app.use('/', mainRoutes)
 app.use('/character', characterRoutes)
 app.use('/auth', authRoute )
-app.use('/weapon', weaponRoutes)
+// app.use('/weapon', weaponRoutes)
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')

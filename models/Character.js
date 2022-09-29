@@ -1,6 +1,4 @@
 const mongoose = require('mongoose')
-const Weapon = require('../models/Weapon')
-
 
 const CharacterSchema = new mongoose.Schema({
     user: {
@@ -309,10 +307,7 @@ const CharacterSchema = new mongoose.Schema({
     },        
     senses:{
         type: String //textarea
-    },
-                //weapons
-    //weapon training checkboxes
-    //then add weapon button (still WIP)
+    },   
     unarmedCheck:{
         type: Array
     },
@@ -325,52 +320,96 @@ const CharacterSchema = new mongoose.Schema({
     advancedCheck:{
         type: Array
     },
-    // meleeWeaponName:{
-    //     type: String
-    // },
-    // attackDie:{
-    //     type: Number
-    // },
-    // damageDie:{
-    //     type: Number
-    // },
-    // damageTypeWeapon:{
-    //     type: String //dropdown
-    // },
-    // weaponProfType:{
-    //     type: String // dropdown
-    // },
-    // weaponDmgType:{
-    //     type: String // dropdown
-    // },
-    // otherTraits:{
-    //     type: String //textarea
-    // },
-    // rangeWeaponName:{
-    //     type: String
-    // },
-    // rangeAtkDie:{
-    //     type: Number
-    // },
-    // rangeDmgDie:{
-    //     type: Number
-    // },
-    // rangeDmgType:{
-    //     type: String //dropdown
-    // },
-    // rangeProfType:{
-    //     type: String //dropdown
-    // },
-    // weaponRange:{
-    //     type: Number
-    // },
-    // rangeReload:{
-    //     type: Number
-    // },
-    // rangeTraits:{
-    //     type: String //textarea
-    // },
-      
+    meleeWeaponName:{
+        type: String
+    },
+    meleeWeaponNameTwo:{
+        type: String
+    },
+    attackDie:{
+        type: Number
+    },
+    attackDieTwo:{
+        type: Number
+    },
+    damageDie:{
+        type: Number
+    },
+    damageDieTwo:{
+        type: Number
+    },
+    damageTypeWeapon:{
+        type: String //dropdown
+    },
+    damageTypeWeaponTwo:{
+        type: String //dropdown
+    },
+    weaponProfType:{
+        type: String // dropdown
+    },
+    weaponProfTypeTwo:{
+        type: String // dropdown
+    },
+    weaponDmgType:{
+        type: String // dropdown
+    },
+    weaponDmgTypeTwo:{
+        type: String // dropdown
+    },
+    otherTraits:{
+        type: String //textarea
+    },
+    otherTraitsTwo:{
+        type: String //textarea
+    },
+    rangeWeaponName:{
+        type: String
+    },
+    rangeWeaponNameTwo:{
+        type: String
+    },
+    rangeAtkDie:{
+        type: Number
+    },
+    rangeAtkDieTwo:{
+        type: Number
+    },
+    rangeDmgDie:{
+        type: Number
+    },
+    rangeDmgDieTwo:{
+        type: Number
+    },
+    rangeDmgType:{
+        type: String //dropdown
+    },
+    rangeDmgTypeTwo:{
+        type: String //dropdown
+    },
+    rangeProfType:{
+        type: String //dropdown
+    },
+    rangeProfTypeTwo:{
+        type: String //dropdown
+    },
+    weaponRange:{
+        type: Number
+    },
+    weaponRangeTwo:{
+        type: Number
+    },
+    rangeReload:{
+        type: Number
+    },
+    rangeReloadTwo:{
+        type: Number
+    },
+    rangeTraits:{
+        type: String //textarea
+    },
+    rangeTraitsTwo:{
+        type: String //textarea
+    }            
 })
 
 module.exports = mongoose.model('Character', CharacterSchema)

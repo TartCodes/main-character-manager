@@ -1,9 +1,7 @@
 const Character = require('../models/Character')
 const validator = require('validator')
 const mongoose = require('mongoose')
-const Weapon = require('../models/Weapon')
-//leons code at the bottom
-// if( !mongoose.Types.ObjectId.isValid({_id}) ) return false;
+
 
 module.exports = {
     checkCharacter: async (req, res) => {
@@ -22,6 +20,7 @@ module.exports = {
     blankCharacter: async (req, res) => {
         try {       
             const character = await Character.findOne({id:req.params.id}).lean() //write an if/else as a fallback if someone types in /blank in url to redirect
+            
             res.render("blankCharacter.ejs")
             console.log('blank character page rendered');          
         } catch (err) {
@@ -31,8 +30,7 @@ module.exports = {
     createCharacter: async (req, res) => {          //POST        
         try {           
             req.body.user = req.user.id   
-            await Character.create(req.body)
-            
+            await Character.create(req.body)            
             console.log('character was posted')
             res.redirect(`/character/edit/${req.params.id}`) 
         } catch (err) {
@@ -42,12 +40,10 @@ module.exports = {
     editCharacter: async (req, res) => { // Main Character Page
         try {       
         const character = await Character.findOne({user:req.user.id}).lean() //id:req.user.id
-        const weapon = await Weapon.findOne({user:req.user.id}).lean()
-
         if(!character){
             res.redirect('/character/blank')
         } else {   
-            res.render('editCharacter.ejs',{ character: character, user: req.user, weapon: weapon }) 
+            res.render('editCharacter.ejs',{ character: character, user: req.user }) 
             console.log('character page rendered');
         }         
         } catch (err) {
