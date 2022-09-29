@@ -69,6 +69,6 @@ app.use('/character', characterRoutes)
 app.use('/auth', authRoute )
 // app.use('/weapon', weaponRoutes)
  
-app.listen(process.env.PORT, ()=>{
+app.listen(process.env.PORT || PORT, ()=>{
     console.log('Server is running, you better catch it!')
 })    
