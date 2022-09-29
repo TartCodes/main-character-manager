@@ -487,6 +487,11 @@ span {
 	justify-content: center;		
 }
 
+.meleeNotes,.rangeNotes {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .range-weapon-div {
 	display: flex;    
     text-align: center;

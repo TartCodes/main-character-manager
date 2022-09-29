@@ -362,6 +362,9 @@ const CharacterSchema = new mongoose.Schema({
     otherTraitsTwo:{
         type: String //textarea
     },
+    meleeNotes: {
+        type: String //textarea
+    },
     rangeWeaponName:{
         type: String
     },
@@ -408,6 +411,9 @@ const CharacterSchema = new mongoose.Schema({
         type: String //textarea
     },
     rangeTraitsTwo:{
+        type: String //textarea
+    },
+    rangeNotes:{
         type: String //textarea
     }            
 })
