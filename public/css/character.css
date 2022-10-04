@@ -182,7 +182,7 @@ input[type=checkbox] {
 	font-weight: 400;
   }
 
-  header{
+header{
 	  font-size: 2em;
 	  border: solid 3px black;
 	  text-align: center;
@@ -502,49 +502,7 @@ span {
 
 
 
-/* modal style */
-/* .meleeModal {
-	display: none;
-	position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-	background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    padding-top: 5px;
-	column-gap: 1em;
-    justify-content: center;	
-  }
 
-  .modal-content {
-	display: flex;
-    margin: 10% auto;
-    background-color: rgb(79, 7, 7);
-    width: 60%;
-    height: 15%;
-    text-align: center;
-    column-gap: 1em;
-    justify-content: center;
-    box-shadow: 0 5px 8px 0 rgb(0 0 0 / 20%), 0 7px 20px 0 rgb(0 0 0 / 17%);
-    animation-name: modalopen;
-    animation-duration: var(--modal-duration);
-    align-items: center;
-	border-radius: 5px;
-	margin-top: 20%
-  }
-
-.close-modal:hover,
-.close-modal:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-} */
-
-
-/* ------- */
 button, .button {
 	background-color: gold;
     color: black;
@@ -571,15 +529,6 @@ button:hover,
 	}
 
 /* ------------------------ */
-
-/* skills */
-
-/* .skills-container {
-	width: 70%;
-    display: grid;  
-	justify-content: center; 
-    grid-template-columns: .25fr .25fr;	
-} */
 
 .skills-container{
 	width: 100%;
@@ -644,4 +593,53 @@ border-radius: 5px;
 
 .intro {
 	width: 75%;
+}
+
+@media screen and (max-width:480px) {
+	#main-container {
+		width: 100%;
+		display: block;
+	}
+
+	header {
+		width: 100%;
+		display: block;
+	}
+
+	h3 {
+		text-align: center;
+    	justify-content: center;
+    	margin-bottom: 10px;
+	}
+
+	.left-side-bar {
+		display: block;
+		width: 100%;
+		overflow: revert;
+		scroll-behavior: revert;
+		overflow-x: revert;
+		height: revert;
+	}
+
+	.level-container {
+		display: none;
+	}
+
+	.skills-container {		
+		width: revert;
+    	text-align: end;
+    	margin-top: 1em;
+    	row-gap: 0.5em;
+   		float: left;   	
+		padding-right: revert;
+	}
+
+	.char-container, 
+	.hp-container,
+	.ability-container {
+		flex-direction: column;
+	}
+
+
+	
 }
