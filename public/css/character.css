@@ -634,12 +634,55 @@ border-radius: 5px;
 		padding-right: revert;
 	}
 
+	.char-container {
+		height: revert;
+	}
+
+		.char-container div {
+			display: inline-block;			
+			margin: 2px 0 2px 1px;
+			width: auto;
+		}
+
+	.hp-container div {
+
+	}
+
+	.resis-cond-container {
+		display: block;
+		width: 92.5%;
+	}
+	
+
+
 	.char-container, 
 	.hp-container,
 	.ability-container {
 		flex-direction: column;
 	}
 
+	.armor-container {
+		display: block;
+		float: left;
+   	 	width: 50%;
+    	text-align: center;
+	}
 
-	
+	.hero-points-div {
+
+	}
+
+	.armor-container div {
+		text-align: center;
+		justify-content: center;
+		width: revert;
+		margin-top: 5px;
+	}
+
+	.armor-type-container {
+		display: block;
+    	width: 50%;
+    	float: right;
+	}
+
 }
