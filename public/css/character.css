@@ -402,6 +402,7 @@ span {
 
 	#shield-info {
 		border: solid 2px black;
+		border-radius: 5px;
 		display: none;		
 	}
 
@@ -596,9 +597,18 @@ border-radius: 5px;
 }
 
 @media screen and (max-width:480px) {
+
+	.dateAndTime {
+		display: none;
+	}
+	
 	#main-container {
 		width: 100%;
 		display: block;
+	}
+
+	.main-container-right {
+		padding-left: 0px;
 	}
 
 	header {
@@ -629,6 +639,7 @@ border-radius: 5px;
 		width: revert;
     	text-align: end;
     	margin-top: 1em;
+		margin-bottom: 1em;
     	row-gap: 0.5em;
    		float: left;   	
 		padding-right: revert;
@@ -636,6 +647,9 @@ border-radius: 5px;
 
 	.char-container {
 		height: revert;
+		margin-top: 3em;
+		flex-direction: column;
+		flex-wrap: wrap;
 	}
 
 		.char-container div {
@@ -644,28 +658,32 @@ border-radius: 5px;
 			width: auto;
 		}
 
-	.hp-container div {
-
-	}
+	
 
 	.resis-cond-container {
 		display: block;
-		width: 92.5%;
+		width: 95%;
+		margin-inline: auto;
 	}
 	
+	.hp-status {
 
+	}	
 
-	.char-container, 
 	.hp-container,
 	.ability-container {
-		flex-direction: column;
+		flex-wrap: wrap;		
+		width: 100%;
+		justify-content: center;
+		column-gap: revert;		
 	}
 
 	.armor-container {
-		display: block;
-		float: left;
-   	 	width: 50%;
-    	text-align: center;
+		display: inline-flex;
+		/* float: left; */
+		flex-wrap: wrap;
+		width: 50%;
+		text-align: center;
 	}
 
 	.hero-points-div {
@@ -680,9 +698,31 @@ border-radius: 5px;
 	}
 
 	.armor-type-container {
-		display: block;
-    	width: 50%;
-    	float: right;
+		display: inline-flex;
+		width: 50%;
+		float: right;
+		flex-wrap: wrap;
+	}
+
+	.shield-container {
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+
+	.classdc-container,
+	.perception-container {
+		flex-wrap: wrap;
+	}
+
+	.weapon-container {
+		width: 100%;
+	}
+
+	.melee-weapon-div, .range-weapon-div {
+		flex-wrap: wrap;
+    	justify-content: center;
+    	row-gap: 10px;
 	}
 
 }
+	

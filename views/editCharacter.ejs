@@ -24,7 +24,7 @@
             <h1>Character Manager</h1>
             <h3>Edit Page/Main Character</h3>
             <h3>Welcome, <%= user.firstName %></h3>
-            <h3><%= dateAndTime() %> </h3>            
+            <h3 class="dateAndTime"><%= dateAndTime() %> </h3>            
         </div>
         <div>
             <a href="/auth/logout">
@@ -314,27 +314,27 @@
 
    <!-- Hit Points -->
     <div class="hp-container">
-            <div class="text-border">              
+            <div class="text-border hp-status">              
                 <div>HP</div>                   
                     <div>
                         <input class="number-input" type="number" name="hp" value=<%= character.hp %>>
                     </div>
             </div>
-            <div class="text-border">             
+            <div class="text-border hp-status">             
                 <div>Current</div>                    
                     <div>
                         <input class="number-input" type="number" name="currentHP" value=<%= character.currentHP %>>
                     </div>
             </div>
 
-            <div class="text-border">            
+            <div class="text-border hp-status">            
                 <div>Temporary</div>                
                     <div>
                         <input class="number-input" type="number" name="tempHP" value=<%= character.tempHP %>>
                     </div>
             </div>
 
-            <div class="text-border">    
+            <div class="text-border hp-status">    
                 <div>Dying</div>
                     <div class="hero-points-div">
                         <input hidden type="checkbox" name="dyingCheck" value="noPoint" checked >                   
@@ -346,7 +346,7 @@
 
             <div class="text-border">    
                 <div>Wounded</div>
-                    <div class="hero-points-div">
+                    <div class="hero-points-div hp-status">
                         <input hidden type="checkbox" name="woundedCheck" value="noPoint" checked > 
                         <input type="checkbox" value="woundedOne" name="woundedCheck" <%= character.woundedCheck.includes("woundedOne") ? "checked" : "" %>>
                         <input type="checkbox" value="woundedTwo" name="woundedCheck" <%= character.woundedCheck.includes("woundedTwo") ? "checked" : "" %>>  
