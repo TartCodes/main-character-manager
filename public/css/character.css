@@ -711,13 +711,15 @@ border-radius: 5px;
 
 	.classdc-container {
 		flex-wrap: wrap;
+    	width: 95%;
+    	margin-inline: auto;
 	}
 	
 	.perception-container {
 		flex-wrap: wrap;
 		width: auto;
 	}
-	
+
 	.senses {
 		width: auto;
 	}
