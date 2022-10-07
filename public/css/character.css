@@ -682,12 +682,8 @@ border-radius: 5px;
 		display: inline-flex;
 		/* float: left; */
 		flex-wrap: wrap;
-		width: 50%;
+		width: 100%;
 		text-align: center;
-	}
-
-	.hero-points-div {
-
 	}
 
 	.armor-container div {
@@ -699,14 +695,18 @@ border-radius: 5px;
 
 	.armor-type-container {
 		display: inline-flex;
-		width: 50%;
-		float: right;
-		flex-wrap: wrap;
+    	width: 100%;
+    	/* float: right; */
+    	flex-wrap: wrap;
+	}
+
+	.shield-header {
+		width: 100%;
 	}
 
 	.shield-container {
-		flex-wrap: wrap;
-		flex-direction: column;
+		width: 100%;
+    	font-size: 14px;
 	}
 
 	.classdc-container {
