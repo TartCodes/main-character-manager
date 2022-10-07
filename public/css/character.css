@@ -709,13 +709,22 @@ border-radius: 5px;
 		flex-direction: column;
 	}
 
-	.classdc-container,
+	.classdc-container {
+		flex-wrap: wrap;
+	}
+	
 	.perception-container {
 		flex-wrap: wrap;
+		width: auto;
+	}
+	
+	.senses {
+		width: auto;
 	}
 
 	.weapon-container {
-		width: 100%;
+		width: 99%;
+		margin-inline: auto;
 	}
 
 	.melee-weapon-div, .range-weapon-div {
