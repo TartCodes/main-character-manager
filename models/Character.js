@@ -86,69 +86,68 @@ const CharacterSchema = new mongoose.Schema({
     thievery:{
         type: Number
     },     
-    // levels
-    levels:[{
-        levelOne:{
-            type: String
-        },
-        levelTwo:{
-            type: String
-        },
-        levelThree:{
-            type: String
-        },
-        levelFour:{
-            type: String
-        },
-        levelFive:{
-            type: String
-        },
-        levelSix:{
-            type: String
-        },
-        levelSeven:{
-            type: String
-        },
-        levelEight:{
-            type: String
-        },
-        levelNine:{
-            type: String
-        },
-        levelTen:{
-            type: String
-        },
-        levelEleven:{
-            type: String
-        },
-        levelTwelve:{
-            type: String
-        },
-        levelThirteen:{
-            type: String
-        },
-        levelFourteen:{
-            type: String
-        },
-        levelFifteen:{
-            type: String
-        },
-        levelSixteen:{
-            type: String
-        },
-        levelSeventeen:{
-            type: String
-        },
-        levelEighteen:{
-            type: String
-        },
-        levelNineteen:{
-            type: String
-        },
-        levelTwenty:{
-            type: String
-        },   
-    }],         //main container 
+    // levels     
+    levelOne:{
+        type: String
+    },    
+    levelTwo:{
+        type: String
+    },
+    levelThree:{
+        type: String
+    },
+    levelFour:{
+        type: String
+    },
+    levelFive:{
+        type: String
+    },
+    levelSix:{
+        type: String
+    },
+    levelSeven:{
+        type: String
+    },
+    levelEight:{
+        type: String
+    },
+    levelNine:{
+        type: String
+    },
+    levelTen:{
+        type: String
+    },
+    levelEleven:{
+        type: String
+    },
+    levelTwelve:{
+        type: String
+    },
+    levelThirteen:{
+        type: String
+    },
+    levelFourteen:{
+        type: String
+    },
+    levelFifteen:{
+        type: String
+    },
+    levelSixteen:{
+        type: String
+    },
+    levelSeventeen:{
+        type: String
+    },
+    levelEighteen:{
+        type: String
+    },
+    levelNineteen:{
+        type: String
+    },
+    levelTwenty:{
+        type: String,      
+    },   
+    //main container 
     charName:{
         type: String,
     },

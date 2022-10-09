@@ -507,7 +507,10 @@ span {
 	justify-content: center;
 }
 
-
+.level-button {
+	width: fit-content;
+    align-self: center;
+}
 
 
 button, .button {
