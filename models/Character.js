@@ -6,32 +6,25 @@ const CharacterSchema = new mongoose.Schema({
         ref: "User",
       },
     ancestry: {  //left side bar        
-       type: String,
-       require: true,           
+       type: String,           
     },
     heritage: {
         type: String,
-        require: true,
     },
     background: {
         type: String,
-        require: true,
     },
     ancestryAbility: {
         type: String,
-        require: true,
     },
     class: {
         type: String,
-        require: true,
     },
     backgroundAbility: {   //textarea test
         type: String,
-        require: true,
     },
     deity: {
         type: String,
-        require: true,
     },
     acrobatics: { //skills
         type: Number
@@ -92,14 +85,75 @@ const CharacterSchema = new mongoose.Schema({
     },
     thievery:{
         type: Number
-    },                      //main container 
+    },     
+    // levels
+    levels:[{
+        levelOne:{
+            type: String
+        },
+        levelTwo:{
+            type: String
+        },
+        levelThree:{
+            type: String
+        },
+        levelFour:{
+            type: String
+        },
+        levelFive:{
+            type: String
+        },
+        levelSix:{
+            type: String
+        },
+        levelSeven:{
+            type: String
+        },
+        levelEight:{
+            type: String
+        },
+        levelNine:{
+            type: String
+        },
+        levelTen:{
+            type: String
+        },
+        levelEleven:{
+            type: String
+        },
+        levelTwelve:{
+            type: String
+        },
+        levelThirteen:{
+            type: String
+        },
+        levelFourteen:{
+            type: String
+        },
+        levelFifteen:{
+            type: String
+        },
+        levelSixteen:{
+            type: String
+        },
+        levelSeventeen:{
+            type: String
+        },
+        levelEighteen:{
+            type: String
+        },
+        levelNineteen:{
+            type: String
+        },
+        levelTwenty:{
+            type: String
+        },   
+    }],         //main container 
     charName:{
         type: String,
-        require: true,
     },
     playerName:{
         type: String,
-        require: true,
     },
     level:{
         type: String
@@ -174,7 +228,7 @@ const CharacterSchema = new mongoose.Schema({
     chaMod:{
         type: Number
     },
-    resisitsImmunities:{
+    resistsImmunities:{
         type: String //textarea
     },
     conditions:{
