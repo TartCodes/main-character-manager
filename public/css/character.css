@@ -512,6 +512,10 @@ span {
     align-self: center;
 }
 
+.level-div > textarea {
+    display: none;
+}
+
 
 button, .button {
 	background-color: gold;
