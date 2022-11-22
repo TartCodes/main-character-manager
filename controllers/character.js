@@ -1,149 +1,128 @@
-const Character = require('../models/Character')
-const validator = require('validator')
-const mongoose = require('mongoose')
-
+const Character = require("../models/Character");
+const validator = require("validator");
+const mongoose = require("mongoose");
 
 module.exports = {
-    checkCharacter: async (req, res) => {
-        try {       
-        const character = await Character.findOne({id:req.params.id}).lean() 
-        if(!character){            
-            res.redirect('/character/blank')
-            console.log('blank character page rendered');
-        } else {
-            res.redirect(`/character/edit/${req.params.id}`)
-            }      
-        } catch (err) {
-          console.log(err);
-        }
-      },  
-    blankCharacter: async (req, res) => {
-        try {       
-            const character = await Character.findOne({id:req.params.id}).lean() //write an if/else as a fallback if someone types in /blank in url to redirect
-            
-            res.render("blankCharacter.ejs")
-            console.log('blank character page rendered');          
-        } catch (err) {
-          console.log(err);
-        }
-      },  
-    createCharacter: async (req, res) => {          //POST        
-        try {           
-            req.body.user = req.user.id   
-            await Character.create(req.body)            
-            console.log('character was posted')
-            res.redirect(`/character/edit/${req.params.id}`) 
-        } catch (err) {
-            console.error(err);            
-        }
-    },
-    editCharacter: async (req, res) => { // Main Character Page
-        try {       
-        const character = await Character.findOne({user:req.user.id}).lean() //id:req.user.id
-        if(!character){
-            res.redirect('/character/blank')
-        } else {   
-            res.render('editCharacter.ejs',{ character: character, user: req.user }) 
-            console.log('character page rendered');
-        }         
-        } catch (err) {
-          console.log(err);
-        }
-      },
-    updateCharacter:  async (req, res) => {  //PUT
-        try{                               
-           let locateCharacter = await Character.findById(req.params.id)           
-           if(!locateCharacter) {            
-            return res.redirect('/character/blank')               
-           } else {
-                locateCharacter = await Character.findOneAndUpdate({_id: req.params.id}, req.body, {
-                    new: true,
-                    runValidators: true
-                })
-                res.redirect(`/character/edit/${req.params.id}`)
-           }
-
-        }   catch(err){
-            console.log(err)
-            }
-        }
+  checkCharacter: async (req, res) => {
+    try {
+      const character = await Character.findOne({ id: req.params.id }).lean();
+      if (!character) {
+        res.redirect("/character/blank");
+        console.log("blank character page rendered");
+      } else {
+        res.redirect(`/character/edit/${req.params.id}`);
+      }
+    } catch (err) {
+      console.log(err);
     }
+  },
+  blankCharacter: async (req, res) => {
+    try {
+      const character = await Character.findOne({ id: req.params.id }).lean(); //write an if/else as a fallback if someone types in /blank in url to redirect
 
-
-
-
-
-
-
-
-
-
-
-
-
+      res.render("blankCharacter.ejs");
+      console.log("blank character page rendered");
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  createCharacter: async (req, res) => {
+    //POST
+    try {
+      req.body.user = req.user.id;
+      await Character.create(req.body);
+      console.log("character was posted");
+      res.redirect(`/character/edit/${req.params.id}`);
+    } catch (err) {
+      console.error(err);
+    }
+  },
+  editCharacter: async (req, res) => {
+    // Main Character Page
+    try {
+      const character = await Character.findOne({ user: req.user.id }).lean(); //id:req.user.id
+      if (!character) {
+        res.redirect("/character/blank");
+      } else {
+        res.render("editCharacter.ejs", {
+          character: character,
+          user: req.user,
+        });
+        console.log("character page rendered");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  updateCharacter: async (req, res) => {
+    //PUT
+    try {
+      let locateCharacter = await Character.findById(req.params.id);
+      if (!locateCharacter) {
+        return res.redirect("/character/blank");
+      } else {
+        locateCharacter = await Character.findOneAndUpdate(
+          { _id: req.params.id },
+          req.body,
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+        res.redirect(`/character/edit/${req.params.id}`);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  },
+};
 
 // module.exports = {
 //     getCharacter: async (req,res) => {
 //         // console.log(req.user)
-//         try{         
+//         try{
 //             const character = await Character.findById({_id:req.body.id})
 //             const charOwner = character.user.id
 //             console.log(charOwner, 'charrrr owner')
 //             if(!character){
 //                 res.render('character.ejs')
-//             } else {                             
-//                 res.render('character.ejs', {characterData: character, user: charOwner}) 
-//          }   
+//             } else {
+//                 res.render('character.ejs', {characterData: character, user: charOwner})
+//          }
 //         }   catch(err){
 //             console.log(err)
 //         }
 //     },
 //     postCharacter: async (req, res) => {
-//         console.log(req.body, req.user, 'post character');   
+//         console.log(req.body, req.user, 'post character');
 //         try {
-//             req.body.user = req.user.id   
+//             req.body.user = req.user.id
 //             await Character.create(req.body)
 //             res.redirect('/character')
 //         } catch (err) {
-//             console.error(err);            
+//             console.error(err);
 //         }
-//     },    
-    // editCharacter: async (req, res) => {
-    //     try{                               
-    //        let locateCharacter = await Character.findById(req.params.id)
-    //        if(!locateCharacter) {
-    //         console.log(!locateCharacter, 'locate')
-    //         return res.render(err)
-               
-    //        } else {
-    //             locateCharacter = await Character.findOneAndUpdate({id: req.params.id}, req.body, {
-    //                 new: true,
-    //                 runValidators: true
-    //             })
-    //             res.redirect(`/character/${req.params.id}`)
-    //        }
+//     },
+// editCharacter: async (req, res) => {
+//     try{
+//        let locateCharacter = await Character.findById(req.params.id)
+//        if(!locateCharacter) {
+//         console.log(!locateCharacter, 'locate')
+//         return res.render(err)
 
-    //     }   catch(err){
-    //         console.log(err)
-    //         }
-        // },
-    // }
+//        } else {
+//             locateCharacter = await Character.findOneAndUpdate({id: req.params.id}, req.body, {
+//                 new: true,
+//                 runValidators: true
+//             })
+//             res.redirect(`/character/${req.params.id}`)
+//        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//     }   catch(err){
+//         console.log(err)
+//         }
+// },
+// }
 
 // module.exports = {
 //     getTodos: async (req,res)=>{
@@ -197,4 +176,4 @@ module.exports = {
 //             console.log(err)
 //         }
 //     }
-// }    
+// }
