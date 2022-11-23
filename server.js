@@ -18,24 +18,22 @@ const actionsRoute = require("./routes/actions");
 //   try {
 //     const response = await fetch(`https://api.pathfinder2.fr/v1/pf2/action`, {
 //       method: "GET", // POST might work? Like NOSTO taske home, for some to fill desired inputs?
+//       body: JSON.stringify(),
 //       headers: {
 //         "Content-Type": "application/json",
 //         Authorization: "da468b89-2bf8-4e2b-a939-79c6e6ef25ce",
 //       },
 //     });
 //     const data = await response.json();
-//     console.log(
-//       data.results.filter((e) => {
-//         let neededData = [];
-//         let names = e.name;
-//         let descriptions = e.data.description.value;
-//         let actionType = e.data.actionType;
-//         let actionCost = e.data.actions;
-//         neededData.push(names, descriptions, actionType, actionCost);
-//         console.log(neededData);
-//       })
-//     );
-//     return data;
+//     const actionsArray = data.results.map((e) => {
+//       return {
+//         name: e.name,
+//         descriptions: e.data.description.value,
+//         actionType: e.data.actionType,
+//         actionCost: e.data.actions,
+//       };
+//     });
+//     console.log(actionsArray, "action arr");
 //   } catch (err) {
 //     console.log(err);
 //   }
@@ -100,7 +98,7 @@ app.use(function (req, res, next) {
 app.use("/", mainRoutes);
 app.use("/character", characterRoutes);
 app.use("/auth", authRoute);
-app.set("/actions", actionsRoute);
+// app.set("/actions", actionsRoute);
 // app.use('/weapon', weaponRoutes)
 
 app.listen(process.env.PORT || PORT, () => {
