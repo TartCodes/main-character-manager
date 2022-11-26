@@ -98,7 +98,7 @@ app.use(function (req, res, next) {
 app.use("/", mainRoutes);
 app.use("/character", characterRoutes);
 app.use("/auth", authRoute);
-// app.set("/actions", actionsRoute);
+app.set("/actions", actionsRoute);
 // app.use('/weapon', weaponRoutes)
 
 app.listen(process.env.PORT || PORT, () => {
