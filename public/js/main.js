@@ -29,6 +29,7 @@ class DisplayInfo {
   showHideShield = document.getElementById("shield-info");
   //level button
   levelButton = document.getElementsByClassName("level-button"); //<-- fix
+  levelsTextarea = document.getElementsByClassName("level-text");
 
   displayShieldInfo() {
     this.shieldButtonText.onclick = () => {
@@ -42,18 +43,21 @@ class DisplayInfo {
       } else {
         this.shieldButtonText.innerText = "Show Shield";
       }
+      console.log(this.levelButton[0]);
     };
   }
 
-  //   levelDisplay() { <-- fix
-  //     this.levelButton.forEach((bt) => {
-  //       bt.onclick = (e) => {
-  //         e.closest(".level-text").classList.toggle(".level-text");
-  //         console.log("clicked");
-  //       };
-  //     });
-  //   }
+  levelDisplay() {
+    for (let levels of this.levelButton) {
+      levels.onclick = () => {
+        for (let i = 0; i < this.levelsTextarea.length; i++) {
+          console.log(this.levelsTextarea.closest("button"));
+        }
+      };
+    }
+  }
 }
 
-let shieldInfo = new DisplayInfo();
-shieldInfo.displayShieldInfo();
+let showInputs = new DisplayInfo();
+showInputs.displayShieldInfo();
+showInputs.levelDisplay();
