@@ -28,8 +28,8 @@ class DisplayInfo {
   //shield info display
   showHideShield = document.getElementById("shield-info");
   //level button
-  levelButton = document.getElementsByClassName("level-button"); //<-- fix
-  levelsTextarea = document.getElementsByClassName("level-text");
+  levelButton = document.querySelectorAll('[id^="lvl"]'); //<-- fix
+  levelsTextarea = document.querySelectorAll('[id^="level"]');
   //   levelsDisplay = this.levelsTextarea.children[0].children[1];
 
   displayShieldInfo() {
@@ -50,19 +50,19 @@ class DisplayInfo {
 
   //figure out how to loop through and only display 1
   levelDisplay() {
-    for (let levels of this.levelButton) {
-      levels.addEventListener("click", (e) => {
-        Object.entries(this.levelsTextarea).forEach(([k, value]) => {
-          console.log(k, value.name);
-          if (value.name !== "levelOne") {
-            value.style.display = "none";
-          } else {
-            value.style.display = "initial"; // NOPE CLASS NAME RUINS EVERYTHING
+    let textShow;
+    this.levelButton.forEach((e) => {
+      e.addEventListener("click", (e) => {
+        console.log(e.target.id);
+        for (let levels of this.levelsTextarea) {
+          textShow = levels.style.display = "initial";
+          console.log(textShow);
+          if (e.target.id === "lvl-1btn") {
+            textShow;
           }
-          //   value.style.display = "initial";
-        });
+        }
       });
-    }
+    });
   }
 }
 
