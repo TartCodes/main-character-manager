@@ -30,6 +30,7 @@ class DisplayInfo {
   //level button
   levelButton = document.getElementsByClassName("level-button"); //<-- fix
   levelsTextarea = document.getElementsByClassName("level-text");
+  //   levelsDisplay = this.levelsTextarea.children[0].children[1];
 
   displayShieldInfo() {
     this.shieldButtonText.onclick = () => {
@@ -47,16 +48,29 @@ class DisplayInfo {
     };
   }
 
+  //figure out how to loop through and only display 1
   levelDisplay() {
     for (let levels of this.levelButton) {
-      levels.onclick = () => {
-        for (let i = 0; i < this.levelsTextarea.length; i++) {
-          console.log(this.levelsTextarea.closest("button"));
-        }
-      };
+      levels.addEventListener("click", (e) => {
+        Object.entries(this.levelsTextarea).forEach(([k, value]) => {
+          console.log(k, value.name);
+          if (value.name !== "levelOne") {
+            value.style.display = "none";
+          } else {
+            value.style.display = "initial"; // NOPE CLASS NAME RUINS EVERYTHING
+          }
+          //   value.style.display = "initial";
+        });
+      });
     }
   }
 }
+
+// .onclick = () => {
+//     for (let i = 0; i < this.levelsTextarea.length; i++) {
+//       console.log(this.levelsTextarea.levelTwo);
+//     }
+//   };
 
 let showInputs = new DisplayInfo();
 showInputs.displayShieldInfo();
