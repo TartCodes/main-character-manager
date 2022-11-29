@@ -7,6 +7,8 @@ class DisplayInfo {
   levelsTextarea = document.getElementsByClassName("level-text");
   //get parent node which is the button
   levelsButton = document.getElementsByClassName("level-button");
+  //get submit button
+  submitButton = document.getElementById("submit-button");
 
   handleClick() {
     for (let i = 0; i < this.levelsButton.length; i++) {
@@ -14,6 +16,14 @@ class DisplayInfo {
         this.levelsTextarea[i].style.display === ""
           ? (this.levelsTextarea[i].style.display = "initial")
           : (this.levelsTextarea[i].style.display = "");
+
+        //   if (
+        //     this.submitButton.clicked === true &&
+        //     this.levelsTextarea[i].style.display === "initial"
+        //   ) {
+        //     this.levelsTextarea[i].style.display = "initial";
+        //   }
+        //   console.log(this.submitButton.clicked === true, "wegweg");
       });
     }
   }
