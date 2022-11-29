@@ -28,9 +28,19 @@ class DisplayInfo {
   //shield info display
   showHideShield = document.getElementById("shield-info");
   //level button
-  levelButton = document.querySelectorAll('[id^="lvl"]'); //<-- fix
-  levelsTextarea = document.querySelectorAll('[id^="level"]');
-  //   levelsDisplay = this.levelsTextarea.children[0].children[1];
+  //   levelButton = document.querySelectorAll('[id^="lvl"]'); //<-- fix
+  //   levelsTextarea = document.querySelectorAll('[id^="level"]');
+
+  //NEED TO MAKE THIS SMALLER - REFACTOR
+  //lvl one
+  levelOneBtn = document.getElementById("one-button");
+  levelOneTa = document.getElementById("levelText1");
+  //lvl two
+  levelTwoBtn = document.getElementById("two-button");
+  levelTwoTa = document.getElementById("levelText2");
+  //level three
+  levelThreeBtn = document.getElementById("three-button");
+  levelThreeTa = document.getElementById("levelText3");
 
   displayShieldInfo() {
     this.shieldButtonText.onclick = () => {
@@ -50,18 +60,20 @@ class DisplayInfo {
 
   //figure out how to loop through and only display 1
   levelDisplay() {
-    let textShow;
-    this.levelButton.forEach((e) => {
-      e.addEventListener("click", (e) => {
-        console.log(e.target.id);
-        for (let levels of this.levelsTextarea) {
-          textShow = levels.style.display = "initial";
-          console.log(textShow);
-          if (e.target.id === "lvl-1btn") {
-            textShow;
-          }
-        }
-      });
+    this.levelOneBtn.addEventListener("click", (e) => {
+      this.levelOneTa.style.display === ""
+        ? (this.levelOneTa.style.display = "initial")
+        : (this.levelOneTa.style.display = "");
+    });
+    this.levelTwoBtn.addEventListener("click", (e) => {
+      this.levelTwoTa.style.display === ""
+        ? (this.levelTwoTa.style.display = "initial")
+        : (this.levelTwoTa.style.display = "");
+    });
+    this.levelThreeBtn.addEventListener("click", (e) => {
+      this.levelThreeTa.style.display === ""
+        ? (this.levelThreeTa.style.display = "initial")
+        : (this.levelThreeTa.style.display = "");
     });
   }
 }
