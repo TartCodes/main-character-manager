@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const fetch = require("node-fetch");
 const Actions = require("../models/Actions");
 
 module.exports = {
@@ -12,7 +13,9 @@ module.exports = {
           Authorization: "da468b89-2bf8-4e2b-a939-79c6e6ef25ce",
         },
       });
+
       const data = await res.json();
+      console.log(data);
       const actionsArray = data.results.map((e) => {
         return {
           names: e.name,
@@ -21,8 +24,10 @@ module.exports = {
           actionCost: e.data.actions,
         };
       });
-      Actions.create();
-      res.render("editCharacter.ejs", { actionsArray, example: "test1" });
+      res.render("editCharacter.ejs", {
+        actions: actionsArray,
+        user: req.user,
+      });
     } catch (err) {
       console.log(err);
     }

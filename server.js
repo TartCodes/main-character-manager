@@ -13,32 +13,94 @@ const characterRoutes = require("./routes/character");
 const authRoute = require("./routes/auth");
 const fetch = require("node-fetch");
 const actionsRoute = require("./routes/actions");
+//load config
+require("dotenv").config({ path: "./config/.env" });
 
-// getActions = async () => {
-//   try {
-//     const response = await fetch(`https://api.pathfinder2.fr/v1/pf2/action`, {
-//       method: "GET", // POST might work? Like NOSTO taske home, for some to fill desired inputs?
-//       body: JSON.stringify(),
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: "da468b89-2bf8-4e2b-a939-79c6e6ef25ce",
-//       },
-//     });
-//     const data = await response.json();
-//     const actionsArray = data.results.map((e) => {
-//       return {
-//         name: e.name,
-//         descriptions: e.data.description.value,
-//         actionType: e.data.actionType,
-//         actionCost: e.data.actions,
-//       };
-//     });
-//     console.log(actionsArray, "action arr");
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
-// getActions();
+// FETCH
+
+class GetData {
+  actionUrl = "https://api.pathfinder2.fr/v1/pf2/action";
+  ancenstryUrl = "https://api.pathfinder2.fr/v1/pf2/ancestry";
+  ancestryFeatsUrl = "https://api.pathfinder2.fr/v1/pf2/ancestryFeature";
+  auth = process.env.Authorization;
+
+  getActions = async () => {
+    try {
+      const response = await fetch(this.actionUrl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: this.auth,
+        },
+      });
+      const data = await response.json();
+      const actionsArray = data.results.map((e) => {
+        return {
+          name: e.name,
+          descriptions: e.data.description.value,
+          actionType: e.data.actionType,
+          actionCost: e.data.actions,
+        };
+      });
+      console.log(actionsArray, "action arr");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  getAncestry = async () => {
+    try {
+      const response = await fetch(this.ancenstryUrl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: this.auth,
+        },
+      });
+      const data = await response.json();
+      const ancestryArray = data.results.map((e) => {
+        return {
+          name: e.name,
+        };
+      });
+      console.log(ancestryArray, "ancestryName arr");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  getAncestryFeats = async () => {
+    try {
+      const response = await fetch(this.ancestryFeatsUrl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: this.auth,
+        },
+      });
+      const data = await response.json();
+      const ancestryFeatsArray = data.results.map((e) => {
+        return {
+          // name: e.name,
+          selected: e.data.traits.selected,
+        };
+      });
+      console.log(ancestryFeatsArray, "ancestryFeats arr");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+}
+
+let actions = new GetData();
+let ancestry = new GetData();
+let ancestryFeats = new GetData();
+// actions.getActions();
+// ancestry.getAncestry();
+ancestryFeats.getAncestryFeats();
+console.log(actions, ancestry, ancestryFeats);
+
+// -------------//
 
 //helpers
 
@@ -54,9 +116,6 @@ app.locals.dateAndTime = () => {
   };
   return date.toLocaleTimeString("en-us", options);
 };
-
-//load config
-require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
 require("./config/passport")(passport);
