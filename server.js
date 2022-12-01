@@ -20,8 +20,9 @@ require("dotenv").config({ path: "./config/.env" });
 
 class GetData {
   actionUrl = "https://api.pathfinder2.fr/v1/pf2/action";
-  ancenstryUrl = "https://api.pathfinder2.fr/v1/pf2/ancestry";
+  ancestryUrl = "https://api.pathfinder2.fr/v1/pf2/ancestry";
   ancestryFeatsUrl = "https://api.pathfinder2.fr/v1/pf2/ancestryFeature";
+  archetypeUrl = "https://api.pathfinder2.fr/v1/pf2/archetype";
   auth = process.env.Authorization;
 
   getActions = async () => {
@@ -50,7 +51,7 @@ class GetData {
 
   getAncestry = async () => {
     try {
-      const response = await fetch(this.ancenstryUrl, {
+      const response = await fetch(this.ancestryUrl, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -81,11 +82,31 @@ class GetData {
       const data = await response.json();
       const ancestryFeatsArray = data.results.map((e) => {
         return {
-          // name: e.name,
-          selected: e.data.traits.selected,
+          name: e.name,
         };
       });
       console.log(ancestryFeatsArray, "ancestryFeats arr");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  getArchetype = async () => {
+    try {
+      const response = await fetch(this.archetypeUrl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: this.auth,
+        },
+      });
+      const data = await response.json();
+      const archetypeArray = data.results.map((e) => {
+        return {
+          name: e.name,
+        };
+      });
+      console.log(archetypeArray, "archetype arr");
     } catch (err) {
       console.log(err);
     }
@@ -95,10 +116,13 @@ class GetData {
 let actions = new GetData();
 let ancestry = new GetData();
 let ancestryFeats = new GetData();
+let archetype = new GetData();
 // actions.getActions();
 // ancestry.getAncestry();
-ancestryFeats.getAncestryFeats();
-console.log(actions, ancestry, ancestryFeats);
+// ancestryFeats.getAncestryFeats();
+archetype.getArchetype();
+// console.log(actions, ancestry, ancestryFeats, archetype);
+console.log(archetype);
 
 // -------------//
 
