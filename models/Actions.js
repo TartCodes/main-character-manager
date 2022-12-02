@@ -1,14 +1,13 @@
 const mongoose = require("mongoose");
 
 const ActionsSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  },
-  actionName: {
+  apiId: {
     type: String,
   },
-  actionDescription: {
+  name: {
+    type: String,
+  },
+  descriptions: {
     type: String,
   },
   actionType: {
