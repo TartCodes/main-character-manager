@@ -15,6 +15,7 @@
 </head>
 <body>
 <!-- FUNCTIONS -->
+<!-- removes "," and adds "and" -->
 <% const editText = (array) => { %>
     <% return array.map((el, i) => { %>                            
         <% el = el[0].toUpperCase() + el.slice(1) %>
@@ -24,6 +25,25 @@
         <% return el %>
     <% }).join(`${array.length <= 2 ? " " : ", "}`) %>
 <%}%>
+<!-- Array Data Casing -->
+<% const upperCaseData = (array) => { %>
+    <% return array.map((el, i) => { %>                            
+        <% el = el[0].toUpperCase() + el.slice(1) %>       
+        <% return el %>
+    <% }) %>   
+<% } %> 
+<!-- String Data Casing -->
+<% const editStrings = (string) => { %>
+   <% return string.charAt(0).toUpperCase() + string.slice(1) %>   
+<% } %>
+<!-- very specific hilarious function -->
+<% const lowLight = (string) => { %>
+    <% if (string === "LowLightVision") { %>
+     <% string = "Low-Light Vision" %>   
+     <% } %>
+     <% return string %>
+<% } %>
+
 <!--  -->                
 <form id="my-form" action="/character/edit/<%= character._id %>?_method=PUT" method="POST">
     
@@ -63,19 +83,19 @@
                     <% ancestry.forEach(e => { %>
                         <div> <%= e.name %> </div>
                         <div>HP: <%= e.hp %> </div>
-                        <div>Size: <%= e.size %> </div>
+                        <div>Size: <%= editStrings(e.size) %> </div>
                         <div>Speed: <%= e.speed %> </div>
-                        <div>Vision: <%= e.vision %> </div>
-                        <div>Ability Boost: <%= e.abilityBoost[0] %><%= e.abilityBoost[1].length !== 0 ? ', ' + e.abilityBoost[1] : '' %> </div>
+                        <div>Vision: <%= lowLight(editStrings(e.vision)) %> </div>
+                        <div>Ability Boost: <%= upperCaseData(e.abilityBoost[0]) %><%= e.abilityBoost[1].length !== 0 ? ', ' + upperCaseData(e.abilityBoost[1]) : '' %> </div>
                         <select name="" id="">
                             <% e.abilityBoost[2].forEach(free => { %>
-                             <option value= <%= free %> ><%= free %> </option>
+                             <option value= <%= free %> ><%= editStrings(free) %> </option>
                             <% }) %>                            
                         </select>                        
                         <div class="ancestry-data" id="flaw">Ability Flaw: <%= e.abilityFlaw %> </div>            
                         
                         <div>Base Language(s): <%= editText(e.mainLanguages) %></div>
-                        <div>Addition Language(s): <%= e.additionalLanguages %> </div>
+                        <div>Addition Language(s): <%= editText(e.additionalLanguages) %> </div>
                        <% }) %>
                        
                 </div>         
