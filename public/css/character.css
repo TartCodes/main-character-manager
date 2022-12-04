@@ -195,6 +195,17 @@ table {
 }
 
 /* ----------- MODAL --------- */
+.ancestry-sections {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.ancestry-sections > select {
+  width: 10%;
+  text-align: center;
+}
+
 .modal-wrapper {
   display: none;
   flex-direction: column;
@@ -211,8 +222,8 @@ table {
 }
 
 .modal-content {
-  color: black;
-  background-color: #fefefe;
+  color: white;
+  background-color: rgb(79, 7, 7);
   margin: auto;
   padding: 20px;
   border: 1px solid #888;

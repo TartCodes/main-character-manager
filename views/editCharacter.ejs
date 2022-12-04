@@ -79,25 +79,29 @@
             <div class="modal-wrapper" id="modal">
                 <div class="modal-titles">Ancestries</div>   
                 <div class="modal-content">
-                    <div>Select One</div>
+                    <div>Select Your Ancestry</div>
                     <% ancestry.forEach(e => { %>
+                        <section class="ancestry-sections">
                         <div> <%= e.name %> </div>
                         <div>HP: <%= e.hp %> </div>
                         <div>Size: <%= editStrings(e.size) %> </div>
                         <div>Speed: <%= e.speed %> </div>
                         <div>Vision: <%= lowLight(editStrings(e.vision)) %> </div>
                         <div>Ability Boost: <%= upperCaseData(e.abilityBoost[0]) %><%= e.abilityBoost[1].length !== 0 ? ', ' + upperCaseData(e.abilityBoost[1]) : '' %> </div>
-                        <select name="" id="">
-                            <% e.abilityBoost[2].forEach(free => { %>
-                             <option value= <%= free %> ><%= editStrings(free) %> </option>
-                            <% }) %>                            
-                        </select>                        
+                        <div>Free Boost:
+                        <select name="" id="">                    
+                            <% e.abilityBoost[2].forEach(free => { %>                                                           
+                             <option value= <%= free %> ><%= editStrings(free) %></option>
+                            <% }) %>
+                                                   
+                        </select> 
+                        </div>                       
                         <div class="ancestry-data" id="flaw">Ability Flaw: <%= e.abilityFlaw %> </div>            
                         
                         <div>Base Language(s): <%= editText(e.mainLanguages) %></div>
                         <div>Addition Language(s): <%= editText(e.additionalLanguages) %> </div>
                        <% }) %>
-                       
+                       </section>
                 </div>         
             
 
