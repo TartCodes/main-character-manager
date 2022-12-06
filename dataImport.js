@@ -1,9 +1,9 @@
 const fetch = require("node-fetch");
-require("dotenv").config({ path: "./config/.env" });
 const mongoose = require("mongoose");
 const connectDB = require("./config/database");
 const Actions = require("./models/Actions");
 const Ancestry = require("./models/Ancestry");
+require("dotenv").config({ path: "./config/.env" });
 
 class GetData {
   actionUrl = "https://api.pathfinder2.fr/v1/pf2/action";
@@ -51,7 +51,7 @@ class GetData {
         return {
           apiId: e._id,
           name: e.name,
-          description: e.description,
+          descriptions: e.system.description.value,
         };
       });
       console.log(ancestryArray, "ancestryName arr");
@@ -135,7 +135,6 @@ const doDataImport = async () => {
         upsert: true,
       }
     );
-    console.log(`${ancestry[i]}`);
   }
   await mongoose.disconnect();
 };
