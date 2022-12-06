@@ -3,6 +3,7 @@ require("dotenv").config({ path: "./config/.env" });
 const mongoose = require("mongoose");
 const connectDB = require("./config/database");
 const Actions = require("./models/Actions");
+const Ancestry = require("./models/Ancestry");
 
 class GetData {
   actionUrl = "https://api.pathfinder2.fr/v1/pf2/action";
@@ -48,7 +49,9 @@ class GetData {
       const data = await response.json();
       const ancestryArray = data.results.map((e) => {
         return {
+          apiId: e._id,
           name: e.name,
+          description: e.description,
         };
       });
       console.log(ancestryArray, "ancestryName arr");
@@ -103,25 +106,36 @@ class GetData {
 //doDataImport functions purpose is to input the data into MongoDB
 const doDataImport = async () => {
   await connectDB();
+  //new objects
   let actionsData = new GetData();
+  let ancestryData = new GetData();
+  //declare
   const actions = await actionsData.getActions();
-  //   console.log(`There are ${action.length}`);
-  for (let i = 0; i < actions.length; i++) {
-    // console.log(`importing ${actions[i].name}`);
-    // console.log(`importing ${actions[i].descriptions}`);
-    console.log(`importing ${actions[i].apiId}`);
-    console.log(actions[i]);
+  const ancestry = await ancestryData.getAncestry();
 
+  for (let i = 0; i < actions.length; i++) {
     await Actions.replaceOne(
       {
-        //to do -> filter for this object, same as findOne
         apiId: actions[i].apiId,
       },
-
-      //data for this object
-      actions[i],
-      { upsert: true }
+      actions[i], //data for this object
+      {
+        upsert: true,
+      }
     );
+  }
+  //this next
+  for (let i = 0; i < ancestry.length; i++) {
+    await Ancestry.replaceOne(
+      {
+        apiId: ancestry[i].apiId,
+      },
+      ancestry[i], //data for this object
+      {
+        upsert: true,
+      }
+    );
+    console.log(`${ancestry[i]}`);
   }
   await mongoose.disconnect();
 };

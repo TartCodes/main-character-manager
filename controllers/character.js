@@ -2,6 +2,9 @@ const Character = require("../models/Character");
 const validator = require("validator");
 const mongoose = require("mongoose");
 
+const Actions = require("../models/Actions");
+const Ancestry = require("../models/Ancestry");
+
 module.exports = {
   checkCharacter: async (req, res) => {
     try {
@@ -41,12 +44,16 @@ module.exports = {
     // Main Character Page
     try {
       const character = await Character.findOne({ user: req.user.id }).lean(); //id:req.user.id
+      const actions = await Actions.find();
+      const ancestry = await Ancestry.find();
       if (!character) {
         res.redirect("/character/blank");
       } else {
         res.render("editCharacter.ejs", {
           character: character,
           user: req.user,
+          actions,
+          ancestry,
         });
         console.log("character page rendered");
       }

@@ -17,9 +17,13 @@
             
 <form id="my-form" action="/character/edit/<%= character._id %>?_method=PUT" method="POST">
     
-    <%# console.log(actions, 'test actions') %> 
+    <% console.log(ancestry, 'test actions') %> 
 
     <header>
+
+        <h1><% ancestry.forEach(e => { %>
+         <div><%= e.name %> <div>
+        <% }) %></h1>
         <div>
             <h1>Character Manager</h1>
             <h3>Edit Page/Main Character</h3>
