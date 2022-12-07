@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const connectDB = require("./config/database");
 const Actions = require("./models/Actions");
 const Ancestry = require("./models/Ancestry");
+const AncestryFeats = require("./models/AncestryFeats");
 require("dotenv").config({ path: "./config/.env" });
 
 class GetData {
@@ -72,6 +73,7 @@ class GetData {
       const data = await response.json();
       const ancestryFeatsArray = data.results.map((e) => {
         return {
+          apiId: e._id,
           name: e.name,
         };
       });
@@ -81,26 +83,26 @@ class GetData {
     }
   };
 
-  getArchetype = async () => {
-    try {
-      const response = await fetch(this.archetypeUrl, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: this.auth,
-        },
-      });
-      const data = await response.json();
-      const archetypeArray = data.results.map((e) => {
-        return {
-          name: e.name,
-        };
-      });
-      console.log(archetypeArray, "archetype arr");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // getArchetype = async () => {
+  //   try {
+  //     const response = await fetch(this.archetypeUrl, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: this.auth,
+  //       },
+  //     });
+  //     const data = await response.json();
+  //     const archetypeArray = data.results.map((e) => {
+  //       return {
+  //         name: e.name,
+  //       };
+  //     });
+  //     console.log(archetypeArray, "archetype arr");
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 }
 
 //doDataImport functions purpose is to input the data into MongoDB
@@ -109,9 +111,11 @@ const doDataImport = async () => {
   //new objects
   let actionsData = new GetData();
   let ancestryData = new GetData();
+  let ancestryFeatsData = new GetData();
   //declare
   const actions = await actionsData.getActions();
   const ancestry = await ancestryData.getAncestry();
+  const ancestryFeats = await ancestryFeatsData.getAncestry();
 
   for (let i = 0; i < actions.length; i++) {
     await Actions.replaceOne(
@@ -131,6 +135,18 @@ const doDataImport = async () => {
         apiId: ancestry[i].apiId,
       },
       ancestry[i], //data for this object
+      {
+        upsert: true,
+      }
+    );
+  }
+
+  for (let i = 0; i < ancestryFeats.length; i++) {
+    await AncestryFeats.replaceOne(
+      {
+        apiId: ancestryFeats[i].apiId,
+      },
+      ancestryFeats[i], //data for this object
       {
         upsert: true,
       }

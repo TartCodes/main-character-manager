@@ -104,5 +104,9 @@ app.set("/actions", actionsRoute);
 // app.use('/weapon', weaponRoutes)
 
 app.listen(process.env.PORT || PORT, () => {
-  console.log("Server is running on, you better catch it!");
+  console.log(
+    `Server is running on PORT ${
+      process.env.PORT || PORT
+    }, you better catch it!`
+  );
 });
