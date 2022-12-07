@@ -17,13 +17,13 @@
             
 <form id="my-form" action="/character/edit/<%= character._id %>?_method=PUT" method="POST">
     
-    <% console.log(ancestry, 'test actions') %> 
+
 
     <header>
 
-        <h1><% ancestry.forEach(e => { %>
-         <div><%= e.name %> <div>
-        <% }) %></h1>
+        <!-- <h1><%# ancestry.forEach(e => { %>
+         <div><%#= e.name %> <div>
+        <%# }) %></h1> -->
         <div>
             <h1>Character Manager</h1>
             <h3>Edit Page/Main Character</h3>
@@ -45,19 +45,22 @@
 <section class="main" id="main-container">  
    
     <div class="left-side-bar">
-        <fieldset>                 
-         
-            <!-- <#% const order = [Ancestry] %> -->
-            <%# for (const [key, value] of Object.entries(character)) { %>
-                    <%# if checkbox vs input vs textarea %>
-                    <!-- <div>
-                        <input class="larger-input" id="<%#= key %>" type="text" placeholder="" name="<%#= key %>" value="<%#= value %>">
-                    </div> -->
-                <%#} %>            
-               
-            <div>Ancestry:</div>        
+        <fieldset>
+        <div class="button modal-button" id="modal-btn">Ancestry</div>  
+            <div class="modal-wrapper" id="modal">
+                <div class="modal-titles">Ancestries</div>   
+                <div class="modal-content">
+                    <div>Choose</div>
+                    <% ancestry.forEach(e => { %>
+                        <div><%= e.name %> </div>
+                       <% }) %>
+                       
+                </div>         
+            
+
+            </div> <!--end modal-wrapper-->         
                 <div>                
-                    <input class="larger-input" id="inputValues1" type="text" placeholder="" name="ancestry" value="<%=character.ancestry %>">                
+                    <!-- <input class="larger-input" id="inputValues1" type="text" placeholder="" name="ancestry" value="<%#=character.ancestry %>">                 -->
                 </div>         
             <div>Heritage:</div>
                 <div>    

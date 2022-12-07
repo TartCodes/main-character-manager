@@ -39,3 +39,19 @@ class DisplayInfo {
 let showInputs = new DisplayInfo();
 showInputs.displayShieldInfo();
 showInputs.handleClick();
+
+// MODAL
+//wrapper
+let modal = document.getElementById("modal");
+//modal button
+let modalBtn = document.getElementById("modal-btn");
+
+modalBtn.onclick = () => {
+  modal.style.display = "flex";
+};
+
+window.onclick = (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
