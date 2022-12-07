@@ -8,7 +8,6 @@ module.exports = {
     try {
       const actions = await Actions.find();
       console.log(actions, "actions controller");
-      //   res.render("actions", { actions: actions });
     } catch (err) {
       console.error(err);
     }
@@ -17,7 +16,6 @@ module.exports = {
     try {
       const ancestry = await Ancestry.find();
       console.log(ancestry, "ancestry controller");
-      //   res.render("actions", { actions: actions });
     } catch (err) {
       console.error(err);
     }
@@ -26,7 +24,6 @@ module.exports = {
     try {
       const ancestryFeats = await AncestryFeats.find();
       console.log(ancestryFeats, "ancestryfeats controller");
-      //   res.render("actions", { actions: actions });
     } catch (err) {
       console.error(err);
     }

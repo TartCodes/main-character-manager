@@ -27,9 +27,9 @@ class GetData {
         return {
           apiId: e._id,
           name: e.name,
-          descriptions: e.data.description.value,
-          actionType: e.data.actionType.value,
-          actionCost: e.data.actions.value,
+          descriptions: e.system.description.value,
+          actionType: e.system.actionType.value,
+          actionCost: e.system.actions.value,
         };
       });
       return actionsArray;
@@ -55,7 +55,8 @@ class GetData {
           descriptions: e.system.description.value,
         };
       });
-      console.log(ancestryArray, "ancestryName arr");
+      // console.log(ancestryArray, "ancestryName arr");
+      return ancestryArray;
     } catch (err) {
       console.log(err);
     }
@@ -75,9 +76,11 @@ class GetData {
         return {
           apiId: e._id,
           name: e.name,
+          descriptions: e.system.description.value,
         };
       });
-      console.log(ancestryFeatsArray, "ancestryFeats arr");
+      // console.log(ancestryFeatsArray, "ancestryFeats arr");
+      return ancestryFeatsArray;
     } catch (err) {
       console.log(err);
     }
@@ -105,7 +108,7 @@ class GetData {
   // };
 }
 
-//doDataImport functions purpose is to input the data into MongoDB
+//doDataImport functions purpose is to input the data into MongoDB - node doDataImport in the console IMPORTANTTT!!!!
 const doDataImport = async () => {
   await connectDB();
   //new objects

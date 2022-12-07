@@ -7,6 +7,9 @@ const AncestryFeatsSchema = new mongoose.Schema({
   name: {
     type: String,
   },
+  descriptions: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("AncestryFeats", AncestryFeatsSchema);

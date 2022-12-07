@@ -12,7 +12,7 @@ const mainRoutes = require("./routes/main");
 const characterRoutes = require("./routes/character");
 const authRoute = require("./routes/auth");
 const fetch = require("node-fetch");
-const actionsRoute = require("./routes/actions");
+const apiDataRoute = require("./routes/apiData");
 // const { getAncestry } = require("./controllers/actions");
 //load config
 require("dotenv").config({ path: "./config/.env" });
@@ -100,7 +100,7 @@ app.use(function (req, res, next) {
 app.use("/", mainRoutes);
 app.use("/character", characterRoutes);
 app.use("/auth", authRoute);
-app.set("/actions", actionsRoute);
+app.set("/apiData", apiDataRoute);
 // app.use('/weapon', weaponRoutes)
 
 app.listen(process.env.PORT || PORT, () => {
