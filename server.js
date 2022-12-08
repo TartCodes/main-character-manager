@@ -32,14 +32,22 @@ const getAncestry = async () => {
     const ancestryArray = data.results.map((e) => {
       return {
         // apiId: e._id,
-        name: e.name,
-        abilityBoost: Object.values(e.system.boosts).map((e) => {
-          console.log(e.value);
-        }),
-
+        // name: e.name,
+        // abilityBoost: Object.values(e.system.boosts).map((e) => {
+        //   console.log(e.value);
+        // }),
         // abilityFlaw: Object.values(e.system.flaws).map((e) => {
         //   return e.value.length === 0 ? (e.value = "none") : e.value;
         // }),
+        additionalLanguages: e.system.additionalLanguages.value
+          .map((el, i) => {
+            el = el[0].toUpperCase() + el.slice(1);
+            if (i == e.system.additionalLanguages.value.length - 1) {
+              el = `and ${el}`;
+            }
+            return el;
+          })
+          .join(", "),
       };
     });
     // console.log(ancestryArray, "ancestryName arr");

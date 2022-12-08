@@ -62,8 +62,16 @@ class GetData {
           abilityFlaw: Object.values(e.system.flaws).map((e) => {
             return e.value.length === 0 ? (e.value = "none") : e.value;
           }),
-          mainLanguages: e.system.languages.value.join(", "),
-          additionalLanguages: e.system.additionalLanguages.value,
+          mainLanguages: e.system.languages.value,
+          additionalLanguages: e.system.additionalLanguages.value
+            .map((el, i) => {
+              el = el[0].toUpperCase() + el.slice(1);
+              if (i == e.system.additionalLanguages.value.length - 1) {
+                el = `and ${el}`;
+              }
+              return el;
+            })
+            .join(", "),
         };
       });
       // console.log(ancestryArray, "ancestryName arr");

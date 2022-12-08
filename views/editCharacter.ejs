@@ -13,17 +13,24 @@
  
     
 </head>
-<body>      
-            
+<body>
+<!-- FUNCTIONS -->
+<% const editText = (array) => { %>
+    <% return array.map((el, i) => { %>                            
+        <% el = el[0].toUpperCase() + el.slice(1) %>
+        <% if (i == array.length - 1 && array.length > 1) { %>
+            <% el = `and ${el}` %>
+        <% } %>
+        <% return el %>
+    <% }).join(`${array.length <= 2 ? " " : ", "}`) %>
+<%}%>
+<!--  -->                
 <form id="my-form" action="/character/edit/<%= character._id %>?_method=PUT" method="POST">
     
 
 
     <header>
 
-        <!-- <h1><%# ancestry.forEach(e => { %>
-         <div><%#= e.name %> <div>
-        <%# }) %></h1> -->
         <div>
             <h1>Character Manager</h1>
             <h3>Edit Page/Main Character</h3>
@@ -65,8 +72,9 @@
                              <option value= <%= free %> ><%= free %> </option>
                             <% }) %>                            
                         </select>                        
-                        <div class="ancestry-data" id="flaw">Ability Flaw: <%= e.abilityFlaw %> </div>
-                        <div>Base Language(s): <%= e.mainLanguages %> </div>
+                        <div class="ancestry-data" id="flaw">Ability Flaw: <%= e.abilityFlaw %> </div>            
+                        
+                        <div>Base Language(s): <%= editText(e.mainLanguages) %></div>
                         <div>Addition Language(s): <%= e.additionalLanguages %> </div>
                        <% }) %>
                        
