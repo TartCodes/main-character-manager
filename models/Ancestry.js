@@ -7,8 +7,29 @@ const AncestrySchema = new mongoose.Schema({
   name: {
     type: String,
   },
-  descriptions: {
+  hp: {
+    type: Number,
+  },
+  size: {
     type: String,
+  },
+  speed: {
+    type: Number,
+  },
+  vision: {
+    type: String,
+  },
+  abilityBoost: {
+    type: Array,
+  },
+  abilityFlaw: {
+    type: Array,
+  },
+  mainLanguages: {
+    type: Array,
+  },
+  additionalLanguages: {
+    type: Array,
   },
 });
 

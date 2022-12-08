@@ -52,10 +52,22 @@ class GetData {
         return {
           apiId: e._id,
           name: e.name,
-          descriptions: e.system.description.value,
+          hp: e.system.hp,
+          size: e.system.size,
+          speed: e.system.speed,
+          vision: e.system.vision,
+          abilityBoost: Object.values(e.system.boosts).map((e) => {
+            return e.value;
+          }),
+          abilityFlaw: Object.values(e.system.flaws).map((e) => {
+            return e.value.length === 0 ? (e.value = "none") : e.value;
+          }),
+          mainLanguages: e.system.languages.value.join(", "),
+          additionalLanguages: e.system.additionalLanguages.value,
         };
       });
       // console.log(ancestryArray, "ancestryName arr");
+      console.log(ancestryArray);
       return ancestryArray;
     } catch (err) {
       console.log(err);

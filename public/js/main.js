@@ -10,6 +10,7 @@ class DisplayInfo {
   //get submit button
   submitButton = document.getElementById("submit-button");
 
+  //click for level boxes
   handleClick() {
     for (let i = 0; i < this.levelsButton.length; i++) {
       this.levelsButton[i].addEventListener("click", () => {
@@ -20,6 +21,7 @@ class DisplayInfo {
     }
   }
 
+  //hide and display shield info
   displayShieldInfo() {
     this.shieldButtonText.onclick = () => {
       if (this.showHideShield.style.display === "flex") {
@@ -39,7 +41,7 @@ class DisplayInfo {
 let showInputs = new DisplayInfo();
 showInputs.displayShieldInfo();
 showInputs.handleClick();
-
+// showInputs.editAncestryFlaw();
 // MODAL
 //wrapper
 let modal = document.getElementById("modal");

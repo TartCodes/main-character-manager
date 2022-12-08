@@ -13,34 +13,40 @@ const characterRoutes = require("./routes/character");
 const authRoute = require("./routes/auth");
 const fetch = require("node-fetch");
 const apiDataRoute = require("./routes/apiData");
-// const { getAncestry } = require("./controllers/actions");
+// const { getAncestry } = require("./controllers/apiData");
 //load config
 require("dotenv").config({ path: "./config/.env" });
 
 // FETCH
 
-// const getAncestry = async () => {
-//   try {
-//     const response = await fetch("https://api.pathfinder2.fr/v1/pf2/ancestry", {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: process.env.Authorization,
-//       },
-//     });
-//     const data = await response.json();
-//     const ancestryArray = data.results.map((e) => {
-//       return {
-//         apiId: e._id,
-//         name: e.name,
-//         descriptions: e.system.description.value,
-//       };
-//     });
-//     console.log(ancestryArray, "ancestryName arr");
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+const getAncestry = async () => {
+  try {
+    const response = await fetch("https://api.pathfinder2.fr/v1/pf2/ancestry", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: process.env.Authorization,
+      },
+    });
+    const data = await response.json();
+    const ancestryArray = data.results.map((e) => {
+      return {
+        // apiId: e._id,
+        name: e.name,
+        abilityBoost: Object.values(e.system.boosts).map((e) => {
+          console.log(e.value);
+        }),
+
+        // abilityFlaw: Object.values(e.system.flaws).map((e) => {
+        //   return e.value.length === 0 ? (e.value = "none") : e.value;
+        // }),
+      };
+    });
+    // console.log(ancestryArray, "ancestryName arr");
+  } catch (err) {
+    console.log(err);
+  }
+};
 // getAncestry();
 
 // -------------//

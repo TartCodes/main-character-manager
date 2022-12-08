@@ -46,13 +46,28 @@
    
     <div class="left-side-bar">
         <fieldset>
-        <div class="button modal-button" id="modal-btn">Ancestry</div>  
+        <div class="button modal-button" id="modal-btn">Ancestry
+        <div>-</div> 
+    </div> 
             <div class="modal-wrapper" id="modal">
                 <div class="modal-titles">Ancestries</div>   
                 <div class="modal-content">
-                    <div>Choose</div>
+                    <div>Select One</div>
                     <% ancestry.forEach(e => { %>
-                        <div><%= e.name %> </div>
+                        <div> <%= e.name %> </div>
+                        <div>HP: <%= e.hp %> </div>
+                        <div>Size: <%= e.size %> </div>
+                        <div>Speed: <%= e.speed %> </div>
+                        <div>Vision: <%= e.vision %> </div>
+                        <div>Ability Boost: <%= e.abilityBoost[0] %><%= e.abilityBoost[1].length !== 0 ? ', ' + e.abilityBoost[1] : '' %> </div>
+                        <select name="" id="">
+                            <% e.abilityBoost[2].forEach(free => { %>
+                             <option value= <%= free %> ><%= free %> </option>
+                            <% }) %>                            
+                        </select>                        
+                        <div class="ancestry-data" id="flaw">Ability Flaw: <%= e.abilityFlaw %> </div>
+                        <div>Base Language(s): <%= e.mainLanguages %> </div>
+                        <div>Addition Language(s): <%= e.additionalLanguages %> </div>
                        <% }) %>
                        
                 </div>         
