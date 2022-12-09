@@ -82,10 +82,16 @@
                     <div>Ancestries</div>    
                 </div>   
                 <div class="modal-content">
-                    <div>Select Your Ancestry</div>
+                    
                     <% ancestry.forEach(e => { %>
                         <section class="ancestry-sections">
-                        <div> <%= e.name %> </div>
+                        <div class="data-names">
+                            <div>
+                                <div> <%= e.name %> </div>
+                            </div>
+                        <!-- </div> -->
+                        <section class="data-section">
+                        <div class="data-inner">
                         <div>HP: <%= e.hp %> </div>
                         <div>Size: <%= editStrings(e.size) %> </div>
                         <div>Speed: <%= e.speed %> </div>
@@ -99,12 +105,16 @@
                                                    
                         </select> 
                         </div>                       
-                        <div class="ancestry-data" id="flaw">Ability Flaw: <%= e.abilityFlaw %> </div>            
+                        <div class="ancestry-data" id="flaw">Ability Flaw: <%= upperCaseData(e.abilityFlaw) %> </div>            
                         
                         <div>Base Language(s): <%= editText(e.mainLanguages) %></div>
                         <div>Addition Language(s): <%= editText(e.additionalLanguages) %> </div>
+                        </div> <!--data inner-->
+                    </section> <!-- data section end-->
+                    </div> <!-- data name-->
+                    </section>
                        <% }) %>
-                       </section>
+                       
                 </div>         
             
 
