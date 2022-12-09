@@ -206,6 +206,12 @@ table {
   text-align: center;
 }
 
+.data-input {
+  background-color: white;
+  border-radius: 5px;
+  line-height: 2.5rem;
+}
+
 .modal-wrapper {
   display: none;
   flex-direction: column;
@@ -239,6 +245,16 @@ table {
   font-size: 1.25rem;
 }
 
+.modal-button {
+  width: 75%;
+  row-gap: 0.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 1.15rem;
+}
 /* --------------------------- */
 /* input */
 
@@ -396,9 +412,10 @@ textarea {
 }
 
 .left-side-bar {
-  display: inline-block;
-  /* width: 20em; */
-  width: 20%;
+  display: inline-flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   overflow: scroll;
   scroll-behavior: smooth;

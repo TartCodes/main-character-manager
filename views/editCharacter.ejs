@@ -71,13 +71,16 @@
 
 <section class="main" id="main-container">  
    
-    <div class="left-side-bar">
-        <fieldset>
-        <div class="button modal-button" id="modal-btn">Ancestry
-        <div>-</div> 
-    </div> 
+    <section class="left-side-bar">
+        
+        <div class="button modal-button" id="modal-btn">
+            <h2>Ancestry</h2> 
+            <div class="data-input">-</div> 
+        </div> 
             <div class="modal-wrapper" id="modal">
-                <div class="modal-titles">Ancestries</div>   
+                <div class="modal-titles">
+                    <div>Ancestries</div>    
+                </div>   
                 <div class="modal-content">
                     <div>Select Your Ancestry</div>
                     <% ancestry.forEach(e => { %>
@@ -106,38 +109,36 @@
             
 
             </div> <!--end modal-wrapper-->         
-                <div>                
-                    <!-- <input class="larger-input" id="inputValues1" type="text" placeholder="" name="ancestry" value="<%#=character.ancestry %>">                 -->
-                </div>         
-            <div>Heritage:</div>
-                <div>    
-                    <input class="larger-input" id="inputValues2" type="text" placeholder="" name="heritage" value="<%=character.heritage %>">                                                          
-                </div>
-            <div>Background:</div>
-                <div>
-                    <input class="larger-input" id="inputValues3" type="text" placeholder="" name="background" value="<%= character.background %>">
-                </div>
-            <div>Ancestry Ability:</div>
-                <div>
-                    <input class="larger-input" type="text" placeholder="" name="ancestryAbility" value="<%= character.ancestryAbility %>">
-                </div>                    
-            <div>Class:</div>
-                <div>
-                    <input class="larger-input" type="text" placeholder="" name="class" value="<%= character.class %>">
-                </div>                    
-            <div>Background Ability:</div>
-                <div>    
-                    <textarea  id="" cols="20" rows="5" name="backgroundAbility"><%= character.backgroundAbility %></textarea>                
-                </div>
-            <div>Deity:</div>
-                <div>             
-                    <input class="larger-input" type="text" name="deity" placeholder="" value="<%= character.deity %>"> 
-                </div>
+                      
+                <div class="button modal-button" id="modal-btn">
+                    <h2>Heritage</h2> 
+                    <div class="data-input">-</div> 
+                </div> 
+                <div class="button modal-button" id="modal-btn">
+                    <h2>Background</h2> 
+                    <div class="data-input">-</div> 
+                </div> 
+                <div class="button modal-button" id="modal-btn">
+                    <h2>Ancestry Ability</h2> 
+                    <div class="data-input">-</div> 
+                </div>               
+                <div class="button modal-button" id="modal-btn">
+                    <h2>Class</h2> 
+                    <div class="data-input">-</div> 
+                </div>                  
+                <div class="button modal-button" id="modal-btn">
+                    <h2>Background Ability</h2> 
+                    <div class="data-input">-</div> 
+                </div> 
+                <div class="button modal-button" id="modal-btn">
+                    <h2>Deity</h2> 
+                    <div class="data-input">-</div> 
+                </div> 
             
                  <div class="title-div">
                         <span class="titles">Skills</span>    
                     </div>
-        </fieldset> 
+      
     
             <section class="skills-container">
                
@@ -325,7 +326,7 @@
     </div>
     </section>
 
-    </div>       
+    </section>  <!--end left side bar-->     
 
     <!---Chacter Name----->
 <section class="main-container-right">
