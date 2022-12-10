@@ -85,9 +85,9 @@
                     
                     <% ancestry.forEach(e => { %>
                         <section class="ancestry-sections">
-                        <div class="data-names">
-                            <div>
-                                <div> <%= e.name %> </div>
+                        <div class="data-cont">
+                            <div class="data-name-cont">
+                                <div class="data-name"> <%= e.name %> </div>
                             </div>
                         <!-- </div> -->
                         <section class="data-section">
@@ -108,7 +108,7 @@
                         <div class="ancestry-data" id="flaw">Ability Flaw: <%= upperCaseData(e.abilityFlaw) %> </div>            
                         
                         <div>Base Language(s): <%= editText(e.mainLanguages) %></div>
-                        <div>Addition Language(s): <%= editText(e.additionalLanguages) %> </div>
+                        <div>Additional Language(s): <%= editText(e.additionalLanguages) %> </div>
                         </div> <!--data inner-->
                     </section> <!-- data section end-->
                     </div> <!-- data name-->

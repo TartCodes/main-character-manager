@@ -264,7 +264,7 @@ table {
   flex-direction: column;
 }
 
-.data-names {
+.data-cont {
   display: flex;
   align-items: center;
   border: 2px solid gold;
@@ -272,9 +272,18 @@ table {
   padding: 5px 0px;
 }
 
-.data-names > div {
+.data-name-cont {
   width: 10%;
-  text-align: center;
+  text-align: -webkit-center;
+}
+
+.data-name {
+  background-color: gold;
+  border-radius: 5px;
+  width: 85%;
+  font-weight: 700;
+  padding: 2px;
+  color: black;
 }
 
 .data-inner {
