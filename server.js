@@ -19,9 +19,49 @@ require("dotenv").config({ path: "./config/.env" });
 
 // FETCH
 
-const getAncestry = async () => {
+// const getAncestry = async () => {
+//   try {
+//     const response = await fetch("https://api.pathfinder2.fr/v1/pf2/ancestry", {
+//       method: "GET",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: process.env.Authorization,
+//       },
+//     });
+//     const data = await response.json();
+//     const ancestryArray = data.results.map((e) => {
+//       return {
+//         // apiId: e._id,
+//         // name: e.name,
+//         // abilityBoost: Object.values(e.system.boosts).map((e) => {
+//         //   console.log(e.value);
+//         // }),
+//         abilityFlaw: Object.values(e.system.flaws).map((e) => {
+//           return e.value.length === 0 ? (e.value = "none") : e.value;
+//         }),
+//         // additionalLanguages: e.system.additionalLanguages.value
+//         //   .map((el, i) => {
+//         //     el = el[0].toUpperCase() + el.slice(1);
+//         //     if (i == e.system.additionalLanguages.value.length - 1) {
+//         //       el = `and ${el}`;
+//         //     }
+//         //     return el;
+//         //   })
+//         //   .join(", "),
+//       };
+//     });
+//     console.log(ancestryArray, "ancestryName arr");
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+// getAncestry();
+
+// WANDERERS GUIDE API TEST
+
+const getData = async () => {
   try {
-    const response = await fetch("https://api.pathfinder2.fr/v1/pf2/ancestry", {
+    const response = await fetch("https://wanderersguide.app/api/feat/all", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -29,33 +69,18 @@ const getAncestry = async () => {
       },
     });
     const data = await response.json();
-    const ancestryArray = data.results.map((e) => {
-      return {
-        // apiId: e._id,
-        // name: e.name,
-        // abilityBoost: Object.values(e.system.boosts).map((e) => {
-        //   console.log(e.value);
-        // }),
-        abilityFlaw: Object.values(e.system.flaws).map((e) => {
-          return e.value.length === 0 ? (e.value = "none") : e.value;
-        }),
-        // additionalLanguages: e.system.additionalLanguages.value
-        //   .map((el, i) => {
-        //     el = el[0].toUpperCase() + el.slice(1);
-        //     if (i == e.system.additionalLanguages.value.length - 1) {
-        //       el = `and ${el}`;
-        //     }
-        //     return el;
-        //   })
-        //   .join(", "),
-      };
-    });
-    console.log(ancestryArray, "ancestryName arr");
+    for (const [key, value] of Object.entries(data)) {
+      // console.log(`${value}`);
+      const featData = value;
+      for (const [k, v] of Object.entries(featData)) {
+        console.log(k.name);
+      }
+    }
   } catch (err) {
     console.log(err);
   }
 };
-getAncestry();
+getData();
 
 // -------------//
 
