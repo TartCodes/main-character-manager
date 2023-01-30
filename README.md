@@ -1,42 +1,21 @@
+(No longer working on this version, however it is still technically live, but not fully functional!)
+
 # Introduction
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
-
----
-
-> Be sure to add that lovely star 😀 and fork it for your own copy
+A full-stack web application for the Pathfinder2e game system
 
 ---
 
 # Objectives
 
-- It's a beginner level app created to understand how MVC concept and logins are added
+- Build out an entire full-stack application utilizing vanilla JS, EJS, Node/Express, and MongoDB
 
 ---
 
-# Who is this for? 
+# To Do - 
 
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
-
----
-
-# Packages/Dependencies used 
-
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
-
----
-
-# Install all the dependencies or node packages used for development via Terminal
-
-`npm install` 
-
----
-
-# Things to add
-
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
+- Currently refactoring with React
+ 
  ---
  
  Have fun testing and improving it! 😎
